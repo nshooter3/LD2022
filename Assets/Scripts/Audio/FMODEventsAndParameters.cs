@@ -1,8 +1,11 @@
 public class FMODEventsAndParameters
 {
     public static string ENCOUNTER_CONTROLLER = "encounter_controller";
+}
 
-    public enum  EncounterControllerValues
+namespace FMODParamValues
+{
+    public enum EncounterControllerValues
     {
         StartBattle,
         Idle,

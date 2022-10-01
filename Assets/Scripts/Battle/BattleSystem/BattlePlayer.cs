@@ -53,6 +53,7 @@ public class BattlePlayer : BattleParticipant
 
     public override void OnTurnEnd()
     {
+        base.OnTurnEnd();
         RestoreMp(mpRestoreRate);
     }
 

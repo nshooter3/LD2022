@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionName: Heal
+  mpCost: 20
+  targetSelf: 1
   areaOfEffect: 0
   healAmount: 20
-  mpCost: 20
