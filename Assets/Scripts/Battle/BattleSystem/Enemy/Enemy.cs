@@ -6,7 +6,7 @@ public class Enemy : BattleParticipant
     /// The Current Combat Behavior for this Enemy.
     /// </summary>
     [SerializeField]
-    private SequenceCombatBehavior combatBehavior;
+    private CombatBehavior combatBehavior;
 
     /// <summary>
     /// Use the current action.
@@ -14,7 +14,10 @@ public class Enemy : BattleParticipant
     public override void ChooseAction()
     {
         currentAction = combatBehavior.ChooseAction();
-        combatBehavior.NextAction();
+        if (combatBehavior is SequenceCombatBehavior)
+        {
+            ((SequenceCombatBehavior)combatBehavior).NextAction();
+        }
     }
 
     public override void DrainMp(int mp)

@@ -12,11 +12,11 @@ public class SequenceCombatBehavior : CombatBehavior
 
     public override BattleAction ChooseAction()
     {
-        if (Actions == null)
+        if (actions == null)
         {
             Debug.LogError("Actions have not been populated.");
         }
-        return Actions[ActionIndexer];
+        return actions[actionIndexer];
     }
 
     /// <summary>
@@ -24,10 +24,10 @@ public class SequenceCombatBehavior : CombatBehavior
     /// </summary>
     public void NextAction()
     {
-        ++ActionIndexer;
-        if (ActionIndexer >= Actions.Count)
+        ++actionIndexer;
+        if (actionIndexer >= actions.Count)
         {
-            ActionIndexer = 0;
+            actionIndexer = 0;
         }
     }
 }
