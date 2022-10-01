@@ -22,6 +22,9 @@ public class BattleUI : MonoBehaviour
 
     [SerializeField]
     private GameObject selectionIndicator;
+    [SerializeField]
+    private List<GameObject> areaOfEffectSelectionIndicators;
+    private bool useAreaOfEffectIndicators;
 
     [SerializeField]
     private MoveTimer moveTimer;
@@ -35,14 +38,16 @@ public class BattleUI : MonoBehaviour
 
     private void Update()
     {
-        if (EventSystem.current.currentSelectedGameObject == null)
+        if (!useAreaOfEffectIndicators)
         {
-            selectionIndicator.SetActive(false);
-        }
-        else
-        {
-            selectionIndicator.transform.position = EventSystem.current.currentSelectedGameObject.transform.position + Vector3.left * 60;
-            selectionIndicator.SetActive(true);
+            if (EventSystem.current.currentSelectedGameObject == null)
+            {
+                selectionIndicator.SetActive(false);
+            }
+            else
+            {
+                PositionSelectionIndicator(EventSystem.current.currentSelectedGameObject, selectionIndicator);
+            }
         }
     }
 
@@ -73,6 +78,7 @@ public class BattleUI : MonoBehaviour
         {
             button.gameObject.SetActive(false);
         }
+        HideSelectionIndicators();
     }
 
     public void UpdateHealth()
@@ -141,31 +147,60 @@ public class BattleUI : MonoBehaviour
         }
 
         EventSystem.current.SetSelectedGameObject(firstSelectableEnemyDisplay.gameObject);
+
+        if (actions[chosenAction].AreaOfEffect)
+        {
+            useAreaOfEffectIndicators = true;
+            for (int i = 0; i < enemies.Count; i++)
+            {
+                if (!enemies[i].Dead)
+                {
+                    PositionSelectionIndicator(enemyDisplays[i].gameObject, areaOfEffectSelectionIndicators[i]);
+                }
+            }
+        }
     }
 
     public void ChooseTarget(int targetIndex)
     {
-        List<BattleParticipant> targetEnemies = new List<BattleParticipant>();
-        if (targetIndex >= 0)
-        {
-            targetEnemies.Add(enemies[targetIndex]);
-        }
-        else
-        {
-            targetEnemies = enemies;
-        }
-
-        EventSystem.current.SetSelectedGameObject(null);
-
+        HideSelectionIndicators();
         enemyDisplays.ForEach(display => display.SetTargetButtonActive(false));
 
+        List<BattleParticipant> targetEnemies = GetTargetEnemiesList(targetIndex);
         player.ChoosePlayerAction(actions[chosenAction], enemies);
+    }
+
+    private void PositionSelectionIndicator(GameObject targetObject, GameObject currentSelectionIndicator)
+    {
+        currentSelectionIndicator.transform.position = targetObject.transform.position + Vector3.left * 60;
+        currentSelectionIndicator.SetActive(true);
     }
 
     private void ChooseRandomAction()
     {
-        List<BattleParticipant> targetEnemies = new List<BattleParticipant>();
-        targetEnemies.Add(enemies[Random.Range(0, enemies.Count - 1)]);
+        HideSelectionIndicators();
+        List<BattleParticipant> targetEnemies = GetTargetEnemiesList(Random.Range(0, enemies.Count - 1));
         player.ChoosePlayerAction(actions[Random.Range(0, actions.Count - 1)], targetEnemies);
+    }
+
+    private List<BattleParticipant> GetTargetEnemiesList(int targetIndex)
+    {
+        List<BattleParticipant> targetEnemies = new List<BattleParticipant>();
+        if (actions[chosenAction].AreaOfEffect)
+        {
+            targetEnemies = enemies;
+        }
+        else
+        {
+            targetEnemies.Add(enemies[targetIndex]);
+        }
+        return targetEnemies;
+    }
+
+    private void HideSelectionIndicators()
+    {
+        EventSystem.current.SetSelectedGameObject(null);
+        areaOfEffectSelectionIndicators.ForEach(indicator => indicator.SetActive(false));
+        useAreaOfEffectIndicators = false;
     }
 }
