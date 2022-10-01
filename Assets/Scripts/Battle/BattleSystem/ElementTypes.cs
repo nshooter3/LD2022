@@ -7,9 +7,8 @@ public class ElementTypes
     public enum ElementType
     {
         Fire,
-        Earth,
-        Air,
+        Grass,
         Water,
-        Physical
+        Typeless,
     };
 }

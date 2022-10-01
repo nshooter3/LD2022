@@ -14,7 +14,7 @@ public class Enemy : BattleParticipant
     public override void ChooseAction()
     {
         currentAction = CombatBehavior.ChooseAction();
-        CombatBehavior.NextTurn();
+        CombatBehavior.NextAction();
     }
 
     public override void DrainMp(int mp)

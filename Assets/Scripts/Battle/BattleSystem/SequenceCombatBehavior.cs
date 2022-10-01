@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SequenceCombatBehavior : MonoBehaviour
+public class SequenceCombatBehavior : CombatBehavior
 {
 
     /// <summary>
@@ -10,42 +10,25 @@ public class SequenceCombatBehavior : MonoBehaviour
     /// </summary>
     public int ActionIndexer = 0;
 
-    /// <summary>
-    /// Number of Actions.
-    /// </summary>
-    public List<BattleAction> Actions = new List<BattleAction>();
-
-    /// <summary>
-    /// Chooses an action by incrementing the current attack index.
-    /// </summary>
-    /// <returns>An action chosen by current attack index.</returns>
-    public virtual BattleAction ChooseAction()
+    public override BattleAction ChooseAction()
     {
-        if (Actions == null || Actions.Count == 0)
+        Debug.Log("Sequencer: Choose Action");
+        if (Actions == null)
         {
             Debug.LogError("Actions have not been populated.");
         }
-        return GetCurrentAction();
+        return Actions[ActionIndexer];
     }
 
     /// <summary>
     /// Increments the counter for the AI Behavior.
     /// </summary>
-    public void NextTurn()
+    public void NextAction()
     {
         ++ActionIndexer;
         if (ActionIndexer >= Actions.Count)
         {
             ActionIndexer = 0;
         }
-    }
-
-    /// <summary>
-    /// Gets the current action for the current indexer.
-    /// </summary>
-    /// <returns>The current battle action for the AI.</returns>
-    public BattleAction GetCurrentAction()
-    {
-        return Actions[ActionIndexer];
     }
 }

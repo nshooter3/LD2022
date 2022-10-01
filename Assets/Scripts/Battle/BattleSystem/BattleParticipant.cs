@@ -11,16 +11,12 @@ public abstract class BattleParticipant : MonoBehaviour
 
     public BattleAction currentAction { get; protected set; }
 
-    [SerializeField]
-    protected List<ElementType> Weaknesses = new List<ElementType>();
+    /// <summary>
+    /// The elemental type of the battle participant
+    /// </summary>
+    public ElementType currentElementType { get; protected set; }
 
-    [SerializeField]
-    protected List<ElementType> Immunities = new List<ElementType>();
-
-    [SerializeField]
-    protected List<ElementType> Resistances = new List<ElementType>();
-
-    public bool IsDead { get { return currentHp <= 0; } }
+    public bool Dead { get { return currentHp <= 0; } }
 
     public virtual void Initialize()
     {
@@ -36,20 +32,64 @@ public abstract class BattleParticipant : MonoBehaviour
     /// <param name="attackElement"></param>
     public void DealDamage(int damage, ElementType attackElement)
     {
-        if (Weaknesses.Contains(attackElement))
+        int elementalDamage = CalculateElementalDamage(attackElement, damage);
+        currentHp = Mathf.Max(0, currentHp - elementalDamage);
+    }
+
+    /// <summary>
+    /// Calculates the elemental damage based on the battle participant's elemental type
+    /// and elemental attack type.
+    /// </summary>
+    /// <param name="attackElement">The elemental type of the attack.</param>
+    /// <returns>The amount of damage</returns>
+    public int CalculateElementalDamage(ElementType attackElement, int damage)
+    {
+        int damageToReturn = damage;
+        switch (currentElementType)
         {
-            damage *= 2;
+            case ElementType.Typeless:
+                break;
+            case ElementType.Fire:
+                if (attackElement == ElementType.Fire)
+                {
+                }
+                if (attackElement == ElementType.Water)
+                {
+                    damageToReturn /= 2;
+                }
+                if (attackElement == ElementType.Grass)
+                {
+                    damageToReturn *= 2;
+                }
+                break;
+            case ElementType.Water:
+                if (attackElement == ElementType.Fire)
+                {
+                    damageToReturn *= 2;
+                }
+                if (attackElement == ElementType.Water)
+                {
+                }
+                if (attackElement == ElementType.Grass)
+                {
+                    damageToReturn /= 2;
+                }
+                break;
+            case ElementType.Grass:
+                if (attackElement == ElementType.Fire)
+                {
+                    damageToReturn /= 2;
+                }
+                if (attackElement == ElementType.Water)
+                {
+                    damageToReturn *= 2;
+                }
+                if (attackElement == ElementType.Grass)
+                {
+                }
+                break;
         }
-        else if (Resistances.Contains(attackElement))
-        {
-            damage /= 2;
-            Mathf.FloorToInt(damage);
-        }
-        else if (Immunities.Contains(attackElement))
-        {
-            damage = 0;
-        }
-        currentHp = Mathf.Max(0, currentHp - damage);
+        return damageToReturn;
     }
 
     /// <summary>

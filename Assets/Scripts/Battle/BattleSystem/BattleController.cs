@@ -12,7 +12,7 @@ public class BattleController : MonoBehaviour
     private List<BattleParticipant> enemies;
 
     private List<BattleParticipant> battleParticipants = new List<BattleParticipant>();
-    public List<BattleParticipant> aliveEnemies { get { return enemies.FindAll(participant => !participant.IsDead); } }
+    public List<BattleParticipant> aliveEnemies { get { return enemies.FindAll(participant => !participant.Dead); } }
 
     private bool battleEnded;
 
@@ -56,7 +56,7 @@ public class BattleController : MonoBehaviour
 
         BattleUI.instance.UpdateHealth(player, enemies);
 
-        if (player.IsDead)
+        if (player.Dead)
         {
             LoseBattle();
         }
@@ -73,7 +73,7 @@ public class BattleController : MonoBehaviour
 
     private void RunAction(BattleParticipant user, BattleParticipant enemy)
     {
-        if (!user.IsDead)
+        if (!user.Dead)
         {
             user.currentAction.RunAction(user, enemy);
         }

@@ -24,18 +24,11 @@ public class Attack : BattleAction
     /// Element type of attack to apply.
     /// </summary>
     [SerializeField]
-    private ElementTypes.ElementType ElementType = ElementTypes.ElementType.Physical;
-
-
-    /// <summary>
-    /// The amount to heal the battle combatant.
-    /// </summary>
-    [SerializeField]
-    private int HealAmount;
+    private ElementTypes.ElementType elementType = ElementTypes.ElementType.Typeless;
 
     public override void RunAction(BattleParticipant user, BattleParticipant enemy)
     {
-        enemy.DealDamage(damage, ElementType);
+        enemy.DealDamage(damage, elementType);
 
         if (recoil > 0)
         {
