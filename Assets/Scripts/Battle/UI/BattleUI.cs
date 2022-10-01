@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -201,8 +202,27 @@ public class BattleUI : MonoBehaviour
     private void ChooseRandomAction()
     {
         HideSelectionIndicators();
-        List<BattleParticipant> targets = GetTargets(Random.Range(0, enemies.Count - 1));
-        player.ChoosePlayerAction(actions[Random.Range(0, actions.Count - 1)], targets);
+
+        List<int> eligibleEnemies = new List<int>();
+        List<int> eligibleActions = new List<int>();
+        for (int i = 0; i < enemies.Count; i++)
+        {
+            if (!enemies[i].Dead)
+            {
+                eligibleEnemies.Add(i);
+            }
+        }
+        for (int i = 0; i < actions.Count; i++)
+        {
+            if (actionButtons[i].interactable)
+            {
+                eligibleActions.Add(i);
+            }
+        }
+
+        List<BattleParticipant> randomTargets = GetTargets(eligibleEnemies[Random.Range(0, eligibleEnemies.Count - 1)]);
+        BattleAction randomAction = actions[eligibleActions[Random.Range(0, eligibleActions.Count - 1)]];
+        player.ChoosePlayerAction(randomAction, randomTargets);
     }
 
     private List<BattleParticipant> GetTargets(int targetIndex)
