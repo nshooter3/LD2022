@@ -90,6 +90,15 @@ public abstract class BattleParticipant : MonoBehaviour
     }
 
     /// <summary>
+    /// This handles when the BattleParticipant is healed.
+    /// </summary>
+    /// <param name="healAmount">The amount to heal.</param>
+    public void Heal(int healAmount)
+    {
+        currentHp = Mathf.Min(maxHp, currentHp + healAmount);
+    }
+
+    /// <summary>
     /// This handles when a BattleParticipant is damaged by Recoil.
     /// NOTE: RECOIL DAMAGE IS NOT AFFECTED BY ELEMENTAL TYPE.
     /// </summary>
