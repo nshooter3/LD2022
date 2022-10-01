@@ -7,6 +7,7 @@ public class FMODEventsAndParameters
         StartBattle,
         Idle,
         Action,
-        EndBattle
+        EnemyDefeated,
+        PlayerDies
     }
 }
