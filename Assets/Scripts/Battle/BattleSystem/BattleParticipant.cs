@@ -7,6 +7,7 @@ public abstract class BattleParticipant : MonoBehaviour
     public int currentHp { get; private set; }
     [SerializeField]
     private int maxHp;
+    public int MaxHp { get { return maxHp; } }
 
     public BattleAction currentAction { get; protected set; }
 

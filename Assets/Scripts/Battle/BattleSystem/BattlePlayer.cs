@@ -6,6 +6,7 @@ public class BattlePlayer : BattleParticipant
     private int currentMp;
     [SerializeField]
     private int maxMp;
+    public int MaxMp { get { return maxMp; } }
     [SerializeField]
     private List<BattleAction> actions;
     public List<BattleParticipant> targets { get; private set; }
