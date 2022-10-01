@@ -2,12 +2,9 @@ using UnityEngine;
 
 public class Enemy : BattleParticipant
 {
-    [SerializeField]
-    private BattleAction action;
-
     public override void ChooseAction()
     {
-        currentAction = action;
+        currentAction = actions[0];
     }
 
     public override void DrainMp(int mp)
