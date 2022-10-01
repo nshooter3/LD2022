@@ -57,7 +57,7 @@ public class SceneSelectDirector : MonoBehaviour
             {
                 icon.gameObject.SetActive(false);
             }
-            PlayLeftScroll();
+            PlayRightScroll();
         }
     }
 
