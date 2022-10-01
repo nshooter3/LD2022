@@ -7,7 +7,7 @@ public class SequenceCombatBehavior : CombatBehavior
     /// <summary>
     /// The current action indexer.
     /// </summary>
-    public int actionIndexer = 0;
+    private int actionIndexer = 0;
 
     public override BattleAction ChooseAction(List<BattleAction> actions)
     {
