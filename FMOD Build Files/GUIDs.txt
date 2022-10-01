@@ -5,4 +5,5 @@
 {47d0b882-a182-47b5-8fe0-1430d83cab9e} bus:/
 {80884dbe-6f79-45a9-ad0a-1263910bf1a7} bus:/Reverb
 {416b9ac7-0f06-47a8-8a44-1a4fd6a0ccfc} event:/music/encounter_music
+{3d4ef981-a2f6-4dcf-8d58-9bdbcee4a3bf} event:/music/enemy_selection_music
 {124b8d07-05e6-4ec7-8f86-cbc728291623} parameter:/encounter_controller

@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using FMODParamValues;
 
 public class BattleController : MonoBehaviour
 {
@@ -31,6 +32,8 @@ public class BattleController : MonoBehaviour
         battleParticipants.Add(player);
         enemies.ForEach(enemy => battleParticipants.Add(enemy));
 
+        SetFMODEncounterParameter((float)EncounterControllerValues.StartBattle);
+
         battleParticipants.ForEach(participant => participant.Initialize());
         BattleUI.instance.Initialize(player, enemies);
         ChooseActions();
@@ -40,10 +43,13 @@ public class BattleController : MonoBehaviour
     {
         battleParticipants.ForEach(participant => participant.ChooseAction());
         BattleUI.instance.UpdateIntents();
+        SetFMODEncounterParameter((float)EncounterControllerValues.Action);
     }
 
     public void RunBattleTurn()
     {
+        SetFMODEncounterParameter((float)EncounterControllerValues.Idle);
+
         foreach (BattleParticipant target in player.targets)
         {
             RunAction(player, target);
@@ -85,11 +91,18 @@ public class BattleController : MonoBehaviour
     {
         Debug.Log("You lost!");
         battleEnded = true;
+        SetFMODEncounterParameter((float)EncounterControllerValues.PlayerDies);
     }
 
     private void WinBattle()
     {
         Debug.Log("You won!");
         battleEnded = true;
+        SetFMODEncounterParameter((float)EncounterControllerValues.EnemyDefeated);
+    }
+
+    private void SetFMODEncounterParameter(float paramValue)
+    {
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByName(FMODEventsAndParameters.ENCOUNTER_CONTROLLER, paramValue);
     }
 }
