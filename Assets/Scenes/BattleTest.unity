@@ -1289,8 +1289,10 @@ MonoBehaviour:
   - {fileID: 2471912401758918748, guid: bd9e1e0dccdbf474fb3965afd99dc2b6, type: 3}
   - {fileID: 5732525588903787617, guid: 761d1c605391c445f96b27649cbb99a2, type: 3}
   - {fileID: 5732525588903787617, guid: d30d319649c914c8b8a1019b6d9b6f13, type: 3}
+  - {fileID: 2471912401758918748, guid: 95cd5c4307f6b4cd9a281590a9d6bb70, type: 3}
   currentElementType: 3
   maxMp: 50
+  mpRestoreRate: 5
 --- !u!4 &185461840
 Transform:
   m_ObjectHideFlags: 0
@@ -5468,7 +5470,6 @@ MonoBehaviour:
   player: {fileID: 185461839}
   enemies:
   - {fileID: 949798085}
-  - {fileID: 2108730607}
 --- !u!4 &1767897839
 Transform:
   m_ObjectHideFlags: 0

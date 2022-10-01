@@ -72,7 +72,7 @@ public class BattleUI : MonoBehaviour
                 enemyDisplay.gameObject.SetActive(false);
             }
         }
-        UpdateHealth();
+        UpdateStatBars();
 
         foreach (Button button in actionButtons)
         {
@@ -81,9 +81,10 @@ public class BattleUI : MonoBehaviour
         HideSelectionIndicators();
     }
 
-    public void UpdateHealth()
+    public void UpdateStatBars()
     {
         playerDisplay.SetHealth(player.currentHp);
+        playerDisplay.SetMp(player.currentMp);
         for (int i = 0; i < enemies.Count; i++)
         {
             enemyDisplays[i].SetHealth(enemies[i].currentHp);
@@ -109,12 +110,22 @@ public class BattleUI : MonoBehaviour
             Button button = actionButtons[i];
             if (i < actions.Count)
             {
+                BattleAction action = actions[i];
                 button.gameObject.SetActive(true);
-                button.GetComponentInChildren<TextMeshProUGUI>().text = actions[i].ActionName;
-            }
-            if (firstSelectableAction == null)
-            {
-                firstSelectableAction = button;
+                button.GetComponentInChildren<TextMeshProUGUI>().text = action.ActionName;
+
+                if (player.CanUseAction(action))
+                {
+                    button.interactable = true;
+                    if (firstSelectableAction == null)
+                    {
+                        firstSelectableAction = button;
+                    }
+                }
+                else
+                {
+                    button.interactable = false;
+                }
             }
         }
         this.actions = actions;

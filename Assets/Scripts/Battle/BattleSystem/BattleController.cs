@@ -54,7 +54,9 @@ public class BattleController : MonoBehaviour
             RunAction(enemy, player);
         }
 
-        BattleUI.instance.UpdateHealth();
+        battleParticipants.ForEach(participant => participant.OnTurnEnd());
+
+        BattleUI.instance.UpdateStatBars();
 
         if (player.Dead)
         {
