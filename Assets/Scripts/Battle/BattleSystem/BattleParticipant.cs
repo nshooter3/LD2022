@@ -47,12 +47,7 @@ public abstract class BattleParticipant : MonoBehaviour
         int damageToReturn = damage;
         switch (currentElementType)
         {
-            case ElementType.Typeless:
-                break;
             case ElementType.Fire:
-                if (attackElement == ElementType.Fire)
-                {
-                }
                 if (attackElement == ElementType.Water)
                 {
                     damageToReturn /= 2;
@@ -67,9 +62,6 @@ public abstract class BattleParticipant : MonoBehaviour
                 {
                     damageToReturn *= 2;
                 }
-                if (attackElement == ElementType.Water)
-                {
-                }
                 if (attackElement == ElementType.Grass)
                 {
                     damageToReturn /= 2;
@@ -83,9 +75,6 @@ public abstract class BattleParticipant : MonoBehaviour
                 if (attackElement == ElementType.Water)
                 {
                     damageToReturn *= 2;
-                }
-                if (attackElement == ElementType.Grass)
-                {
                 }
                 break;
         }

@@ -6,15 +6,15 @@ public class Enemy : BattleParticipant
     /// The Current Combat Behavior for this Enemy.
     /// </summary>
     [SerializeField]
-    private SequenceCombatBehavior CombatBehavior;
+    private SequenceCombatBehavior combatBehavior;
 
     /// <summary>
     /// Use the current action.
     /// </summary>
     public override void ChooseAction()
     {
-        currentAction = CombatBehavior.ChooseAction();
-        CombatBehavior.NextAction();
+        currentAction = combatBehavior.ChooseAction();
+        combatBehavior.NextAction();
     }
 
     public override void DrainMp(int mp)

@@ -8,11 +8,10 @@ public class SequenceCombatBehavior : CombatBehavior
     /// <summary>
     /// The current action indexer.
     /// </summary>
-    public int ActionIndexer = 0;
+    public int actionIndexer = 0;
 
     public override BattleAction ChooseAction()
     {
-        Debug.Log("Sequencer: Choose Action");
         if (Actions == null)
         {
             Debug.LogError("Actions have not been populated.");
