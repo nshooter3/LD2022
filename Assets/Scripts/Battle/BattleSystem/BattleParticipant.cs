@@ -18,7 +18,7 @@ public abstract class BattleParticipant : MonoBehaviour
     /// <summary>
     /// The elemental type of the battle participant
     /// </summary>
-    public ElementType CurrentElementType { get; protected set; }
+    public ElementType CurrentElementType { get { return currentElementType; } }
 
     public bool Dead { get { return currentHp <= 0; } }
 
@@ -42,6 +42,10 @@ public abstract class BattleParticipant : MonoBehaviour
     {
         int elementalDamage = CalculateElementalDamage(attackElement, damage);
         currentHp = Mathf.Max(0, currentHp - elementalDamage);
+    }
+
+    public virtual void OnTurnEnd()
+    {
     }
 
     /// <summary>
