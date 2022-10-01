@@ -43,6 +43,7 @@ public class BattleController : MonoBehaviour
 
     public void RunBattleTurn()
     {
+
         foreach (BattleParticipant target in player.targets)
         {
             RunAction(player, target);

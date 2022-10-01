@@ -9,17 +9,26 @@ public class BattlePlayer : BattleParticipant
     public int MaxMp { get { return maxMp; } }
     public List<BattleParticipant> targets { get; private set; }
 
+    /// <summary>
+    /// <inheritdoc/>
+    /// </summary>
     public override void Initialize()
     {
         base.Initialize();
         currentMp = maxMp;
     }
 
+    /// <summary>
+    /// <inheritdoc/>
+    /// </summary>
     public override void ChooseAction()
     {
         BattleUI.instance.PromptAction(actions, BattleController.instance.aliveEnemies);
     }
 
+    /// <summary>
+    /// <inheritdoc/>
+    /// </summary>
     public void ChoosePlayerAction(BattleAction action, List<BattleParticipant> targets)
     {
         currentAction = action;
@@ -27,6 +36,9 @@ public class BattlePlayer : BattleParticipant
         BattleController.instance.RunBattleTurn();
     }
 
+    /// <summary>
+    /// <inheritdoc/>
+    /// </summary>
     public override void DrainMp(int mp)
     {
         currentMp = Mathf.Max(0, currentMp - mp);
