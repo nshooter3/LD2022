@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class BattleUI : MonoBehaviour
@@ -20,11 +21,27 @@ public class BattleUI : MonoBehaviour
     [SerializeField]
     private List<Button> actionButtons;
 
+    [SerializeField]
+    private GameObject selectionIndicator;
+
     private int chosenAction;
 
     private void Awake()
     {
         instance = this;
+    }
+
+    private void Update()
+    {
+        if (EventSystem.current.currentSelectedGameObject == null)
+        {
+            selectionIndicator.SetActive(false);
+        }
+        else
+        {
+            selectionIndicator.transform.position = EventSystem.current.currentSelectedGameObject.transform.position + Vector3.left * 60;
+            selectionIndicator.SetActive(true);
+        }
     }
 
     public void Initialize(BattlePlayer player, List<BattleParticipant> enemies)
@@ -34,6 +51,7 @@ public class BattleUI : MonoBehaviour
         for (int i = 0; i < enemyDisplays.Count; i++)
         {
             BattleParticipantDisplay enemyDisplay = enemyDisplays[i];
+            enemyDisplay.SetTargetButtonActive(false);
             if (i < enemies.Count)
             {
                 enemyDisplay.maxHp = enemies[i].MaxHp;
@@ -63,6 +81,7 @@ public class BattleUI : MonoBehaviour
 
     public void PromptAction(List<BattleAction> actions, List<BattleParticipant> enemies)
     {
+        Button firstSelectableAction = null;
         for (int i = 0; i < actionButtons.Count; i++)
         {
             Button button = actionButtons[i];
@@ -71,9 +90,15 @@ public class BattleUI : MonoBehaviour
                 button.gameObject.SetActive(true);
                 button.GetComponentInChildren<TextMeshProUGUI>().text = actions[i].ActionName;
             }
+            if (firstSelectableAction == null)
+            {
+                firstSelectableAction = button;
+            }
         }
         this.actions = actions;
         this.enemies = enemies;
+
+        EventSystem.current.SetSelectedGameObject(firstSelectableAction.gameObject);
     }
 
     public void ChooseAction(int actionIndex)
@@ -85,13 +110,20 @@ public class BattleUI : MonoBehaviour
             button.gameObject.SetActive(false);
         }
 
+        BattleParticipantDisplay firstSelectableEnemyDisplay = null;
         for (int i = 0; i < enemies.Count; i++)
         {
             if (!enemies[i].Dead)
             {
                 enemyDisplays[i].SetTargetButtonActive(true);
+                if (firstSelectableEnemyDisplay == null)
+                {
+                    firstSelectableEnemyDisplay = enemyDisplays[i];
+                }
             }
         }
+
+        EventSystem.current.SetSelectedGameObject(firstSelectableEnemyDisplay.gameObject);
     }
 
     public void ChooseTarget(int targetIndex)
@@ -105,6 +137,11 @@ public class BattleUI : MonoBehaviour
         {
             targetEnemies = enemies;
         }
+
+        EventSystem.current.SetSelectedGameObject(null);
+
+        enemyDisplays.ForEach(display => display.SetTargetButtonActive(false));
+
         player.ChoosePlayerAction(actions[chosenAction], enemies);
     }
 }
