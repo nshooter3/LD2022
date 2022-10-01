@@ -1,0 +1,7 @@
+{7adb48a1-c524-4f31-9558-30dd5f578b68} bank:/Master
+{e2c66875-b45f-0373-1311-ba23aea48df0} bank:/Master.strings
+{f260cab5-d569-4d41-9bc0-cfe9d7814066} bank:/Music
+{3bb0b093-c473-4873-87b3-b530822cfd42} bank:/SFX
+{47d0b882-a182-47b5-8fe0-1430d83cab9e} bus:/
+{80884dbe-6f79-45a9-ad0a-1263910bf1a7} bus:/Reverb
+{e8c06662-ac5b-482d-bc2d-2421d034a46d} event:/test_event
