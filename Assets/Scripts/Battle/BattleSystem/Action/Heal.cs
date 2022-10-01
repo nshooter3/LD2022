@@ -21,7 +21,7 @@ public class Heal : BattleAction
         return "Heal " + healAmount;
     }
 
-    public override void RunAction(BattleParticipant user, BattleParticipant enemy)
+    protected override void OnRunAction(BattleParticipant user, BattleParticipant target)
     {
         user.Heal(healAmount);
         if (mpCost > 0)
