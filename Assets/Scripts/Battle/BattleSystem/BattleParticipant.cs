@@ -1,6 +1,5 @@
 using System.Collections.Generic;
 using UnityEngine;
-using static ElementTypes;
 
 public abstract class BattleParticipant : MonoBehaviour
 {
@@ -14,10 +13,12 @@ public abstract class BattleParticipant : MonoBehaviour
 
     public BattleAction currentAction { get; protected set; }
 
+    [SerializeField]
+    private ElementType currentElementType = ElementType.Typeless;
     /// <summary>
     /// The elemental type of the battle participant
     /// </summary>
-    public ElementType currentElementType { get; protected set; }
+    public ElementType CurrentElementType { get; protected set; }
 
     public bool Dead { get { return currentHp <= 0; } }
 
@@ -52,7 +53,7 @@ public abstract class BattleParticipant : MonoBehaviour
     public int CalculateElementalDamage(ElementType attackElement, int damage)
     {
         int damageToReturn = damage;
-        switch (currentElementType)
+        switch (CurrentElementType)
         {
             case ElementType.Fire:
                 if (attackElement == ElementType.Water)

@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 662709104596222190}
-  - component: {fileID: 2471912401758918748}
+  - component: {fileID: 5732525588903787617}
   m_Layer: 0
-  m_Name: Tackle
+  m_Name: Searing Punch
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2471912401758918748
+--- !u!114 &5732525588903787617
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34be79a8227b94558b1fdd48720c2861, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionName: Tackle
-  damage: 14
-  recoil: 2
+  actionName: Searing Punch
+  damage: 8
+  recoil: 0
   mpCost: 0
-  elementType: 3
+  elementType: 0

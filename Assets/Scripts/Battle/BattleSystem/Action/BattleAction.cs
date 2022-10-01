@@ -7,4 +7,6 @@ public abstract class BattleAction : MonoBehaviour
     public string ActionName { get { return actionName; } }
 
     public abstract void RunAction(BattleParticipant user, BattleParticipant enemy);
+
+    public abstract string GetIntentDisplay();
 }

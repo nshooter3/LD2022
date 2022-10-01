@@ -8,7 +8,6 @@ public class BattleUI : MonoBehaviour
 {
     public static BattleUI instance { get; private set; }
 
-    [SerializeField]
     private BattlePlayer player;
     private List<BattleAction> actions;
     private List<BattleParticipant> enemies;
@@ -49,6 +48,9 @@ public class BattleUI : MonoBehaviour
 
     public void Initialize(BattlePlayer player, List<BattleParticipant> enemies)
     {
+        this.player = player;
+        this.enemies = enemies;
+
         playerDisplay.maxHp = player.MaxHp;
         playerDisplay.maxMp = player.MaxMp;
         for (int i = 0; i < enemyDisplays.Count; i++)
@@ -65,7 +67,7 @@ public class BattleUI : MonoBehaviour
                 enemyDisplay.gameObject.SetActive(false);
             }
         }
-        UpdateHealth(player, enemies);
+        UpdateHealth();
 
         foreach (Button button in actionButtons)
         {
@@ -73,7 +75,7 @@ public class BattleUI : MonoBehaviour
         }
     }
 
-    public void UpdateHealth(BattlePlayer player, List<BattleParticipant> enemies)
+    public void UpdateHealth()
     {
         playerDisplay.SetHealth(player.currentHp);
         for (int i = 0; i < enemies.Count; i++)
@@ -82,7 +84,18 @@ public class BattleUI : MonoBehaviour
         }
     }
 
-    public void PromptAction(List<BattleAction> actions, List<BattleParticipant> enemies)
+    public void UpdateIntents()
+    {
+        for (int i = 0; i < enemies.Count; i++)
+        {
+            if (!enemies[i].Dead)
+            {
+                enemyDisplays[i].SetIntent(enemies[i].currentAction.GetIntentDisplay());
+            }
+        }
+    }
+
+    public void PromptAction(List<BattleAction> actions)
     {
         Button firstSelectableAction = null;
         for (int i = 0; i < actionButtons.Count; i++)
@@ -99,7 +112,6 @@ public class BattleUI : MonoBehaviour
             }
         }
         this.actions = actions;
-        this.enemies = enemies;
 
         EventSystem.current.SetSelectedGameObject(firstSelectableAction.gameObject);
 

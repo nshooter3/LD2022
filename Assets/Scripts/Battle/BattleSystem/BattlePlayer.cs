@@ -23,7 +23,7 @@ public class BattlePlayer : BattleParticipant
     /// </summary>
     public override void ChooseAction()
     {
-        BattleUI.instance.PromptAction(actions, BattleController.instance.aliveEnemies);
+        BattleUI.instance.PromptAction(actions);
     }
 
     /// <summary>
