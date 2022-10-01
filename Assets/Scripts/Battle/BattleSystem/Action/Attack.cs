@@ -15,29 +15,18 @@ public class Attack : BattleAction
     private int recoil;
 
     /// <summary>
-    /// The cost of MP per Attack.
-    /// </summary>
-    [SerializeField]
-    private int mpCost;
-
-    /// <summary>
     /// Element type of attack to apply.
     /// </summary>
     [SerializeField]
     private ElementType elementType = ElementType.Typeless;
 
-    public override void RunAction(BattleParticipant user, BattleParticipant enemy)
+    protected override void OnRunAction(BattleParticipant user, BattleParticipant target)
     {
-        enemy.DealDamage(damage, elementType);
+        target.DealDamage(damage, elementType);
 
         if (recoil > 0)
         {
             user.DealRecoilDamage(recoil);
-        }
-
-        if (mpCost > 0)
-        {
-            user.DrainMp(mpCost);
         }
     }
 
