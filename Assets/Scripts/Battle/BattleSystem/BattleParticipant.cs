@@ -33,7 +33,7 @@ public abstract class BattleParticipant : MonoBehaviour
         currentHp = maxHp;
         for (int i = 0; i < actions.Count; i++)
         {
-            actions[i] = Instantiate<BattleAction>(actions[i], transform);
+            actions[i] = actions[i].InstantiateAction(this);
         }
     }
 
