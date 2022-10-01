@@ -53,7 +53,7 @@ public class BattleController : MonoBehaviour
             RunAction(enemy, player);
         }
 
-        BattleUI.instance.UpdateHealth();
+        BattleUI.instance.UpdateHealth(player, enemies);
 
         if (player.Dead)
         {
