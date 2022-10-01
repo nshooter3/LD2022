@@ -10,12 +10,6 @@ public class Heal : BattleAction
     [SerializeField]
     private int healAmount;
 
-    /// <summary>
-    /// The cost of MP per Attack.
-    /// </summary>
-    [SerializeField]
-    private int mpCost;
-
     public override string GetIntentDisplay()
     {
         return "Heal " + healAmount;
@@ -24,9 +18,5 @@ public class Heal : BattleAction
     protected override void OnRunAction(BattleParticipant user, BattleParticipant target)
     {
         user.Heal(healAmount);
-        if (mpCost > 0)
-        {
-            user.DrainMp(mpCost);
-        }
     }
 }

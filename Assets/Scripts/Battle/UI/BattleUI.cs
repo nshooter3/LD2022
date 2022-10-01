@@ -58,6 +58,7 @@ public class BattleUI : MonoBehaviour
 
         playerDisplay.maxHp = player.MaxHp;
         playerDisplay.maxMp = player.MaxMp;
+        playerDisplay.SetTargetButtonActive(false);
         for (int i = 0; i < enemyDisplays.Count; i++)
         {
             BattleParticipantDisplay enemyDisplay = enemyDisplays[i];
@@ -138,6 +139,7 @@ public class BattleUI : MonoBehaviour
     public void ChooseAction(int actionIndex)
     {
         chosenAction = actionIndex;
+        BattleAction action = actions[chosenAction];
 
         foreach (Button button in actionButtons)
         {
@@ -145,21 +147,29 @@ public class BattleUI : MonoBehaviour
         }
 
         BattleParticipantDisplay firstSelectableEnemyDisplay = null;
-        for (int i = 0; i < enemies.Count; i++)
+        if (action.TargetSelf)
         {
-            if (!enemies[i].Dead)
+            playerDisplay.SetTargetButtonActive(true);
+            firstSelectableEnemyDisplay = playerDisplay;
+        }
+        else
+        {
+            for (int i = 0; i < enemies.Count; i++)
             {
-                enemyDisplays[i].SetTargetButtonActive(true);
-                if (firstSelectableEnemyDisplay == null)
+                if (!enemies[i].Dead)
                 {
-                    firstSelectableEnemyDisplay = enemyDisplays[i];
+                    enemyDisplays[i].SetTargetButtonActive(true);
+                    if (firstSelectableEnemyDisplay == null)
+                    {
+                        firstSelectableEnemyDisplay = enemyDisplays[i];
+                    }
                 }
             }
         }
 
         EventSystem.current.SetSelectedGameObject(firstSelectableEnemyDisplay.gameObject);
 
-        if (actions[chosenAction].AreaOfEffect)
+        if (action.AreaOfEffect)
         {
             useAreaOfEffectIndicators = true;
             for (int i = 0; i < enemies.Count; i++)
@@ -176,9 +186,10 @@ public class BattleUI : MonoBehaviour
     {
         HideSelectionIndicators();
         enemyDisplays.ForEach(display => display.SetTargetButtonActive(false));
+        playerDisplay.SetTargetButtonActive(false);
 
-        List<BattleParticipant> targetEnemies = GetTargetEnemiesList(targetIndex);
-        player.ChoosePlayerAction(actions[chosenAction], enemies);
+        List<BattleParticipant> targets = GetTargets(targetIndex);
+        player.ChoosePlayerAction(actions[chosenAction], targets);
     }
 
     private void PositionSelectionIndicator(GameObject targetObject, GameObject currentSelectionIndicator)
@@ -190,22 +201,27 @@ public class BattleUI : MonoBehaviour
     private void ChooseRandomAction()
     {
         HideSelectionIndicators();
-        List<BattleParticipant> targetEnemies = GetTargetEnemiesList(Random.Range(0, enemies.Count - 1));
-        player.ChoosePlayerAction(actions[Random.Range(0, actions.Count - 1)], targetEnemies);
+        List<BattleParticipant> targets = GetTargets(Random.Range(0, enemies.Count - 1));
+        player.ChoosePlayerAction(actions[Random.Range(0, actions.Count - 1)], targets);
     }
 
-    private List<BattleParticipant> GetTargetEnemiesList(int targetIndex)
+    private List<BattleParticipant> GetTargets(int targetIndex)
     {
-        List<BattleParticipant> targetEnemies = new List<BattleParticipant>();
-        if (actions[chosenAction].AreaOfEffect)
+        BattleAction action = actions[chosenAction];
+        List<BattleParticipant> targets = new List<BattleParticipant>();
+        if (action.TargetSelf)
         {
-            targetEnemies = enemies;
+            targets.Add(player);
+        }
+        else if (action.AreaOfEffect)
+        {
+            targets = enemies;
         }
         else
         {
-            targetEnemies.Add(enemies[targetIndex]);
+            targets.Add(enemies[targetIndex]);
         }
-        return targetEnemies;
+        return targets;
     }
 
     private void HideSelectionIndicators()
