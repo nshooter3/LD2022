@@ -9,46 +9,103 @@ public class BattleUI : MonoBehaviour
 
     [SerializeField]
     private BattlePlayer player;
-    [SerializeField]
-    private Button button;
-    [SerializeField]
-    private TextMeshProUGUI playerHealth;
-    [SerializeField]
-    private TextMeshProUGUI enemyHealth;
     private List<BattleAction> actions;
-    private List<BattleParticipant> targets;
-
-    private BattleParticipant playerParticipant;
     private List<BattleParticipant> enemies;
+
+    [SerializeField]
+    private PlayerDisplay playerDisplay;
+    [SerializeField]
+    private List<BattleParticipantDisplay> enemyDisplays;
+
+    [SerializeField]
+    private List<Button> actionButtons;
+
+    private int chosenAction;
 
     private void Awake()
     {
         instance = this;
     }
 
-    public void Initialize(BattleParticipant player, List<BattleParticipant> enemies)
+    public void Initialize(BattlePlayer player, List<BattleParticipant> enemies)
     {
-        this.playerParticipant = player;
-        this.enemies = enemies;
-        UpdateHealth();
+        playerDisplay.maxHp = player.MaxHp;
+        playerDisplay.maxMp = player.MaxMp;
+        for (int i = 0; i < enemyDisplays.Count; i++)
+        {
+            BattleParticipantDisplay enemyDisplay = enemyDisplays[i];
+            if (i < enemies.Count)
+            {
+                enemyDisplay.maxHp = enemies[i].MaxHp;
+                enemyDisplay.gameObject.SetActive(true);
+            }
+            else
+            {
+                enemyDisplay.gameObject.SetActive(false);
+            }
+        }
+        UpdateHealth(player, enemies);
+
+        foreach (Button button in actionButtons)
+        {
+            button.gameObject.SetActive(false);
+        }
     }
 
-    public void UpdateHealth()
+    public void UpdateHealth(BattlePlayer player, List<BattleParticipant> enemies)
     {
-        playerHealth.text = player.currentHp.ToString();
-        enemyHealth.text = enemies[0].currentHp.ToString();
+        playerDisplay.SetHealth(player.currentHp);
+        for (int i = 0; i < enemies.Count; i++)
+        {
+            enemyDisplays[i].SetHealth(enemies[i].currentHp);
+        }
     }
 
-    public void PromptAction(List<BattleAction> actions, List<BattleParticipant> targets)
+    public void PromptAction(List<BattleAction> actions, List<BattleParticipant> enemies)
     {
+        for (int i = 0; i < actionButtons.Count; i++)
+        {
+            Button button = actionButtons[i];
+            if (i < actions.Count)
+            {
+                button.gameObject.SetActive(true);
+                button.GetComponentInChildren<TextMeshProUGUI>().text = actions[i].name;
+            }
+        }
         this.actions = actions;
-        this.targets = targets;
-        button.enabled = true;
+        this.enemies = enemies;
     }
 
-    public void ChooseAction()
+    public void ChooseAction(int actionIndex)
     {
-        button.enabled = false;
-        player.ChoosePlayerAction(actions[0], targets);
+        chosenAction = actionIndex;
+
+        foreach (Button button in actionButtons)
+        {
+            button.gameObject.SetActive(false);
+        }
+
+        for (int i = 0; i < enemies.Count; i++)
+        {
+            if (!enemies[i].Dead)
+            {
+                enemyDisplays[i].SetTargetButtonActive(true);
+            }
+        }
+    }
+
+    public void ChooseTarget(int targetIndex)
+    {
+        List<BattleParticipant> targetEnemies = new List<BattleParticipant>();
+        if (targetIndex >= 0)
+        {
+            targetEnemies.Add(enemies[targetIndex]);
+        }
+        else
+        {
+            targetEnemies = enemies;
+        }
+        Debug.Log(targetIndex);
+        player.ChoosePlayerAction(actions[chosenAction], enemies);
     }
 }
