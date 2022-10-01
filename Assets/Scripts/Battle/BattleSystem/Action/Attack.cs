@@ -24,7 +24,7 @@ public class Attack : BattleAction
     /// Element type of attack to apply.
     /// </summary>
     [SerializeField]
-    private ElementTypes.ElementType elementType = ElementTypes.ElementType.Typeless;
+    private ElementType elementType = ElementType.Typeless;
 
     public override void RunAction(BattleParticipant user, BattleParticipant enemy)
     {
@@ -39,5 +39,10 @@ public class Attack : BattleAction
         {
             user.DrainMp(mpCost);
         }
+    }
+
+    public override string GetIntentDisplay()
+    {
+        return "Attack " + damage;
     }
 }

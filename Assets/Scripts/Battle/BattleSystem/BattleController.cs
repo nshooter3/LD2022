@@ -39,11 +39,11 @@ public class BattleController : MonoBehaviour
     public void ChooseActions()
     {
         battleParticipants.ForEach(participant => participant.ChooseAction());
+        BattleUI.instance.UpdateIntents();
     }
 
     public void RunBattleTurn()
     {
-
         foreach (BattleParticipant target in player.targets)
         {
             RunAction(player, target);
@@ -54,7 +54,7 @@ public class BattleController : MonoBehaviour
             RunAction(enemy, player);
         }
 
-        BattleUI.instance.UpdateHealth(player, enemies);
+        BattleUI.instance.UpdateHealth();
 
         if (player.Dead)
         {

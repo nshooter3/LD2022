@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 662709104596222190}
   - component: {fileID: 2471912401758918748}
   m_Layer: 0
-  m_Name: Tackle
+  m_Name: Dropkick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 34be79a8227b94558b1fdd48720c2861, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionName: Tackle
-  damage: 14
-  recoil: 2
+  actionName: Dropkick
+  damage: 35
+  recoil: 4
   mpCost: 0
   elementType: 3
