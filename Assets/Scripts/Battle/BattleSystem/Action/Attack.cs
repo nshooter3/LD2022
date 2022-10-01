@@ -21,12 +21,6 @@ public class Attack : BattleAction
     private int mpCost;
 
     /// <summary>
-    /// Status to Apply. If no Status is applied, nothing happens.
-    /// </summary>
-    [SerializeField]
-    private Status StatusToApply;
-
-    /// <summary>
     /// Element type of attack to apply.
     /// </summary>
     [SerializeField]
