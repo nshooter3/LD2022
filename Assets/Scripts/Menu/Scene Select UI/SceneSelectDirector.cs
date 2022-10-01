@@ -33,6 +33,8 @@ public class SceneSelectDirector : MonoBehaviour
         {
             animatingIconTransforms.Add(child);
         }
+        iconIndex = 0;
+        UpdateRoster(director);
     }
 
     void Update()
