@@ -1348,6 +1348,7 @@ MonoBehaviour:
   - {fileID: 5732525588903787617, guid: d30d319649c914c8b8a1019b6d9b6f13, type: 3}
   - {fileID: 2471912401758918748, guid: 95cd5c4307f6b4cd9a281590a9d6bb70, type: 3}
   - {fileID: -543957618713076393, guid: 0dc7e45f4a910475c8950160676c4f6c, type: 3}
+  - {fileID: 7745600367430230134, guid: f49a2b3f798d0f445b16c23746aadefc, type: 3}
   currentElementType: 3
   maxMp: 50
   mpRestoreRate: 5
