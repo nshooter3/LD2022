@@ -9,6 +9,9 @@ public abstract class BattleParticipant : MonoBehaviour
     private int maxHp;
     public int MaxHp { get { return maxHp; } }
 
+    [SerializeField]
+    protected List<BattleAction> actions;
+
     public BattleAction currentAction { get; protected set; }
 
     /// <summary>
@@ -21,6 +24,10 @@ public abstract class BattleParticipant : MonoBehaviour
     public virtual void Initialize()
     {
         currentHp = maxHp;
+        for (int i = 0; i < actions.Count; i++)
+        {
+            actions[i] = Instantiate<BattleAction>(actions[i], transform);
+        }
     }
 
     public abstract void ChooseAction();

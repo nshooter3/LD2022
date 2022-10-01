@@ -13,11 +13,7 @@ public class Enemy : BattleParticipant
     /// </summary>
     public override void ChooseAction()
     {
-        currentAction = combatBehavior.ChooseAction();
-        if (combatBehavior is SequenceCombatBehavior)
-        {
-            ((SequenceCombatBehavior)combatBehavior).NextAction();
-        }
+        currentAction = combatBehavior.ChooseAction(actions);
     }
 
     public override void DrainMp(int mp)

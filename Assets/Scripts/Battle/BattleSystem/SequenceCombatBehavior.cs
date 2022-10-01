@@ -4,25 +4,22 @@ using UnityEngine;
 
 public class SequenceCombatBehavior : CombatBehavior
 {
-
     /// <summary>
     /// The current action indexer.
     /// </summary>
     public int actionIndexer = 0;
 
-    public override BattleAction ChooseAction()
+    public override BattleAction ChooseAction(List<BattleAction> actions)
     {
-        if (actions == null)
-        {
-            Debug.LogError("Actions have not been populated.");
-        }
-        return actions[actionIndexer];
+        BattleAction toReturn = actions[actionIndexer];
+        NextAction(actions);
+        return toReturn;
     }
 
     /// <summary>
     /// Increments the counter for the AI Behavior.
     /// </summary>
-    public void NextAction()
+    public void NextAction(List<BattleAction> actions)
     {
         ++actionIndexer;
         if (actionIndexer >= actions.Count)

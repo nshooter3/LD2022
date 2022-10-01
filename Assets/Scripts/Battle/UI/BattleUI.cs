@@ -69,7 +69,7 @@ public class BattleUI : MonoBehaviour
             if (i < actions.Count)
             {
                 button.gameObject.SetActive(true);
-                button.GetComponentInChildren<TextMeshProUGUI>().text = actions[i].name;
+                button.GetComponentInChildren<TextMeshProUGUI>().text = actions[i].ActionName;
             }
         }
         this.actions = actions;
@@ -105,7 +105,6 @@ public class BattleUI : MonoBehaviour
         {
             targetEnemies = enemies;
         }
-        Debug.Log(targetIndex);
         player.ChoosePlayerAction(actions[chosenAction], enemies);
     }
 }
