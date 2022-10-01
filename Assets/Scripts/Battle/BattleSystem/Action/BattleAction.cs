@@ -33,4 +33,9 @@ public abstract class BattleAction : MonoBehaviour
     protected abstract void OnRunAction(BattleParticipant user, BattleParticipant target);
 
     public abstract string GetIntentDisplay();
+
+    public virtual BattleAction InstantiateAction(BattleParticipant user)
+    {
+        return Instantiate<BattleAction>(this, user.transform);
+    }
 }
