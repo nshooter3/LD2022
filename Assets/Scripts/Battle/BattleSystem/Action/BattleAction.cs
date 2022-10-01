@@ -14,6 +14,10 @@ public abstract class BattleAction : MonoBehaviour
     public int MpCost { get { return mpCost; } }
 
     [SerializeField]
+    private bool targetSelf;
+    public bool TargetSelf { get { return targetSelf; } }
+
+    [SerializeField]
     private bool areaOfEffect;
     public bool AreaOfEffect { get { return areaOfEffect; } }
 

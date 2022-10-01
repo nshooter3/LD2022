@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public abstract class BattleParticipant : MonoBehaviour
@@ -22,6 +23,11 @@ public abstract class BattleParticipant : MonoBehaviour
 
     public bool Dead { get { return currentHp <= 0; } }
 
+    /// <summary> Backing statuses list. Don't use this for most iteration. </summary>
+    private List<Status> _statuses = new List<Status>();
+    /// <summary> Use this statuses list for general iteration. It clones the list to avoid issues with statuses being removed during iteration. </summary>
+    private List<Status> statuses { get { return new List<Status>(_statuses); } }
+
     public virtual void Initialize()
     {
         currentHp = maxHp;
@@ -40,12 +46,12 @@ public abstract class BattleParticipant : MonoBehaviour
     /// <param name="attackElement"></param>
     public void DealDamage(int damage, ElementType attackElement)
     {
-        int elementalDamage = CalculateElementalDamage(attackElement, damage);
-        currentHp = Mathf.Max(0, currentHp - elementalDamage);
-    }
-
-    public virtual void OnTurnEnd()
-    {
+        int finalDamage = CalculateElementalDamage(attackElement, damage);
+        foreach (Status status in statuses)
+        {
+            finalDamage = status.ModifyIncomingDamage(finalDamage);
+        }
+        currentHp = Mathf.Max(0, currentHp - finalDamage);
     }
 
     /// <summary>
@@ -94,15 +100,6 @@ public abstract class BattleParticipant : MonoBehaviour
     }
 
     /// <summary>
-    /// This handles when the BattleParticipant is healed.
-    /// </summary>
-    /// <param name="healAmount">The amount to heal.</param>
-    public void Heal(int healAmount)
-    {
-        currentHp = Mathf.Min(maxHp, currentHp + healAmount);
-    }
-
-    /// <summary>
     /// This handles when a BattleParticipant is damaged by Recoil.
     /// NOTE: RECOIL DAMAGE IS NOT AFFECTED BY ELEMENTAL TYPE.
     /// </summary>
@@ -117,4 +114,22 @@ public abstract class BattleParticipant : MonoBehaviour
     /// </summary>
     /// <param name="mp">The amount of MP this action cost.</param>
     public abstract void DrainMp(int mp);
+
+    public void AddStatus(Status status)
+    {
+        Status newStatus = Instantiate<Status>(status, transform);
+        _statuses.Add(newStatus);
+        newStatus.AddStatus(this);
+    }
+
+    public void RemoveStatus(Status status)
+    {
+        _statuses.Remove(status);
+        Destroy(status.gameObject);
+    }
+
+    public virtual void OnTurnEnd()
+    {
+        statuses.ForEach(status => status.OnTurnEnd());
+    }
 }
