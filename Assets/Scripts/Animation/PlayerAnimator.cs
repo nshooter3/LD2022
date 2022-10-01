@@ -5,6 +5,9 @@ public class PlayerAnimator : MonoBehaviour
     [SerializeField]
     private Animator anim;
 
+    [SerializeField]
+    private DamageFlicker damageFlicker;
+
     // Update is called once per frame
     void Update()
     {
@@ -48,6 +51,7 @@ public class PlayerAnimator : MonoBehaviour
     public void Hurt()
     {
         anim.SetTrigger("Hurt");
+        damageFlicker.StartFlicker();
     }
 
     public void Die()
