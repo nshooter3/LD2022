@@ -24,6 +24,9 @@ public class BattleUI : MonoBehaviour
     [SerializeField]
     private GameObject selectionIndicator;
 
+    [SerializeField]
+    private MoveTimer moveTimer;
+
     private int chosenAction;
 
     private void Awake()
@@ -99,6 +102,8 @@ public class BattleUI : MonoBehaviour
         this.enemies = enemies;
 
         EventSystem.current.SetSelectedGameObject(firstSelectableAction.gameObject);
+
+        moveTimer.StartTimer(ChooseRandomAction);
     }
 
     public void ChooseAction(int actionIndex)
@@ -143,5 +148,12 @@ public class BattleUI : MonoBehaviour
         enemyDisplays.ForEach(display => display.SetTargetButtonActive(false));
 
         player.ChoosePlayerAction(actions[chosenAction], enemies);
+    }
+
+    private void ChooseRandomAction()
+    {
+        List<BattleParticipant> targetEnemies = new List<BattleParticipant>();
+        targetEnemies.Add(enemies[Random.Range(0, enemies.Count - 1)]);
+        player.ChoosePlayerAction(actions[Random.Range(0, actions.Count - 1)], targetEnemies);
     }
 }
