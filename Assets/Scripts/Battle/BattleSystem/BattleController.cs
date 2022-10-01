@@ -12,7 +12,7 @@ public class BattleController : MonoBehaviour
     private List<BattleParticipant> enemies;
 
     private List<BattleParticipant> battleParticipants = new List<BattleParticipant>();
-    public List<BattleParticipant> aliveEnemies { get { return enemies.FindAll(participant => !participant.Dead); } }
+    public List<BattleParticipant> aliveEnemies { get { return enemies.FindAll(participant => !participant.IsDead); } }
 
     private bool battleEnded;
 
@@ -43,6 +43,7 @@ public class BattleController : MonoBehaviour
 
     public void RunBattleTurn()
     {
+
         foreach (BattleParticipant target in player.targets)
         {
             RunAction(player, target);
@@ -55,7 +56,7 @@ public class BattleController : MonoBehaviour
 
         BattleUI.instance.UpdateHealth();
 
-        if (player.Dead)
+        if (player.IsDead)
         {
             LoseBattle();
         }
@@ -72,7 +73,7 @@ public class BattleController : MonoBehaviour
 
     private void RunAction(BattleParticipant user, BattleParticipant enemy)
     {
-        if (!user.Dead)
+        if (!user.IsDead)
         {
             user.currentAction.RunAction(user, enemy);
         }
