@@ -8,6 +8,8 @@ using UnityEngine.UI;
 
 public class SceneSelectDirector : MonoBehaviour
 {
+    public FMODUnity.StudioEventEmitter fmodSelectMusicEvent;
+
     // Assets (Might migrate UI assets specifically to its own script so this is only focused on Director)
     [SerializeField] List<EnemyEncounter> encounters;
     [SerializeField] GameObject animatingIconGroup;
@@ -41,6 +43,12 @@ public class SceneSelectDirector : MonoBehaviour
         UpdateRoster(director);
     }
 
+    private IEnumerator DelaySceneChange()
+    {
+        yield return new WaitForSeconds(1.5f);
+        SceneManager.LoadScene(battleScene);
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.LeftArrow))
@@ -68,7 +76,9 @@ public class SceneSelectDirector : MonoBehaviour
         if (Input.GetButtonDown("Submit"))
         {
             BattleOrchestrator.Instance.currentEncounter = encounters[iconIndex];
-            SceneManager.LoadScene(battleScene);
+            FMODUnity.RuntimeManager.PlayOneShot(FMODEventsAndParameters.ENEMY_SELECT_CURSOR_SELECT);
+            fmodSelectMusicEvent.Stop();
+            StartCoroutine(DelaySceneChange());
         }
     }
 

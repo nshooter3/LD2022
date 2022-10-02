@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571336, b: 0.3069219, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -729,7 +729,7 @@ MonoBehaviour:
     Path: event:/music/enemy_selection_music
   Event: 
   PlayEvent: 1
-  StopEvent: 2
+  StopEvent: 0
   AllowFadeout: 1
   TriggerOnce: 0
   Preload: 0
@@ -2299,6 +2299,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 193b208b375d3e54da09f47ede6fbd70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fmodSelectMusicEvent: {fileID: 498827850}
   encounters:
   - {fileID: 2542181326343833092, guid: 35f300e828e36496b96bb0035ee680f9, type: 3}
   - {fileID: 2542181326343833092, guid: 6d4e383d34a184cf1b0ddc35ce4f47e3, type: 3}
