@@ -179,6 +179,14 @@ public class BattleUI : MenuBase
 
     public void ChooseAction(int actionIndex)
     {
+        if (PopUpGenerator.instance.IsBlockingInput())
+        {
+            PopUpGenerator.instance.InterceptInput();
+            return;
+        }
+
+        PopUpGenerator.instance.ToggleSpawnPopups(false);
+
         PlaySelectSound();
 
         chosenAction = actionIndex;
@@ -298,6 +306,7 @@ public class BattleUI : MenuBase
         areaOfEffectSelectionIndicators.ForEach(indicator => indicator.SetActive(false));
         useAreaOfEffectIndicators = false;
         moveTimer.StopTimer();
+        PopUpGenerator.instance.ToggleSpawnPopups(false);
     }
 
     private BattleParticipantDisplay FindDisplayForParticipant(BattleParticipant participant)
