@@ -6006,6 +6006,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 185461839}
   fmodCountdownSFX: {fileID: 1767897840}
+  attackTextAnimation: {fileID: 3121892039281223010, guid: 679507323cd9844968aaae7b932e6e81, type: 3}
   loseScene: EnemySelect
   winScene: NewAction
   gameEndScene: GameEnd

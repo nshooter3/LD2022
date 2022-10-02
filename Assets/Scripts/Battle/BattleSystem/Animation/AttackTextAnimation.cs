@@ -1,7 +1,7 @@
 using TMPro;
 using UnityEngine;
 
-public class AttackAnimation : ActionAnimation
+public class AttackTextAnimation : ActionAnimation
 {
     [SerializeField]
     private TextMeshProUGUI text;

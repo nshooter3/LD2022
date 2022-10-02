@@ -18,7 +18,6 @@ public abstract class ActionAnimation : BattleAnimation
     public override void EndAnimation()
     {
         base.EndAnimation();
-        BattleUI.instance.UpdateStatBars();
         Destroy(gameObject);
     }
 }
