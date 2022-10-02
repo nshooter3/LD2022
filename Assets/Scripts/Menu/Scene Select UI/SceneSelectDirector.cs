@@ -68,8 +68,8 @@ public class SceneSelectDirector : MenuBase
         if (Input.GetButtonDown("Submit"))
         {
             BattleOrchestrator.Instance.currentEncounter = encounters[iconIndex];
-            PlaySelectSound();
-            SceneManager.LoadScene(battleScene);
+            FMODUnity.RuntimeManager.PlayOneShot(FMODEventsAndParameters.ENEMY_SELECT_CURSOR_SELECT);
+            ChangeScene(battleScene);
         }
     }
 

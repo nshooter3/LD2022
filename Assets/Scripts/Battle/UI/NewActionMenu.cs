@@ -38,6 +38,6 @@ public class NewActionMenu : MenuBase
     public void LoadNextScene()
     {
         PlaySelectSound();
-        SceneManager.LoadScene(nextScene);
+        ChangeScene(nextScene);
     }
 }

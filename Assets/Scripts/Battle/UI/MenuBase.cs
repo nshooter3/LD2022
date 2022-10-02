@@ -1,9 +1,16 @@
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public abstract class MenuBase : MonoBehaviour
 {
+    [SerializeField]
+    private FMODUnity.StudioEventEmitter fmodMusicEvent;
+
+    private const float SCENE_CHANGE_DELAY = 1.5f;
+
     private GameObject previousSelectorGameObject;
 
     protected virtual void Update()
@@ -29,5 +36,20 @@ public abstract class MenuBase : MonoBehaviour
     {
         EventSystem.current.SetSelectedGameObject(gameObject);
         previousSelectorGameObject = gameObject;
+    }
+
+    protected void ChangeScene(string newScene)
+    {
+        if (fmodMusicEvent != null)
+        {
+            fmodMusicEvent.Stop();
+        }
+        StartCoroutine(DelaySceneChange(newScene));
+    }
+
+    protected IEnumerator DelaySceneChange(string newScene)
+    {
+        yield return new WaitForSeconds(SCENE_CHANGE_DELAY);
+        SceneManager.LoadScene(newScene);
     }
 }

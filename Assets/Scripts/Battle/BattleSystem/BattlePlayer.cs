@@ -22,7 +22,7 @@ public class BattlePlayer : BattleParticipant
 
     public void SetActions(List<BattleAction> actions)
     {
-        this.actions = actions;
+        this.actions = new List<BattleAction>(actions);
     }
 
     /// <summary>

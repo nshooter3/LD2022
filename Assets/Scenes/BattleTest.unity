@@ -4284,6 +4284,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75496cf157afe4864843be12b4b8afc0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fmodMusicEvent: {fileID: 0}
   playerDisplay: {fileID: 23184721}
   enemyDisplays:
   - {fileID: 15487728}
@@ -5557,6 +5558,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 185461839}
   fmodCountdownSFX: {fileID: 1767897840}
+  nextScene: NewAction
 --- !u!4 &1767897839
 Transform:
   m_ObjectHideFlags: 0
@@ -6680,7 +6682,7 @@ PrefabInstance:
     - target: {fileID: 855153855562829089, guid: a2944855c72d94b558fe29fdc782cc02, type: 3}
       propertyPath: currentEncounter
       value: 
-      objectReference: {fileID: 2542181326343833092, guid: 6707e3c8d12024461905ce8bd2581a69, type: 3}
+      objectReference: {fileID: 2542181326343833092, guid: 413f50c48578843a4b3ea1b0fe28dbb7, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2944855c72d94b558fe29fdc782cc02, type: 3}
 --- !u!1001 &8246462256920963692
