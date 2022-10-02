@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class BattleAction : MonoBehaviour
@@ -21,6 +22,9 @@ public abstract class BattleAction : MonoBehaviour
     private bool areaOfEffect;
     public bool AreaOfEffect { get { return areaOfEffect; } }
 
+    [SerializeField]
+    private ActionAnimation battleAnimation;
+
     public void RunAction(BattleParticipant user, BattleParticipant target)
     {
         OnRunAction(user, target);
@@ -37,5 +41,14 @@ public abstract class BattleAction : MonoBehaviour
     public virtual BattleAction InstantiateAction(BattleParticipant user)
     {
         return Instantiate<BattleAction>(this, user.transform);
+    }
+
+    public ActionAnimation InstantiateAnimation(BattleParticipant user, List<BattleParticipant> targets)
+    {
+        ActionAnimation animation = Instantiate<ActionAnimation>(battleAnimation);
+        animation.action = this;
+        animation.gameObject.SetActive(false);
+        animation.SetParticipants(user, targets);
+        return animation;
     }
 }

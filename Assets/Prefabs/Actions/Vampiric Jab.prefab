@@ -50,6 +50,7 @@ MonoBehaviour:
   mpCost: 0
   targetSelf: 0
   areaOfEffect: 0
+  battleAnimation: {fileID: 0}
 --- !u!114 &151773535136298870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66,6 +67,7 @@ MonoBehaviour:
   mpCost: 0
   targetSelf: 0
   areaOfEffect: 0
+  battleAnimation: {fileID: 3121892039281223010, guid: 679507323cd9844968aaae7b932e6e81, type: 3}
   damage: 7
   recoil: 0
   elementType: 3
@@ -85,4 +87,5 @@ MonoBehaviour:
   mpCost: 0
   targetSelf: 0
   areaOfEffect: 0
+  battleAnimation: {fileID: 0}
   healAmount: 7

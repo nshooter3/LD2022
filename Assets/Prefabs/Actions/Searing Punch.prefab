@@ -45,7 +45,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionName: Searing Punch
+  mpCost: 0
+  targetSelf: 0
+  areaOfEffect: 0
+  battleAnimation: {fileID: 3121892039281223010, guid: 679507323cd9844968aaae7b932e6e81, type: 3}
   damage: 8
   recoil: 0
-  mpCost: 0
   elementType: 0

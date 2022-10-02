@@ -48,4 +48,5 @@ MonoBehaviour:
   mpCost: 40
   targetSelf: 1
   areaOfEffect: 0
+  battleAnimation: {fileID: 3121892039281223010, guid: 679507323cd9844968aaae7b932e6e81, type: 3}
   healAmount: 999
