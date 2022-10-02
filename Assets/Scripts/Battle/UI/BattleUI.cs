@@ -32,6 +32,8 @@ public class BattleUI : MonoBehaviour
 
     private int chosenAction;
 
+    private GameObject previousSelectorGameObject;
+
     private void Awake()
     {
         instance = this;
@@ -132,13 +134,15 @@ public class BattleUI : MonoBehaviour
         }
         this.actions = actions;
 
-        EventSystem.current.SetSelectedGameObject(firstSelectableAction.gameObject);
+        SetSelectedGameObject(firstSelectableAction.gameObject);
 
         moveTimer.StartTimer(ChooseRandomAction);
     }
 
     public void ChooseAction(int actionIndex)
     {
+        FMODUnity.RuntimeManager.PlayOneShot(FMODEventsAndParameters.CURSOR_SELECT);
+
         chosenAction = actionIndex;
         BattleAction action = actions[chosenAction];
 
@@ -168,7 +172,7 @@ public class BattleUI : MonoBehaviour
             }
         }
 
-        EventSystem.current.SetSelectedGameObject(firstSelectableEnemyDisplay.gameObject);
+        SetSelectedGameObject(firstSelectableEnemyDisplay.gameObject);
 
         if (action.AreaOfEffect)
         {
@@ -191,12 +195,20 @@ public class BattleUI : MonoBehaviour
 
         List<BattleParticipant> targets = GetTargets(targetIndex);
         player.ChoosePlayerAction(actions[chosenAction], targets);
+        FMODUnity.RuntimeManager.PlayOneShot(FMODEventsAndParameters.CURSOR_SELECT);
     }
 
     private void PositionSelectionIndicator(GameObject targetObject, GameObject currentSelectionIndicator)
     {
         currentSelectionIndicator.transform.position = targetObject.transform.position + Vector3.left * 60;
         currentSelectionIndicator.SetActive(true);
+
+
+        if (previousSelectorGameObject != targetObject)
+        {
+            FMODUnity.RuntimeManager.PlayOneShot(FMODEventsAndParameters.CURSOR_MOVE);
+        }
+        previousSelectorGameObject = targetObject;
     }
 
     private void ChooseRandomAction()
@@ -246,8 +258,14 @@ public class BattleUI : MonoBehaviour
 
     private void HideSelectionIndicators()
     {
-        EventSystem.current.SetSelectedGameObject(null);
+        SetSelectedGameObject(null);
         areaOfEffectSelectionIndicators.ForEach(indicator => indicator.SetActive(false));
         useAreaOfEffectIndicators = false;
+    }
+
+    private void SetSelectedGameObject(GameObject gameObject)
+    {
+        EventSystem.current.SetSelectedGameObject(gameObject);
+        previousSelectorGameObject = gameObject;
     }
 }

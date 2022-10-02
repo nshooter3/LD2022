@@ -67,12 +67,14 @@ public class SceneSelectDirector : MonoBehaviour
     {
         director.stopped += UpdateRoster;
         director.Play(goLeftTimeline);
+        FMODUnity.RuntimeManager.PlayOneShot(FMODEventsAndParameters.ENEMY_SELECT_CURSOR_MOVE);
     }
 
     public void PlayRightScroll()
     {
         director.stopped += UpdateRoster;
         director.Play(goRightTimeline);
+        FMODUnity.RuntimeManager.PlayOneShot(FMODEventsAndParameters.ENEMY_SELECT_CURSOR_MOVE);
     }
 
     private void UpdateRoster(PlayableDirector director)
@@ -105,5 +107,4 @@ public class SceneSelectDirector : MonoBehaviour
 
         //onFinished?.Invoke();
     }
-
 }
