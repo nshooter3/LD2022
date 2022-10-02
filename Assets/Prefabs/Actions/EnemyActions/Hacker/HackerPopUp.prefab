@@ -49,4 +49,4 @@ MonoBehaviour:
   targetSelf: 0
   areaOfEffect: 0
   battleAnimation: {fileID: 2815643081771685000, guid: 052a4cf6aec053a4cac4418f3cca64f9, type: 3}
-  status: {fileID: 4659981809122725016, guid: 3d115f7f966fcc342b1b94c117196294, type: 3}
+  status: {fileID: 1339176180315562152, guid: 3d115f7f966fcc342b1b94c117196294, type: 3}
