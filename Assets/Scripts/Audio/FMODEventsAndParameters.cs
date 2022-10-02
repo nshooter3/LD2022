@@ -1,11 +1,15 @@
 public class FMODEventsAndParameters
 {
     public const string ENCOUNTER_CONTROLLER = "encounter_controller";
+    public const string COUNTDOWN_TIMER = "countdown_timer";
 
     #region FMOD Events
 
     // Battle
     public const string COUNTDOWN_SELECTION_FAIL = "event:/sfx/battle/countdown_selection_fail";
+    public const string COUNTDOWN_TICK = "event:/sfx/battle/countdown_tick";
+    public const string PLAYER_DEATH = "event:/sfx/abilities/player/misc/player_death";
+    public const string ENEMY_DEATH = "event:/sfx/abilities/enemy/misc/enemy_death";
 
 
     // UI

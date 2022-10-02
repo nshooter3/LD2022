@@ -9,6 +9,7 @@ public class Heal : BattleAction
     /// </summary>
     [SerializeField]
     private int healAmount;
+    public int HealAmount { get { return healAmount; } }
 
     public override string GetIntentDisplay()
     {

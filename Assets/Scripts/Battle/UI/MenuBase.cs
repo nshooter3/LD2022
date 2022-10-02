@@ -9,6 +9,8 @@ public abstract class MenuBase : MonoBehaviour
     [SerializeField]
     private FMODUnity.StudioEventEmitter fmodMusicEvent;
 
+    public bool useBaseCursorAudio = true;
+
     private const float SCENE_CHANGE_DELAY = 1.5f;
 
     private GameObject previousSelectorGameObject;
@@ -24,12 +26,26 @@ public abstract class MenuBase : MonoBehaviour
 
     protected void PlayMoveSound()
     {
-        FMODUnity.RuntimeManager.PlayOneShot(FMODEventsAndParameters.CURSOR_MOVE);
+        if (useBaseCursorAudio)
+        {
+            FMODUnity.RuntimeManager.PlayOneShot(FMODEventsAndParameters.CURSOR_MOVE);
+        }
+        else
+        {
+            FMODUnity.RuntimeManager.PlayOneShot(FMODEventsAndParameters.ENEMY_SELECT_CURSOR_MOVE);
+        }
     }
 
     protected void PlaySelectSound()
     {
-        FMODUnity.RuntimeManager.PlayOneShot(FMODEventsAndParameters.CURSOR_SELECT);
+        if (useBaseCursorAudio)
+        {
+            FMODUnity.RuntimeManager.PlayOneShot(FMODEventsAndParameters.CURSOR_SELECT);
+        }
+        else
+        {
+            FMODUnity.RuntimeManager.PlayOneShot(FMODEventsAndParameters.ENEMY_SELECT_CURSOR_SELECT);
+        }
     }
 
     public void SetSelectedGameObject(GameObject gameObject)

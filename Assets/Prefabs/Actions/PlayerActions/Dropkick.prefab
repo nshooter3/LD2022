@@ -49,6 +49,7 @@ MonoBehaviour:
   targetSelf: 0
   areaOfEffect: 0
   battleAnimation: {fileID: 5604767406992085730, guid: f15beb55d6a7e2f4cb9f06046888610d, type: 3}
-  damage: 35
+  description: A desperate full body attack that deals massive damage to an enemy.
   recoil: 4
+  damage: 35
   elementType: 3

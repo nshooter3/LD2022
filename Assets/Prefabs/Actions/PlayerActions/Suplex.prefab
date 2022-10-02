@@ -49,6 +49,7 @@ MonoBehaviour:
   targetSelf: 0
   areaOfEffect: 0
   battleAnimation: {fileID: 1654458526421221007, guid: a5e875f6f03c54d42aa7d42fc8eb0098, type: 3}
-  damage: 17
+  description: A powerful grapple that deals big damage to an enemy.
   recoil: 0
+  damage: 17
   elementType: 3
