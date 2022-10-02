@@ -29,6 +29,7 @@ public class MoveTimer : MonoBehaviour
     public void StopTimer()
     {
         gameObject.SetActive(false);
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByName(FMODEventsAndParameters.COUNTDOWN_TIMER, 10f);
     }
 
     // Update is called once per frame
