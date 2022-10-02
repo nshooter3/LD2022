@@ -10,11 +10,10 @@ public class BattleController : MonoBehaviour
 
     [SerializeField]
     private BattlePlayer player;
-    [SerializeField]
-    private List<BattleParticipant> enemies;
+    private List<Enemy> enemies;
 
     private List<BattleParticipant> battleParticipants = new List<BattleParticipant>();
-    public List<BattleParticipant> aliveEnemies { get { return enemies.FindAll(participant => !participant.Dead); } }
+    public List<Enemy> aliveEnemies { get { return enemies.FindAll(participant => !participant.Dead); } }
 
     public FMODUnity.StudioEventEmitter fmodCountdownSFX;
 
@@ -27,10 +26,11 @@ public class BattleController : MonoBehaviour
 
     private void Start()
     {
-        StartBattle(enemies);
+        enemies = BattleOrchestrator.Instance.currentEncounter.SpawnEnemies();
+        StartBattle();
     }
 
-    private void StartBattle(List<BattleParticipant> enemies)
+    private void StartBattle()
     {
         battleParticipants.Add(player);
         enemies.ForEach(enemy => battleParticipants.Add(enemy));
