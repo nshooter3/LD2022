@@ -22,7 +22,7 @@ public class StatusDisplay : MonoBehaviour
         foreach (var status in battleParticipant.statuses)
         {
             statusIcons[statusIconIndex].gameObject.SetActive(true);
-            statusIcons[statusIconIndex].sprite = status.StatusSprite;
+            statusIcons[statusIconIndex].sprite = status.statusSprite;
             ++statusIconIndex;
         }
     }

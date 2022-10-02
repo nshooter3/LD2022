@@ -126,6 +126,16 @@ public class BattleUI : MenuBase
         }
     }
 
+    public void UpdateStatus()
+    {
+        playerDisplay.DisplayStatus();
+        /*
+        for (int i = 0; i < enemies.Count; i++)
+        {
+            enemyDisplays[i].DisplayStatus();
+        }*/
+    }
+
     public void UpdateIntents()
     {
         for (int i = 0; i < enemies.Count; i++)

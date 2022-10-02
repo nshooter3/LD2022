@@ -12,6 +12,8 @@ public class BattleParticipantDisplay : MonoBehaviour
     private TextMeshProUGUI intentText;
     public int maxHp { private get; set; }
 
+    public StatusDisplay statusPanel;
+
     public void SetHealth(int health)
     {
         SetBarValue(healthBar, health, maxHp);
@@ -30,5 +32,10 @@ public class BattleParticipantDisplay : MonoBehaviour
     public void SetIntent(string intent)
     {
         intentText.text = intent;
+    }
+
+    public void DisplayStatus()
+    {
+        statusPanel.DisplayStatus();
     }
 }
