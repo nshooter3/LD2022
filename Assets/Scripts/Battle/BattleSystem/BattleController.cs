@@ -61,7 +61,6 @@ public class BattleController : MonoBehaviour
     {
         SetFMODEncounterParameter((float)EncounterControllerValues.Idle);
         fmodCountdownSFX.Stop();
-
         StartCoroutine(RunBattleTurnCoroutine());
     }
 
@@ -85,8 +84,8 @@ public class BattleController : MonoBehaviour
             }
             yield return WaitForAnimationCompletion();
         }
-
         battleParticipants.ForEach(participant => participant.OnTurnEnd());
+        BattleUI.instance.UpdateStatBars();
         yield return WaitForAnimationCompletion();
 
         if (player.Dead)
