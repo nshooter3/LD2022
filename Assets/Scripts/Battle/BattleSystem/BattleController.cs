@@ -23,7 +23,11 @@ public class BattleController : MonoBehaviour
     private bool battleEnded;
 
     [SerializeField]
-    private string nextScene;
+    private string loseScene;
+    [SerializeField]
+    private string winScene;
+    [SerializeField]
+    private string gameEndScene;
 
     private void Awake()
     {
@@ -120,21 +124,32 @@ public class BattleController : MonoBehaviour
 
     private void LoseBattle()
     {
-        Debug.Log("You lost!");
-        battleEnded = true;
         SetFMODEncounterParameter((float)EncounterControllerValues.PlayerDies);
+        ChangeScene(loseScene);
     }
 
     private void WinBattle()
     {
-        Debug.Log("You won!");
-        battleEnded = true;
+        BattleOrchestrator.Instance.CompleteEncounter();
         SetFMODEncounterParameter((float)EncounterControllerValues.EnemyDefeated);
-        fmodCountdownSFX.Stop();
-        StartCoroutine(DelaySceneChange());
+        if (BattleOrchestrator.Instance.currentEncounter.FinalBoss)
+        {
+            ChangeScene(gameEndScene);
+        }
+        else
+        {
+            ChangeScene(winScene);
+        }
     }
 
-    private IEnumerator DelaySceneChange()
+    private void ChangeScene(string nextScene)
+    {
+        battleEnded = true;
+        fmodCountdownSFX.Stop();
+        StartCoroutine(DelaySceneChange(nextScene));
+    }
+
+    private IEnumerator DelaySceneChange(string nextScene)
     {
         yield return new WaitForSeconds(SCENE_CHANGE_DELAY);
         SceneManager.LoadScene(nextScene);

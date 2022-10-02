@@ -2317,13 +2317,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fmodMusicEvent: {fileID: 498827850}
-  encounters:
-  - {fileID: 2542181326343833092, guid: 35f300e828e36496b96bb0035ee680f9, type: 3}
-  - {fileID: 2542181326343833092, guid: 6d4e383d34a184cf1b0ddc35ce4f47e3, type: 3}
-  - {fileID: 2542181326343833092, guid: 72566664adc7b4a2392bceaf4e2508f9, type: 3}
-  - {fileID: 2542181326343833092, guid: 31cd1f4ada8624c00a97779ccfd5d53f, type: 3}
-  - {fileID: 2542181326343833092, guid: f104edae820284657a949e80caa719c0, type: 3}
-  - {fileID: 2542181326343833092, guid: 2c41eecdb07fb4e4da67f9c9c3ebe0d1, type: 3}
   animatingIconGroup: {fileID: 1368809566}
   goLeftTimeline: {fileID: 11400000, guid: 18fbeaa391e59f845a81d558ca708071, type: 2}
   goRightTimeline: {fileID: 11400000, guid: a5b2abbf58585134182d7d8c2230ba3f, type: 2}
@@ -2332,3 +2325,5 @@ MonoBehaviour:
   - {fileID: 200944160}
   - {fileID: 713443920}
   battleScene: BattleTest
+  lockColor: {r: 0, g: 0, b: 0, a: 1}
+  completedColor: {r: 1, g: 0, b: 0, a: 1}

@@ -29,10 +29,6 @@ public abstract class Status : MonoBehaviour, IEquatable<Status>
 
     public bool Equals(Status otherStatus)
     {
-        if (this.GetType() == otherStatus.GetType())
-        {
-            return true;
-        }
-        return false;
+        return GetType() == otherStatus.GetType();
     }
 }
