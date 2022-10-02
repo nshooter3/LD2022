@@ -9,12 +9,6 @@ public class Attack : BattleAction
     private int damage;
 
     /// <summary>
-    /// The Recoil Damage the attack does.
-    /// </summary>
-    [SerializeField]
-    private int recoil;
-
-    /// <summary>
     /// Element type of attack to apply.
     /// </summary>
     [SerializeField]

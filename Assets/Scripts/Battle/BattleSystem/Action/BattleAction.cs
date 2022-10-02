@@ -25,6 +25,17 @@ public abstract class BattleAction : MonoBehaviour
     [SerializeField]
     private ActionAnimation battleAnimation;
 
+    [SerializeField]
+    private string description;
+    public string Description { get { return description; } }
+
+    /// <summary>
+    /// The Recoil Damage the attack does.
+    /// </summary>
+    [SerializeField]
+    protected int recoil;
+    public int Recoil { get { return recoil; } }
+
     public void RunAction(BattleParticipant user, BattleParticipant target)
     {
         OnRunAction(user, target);
