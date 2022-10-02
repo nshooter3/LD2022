@@ -8,6 +8,7 @@
 {416b9ac7-0f06-47a8-8a44-1a4fd6a0ccfc} event:/music/encounter_music
 {3d4ef981-a2f6-4dcf-8d58-9bdbcee4a3bf} event:/music/enemy_selection_music
 {71171e48-735f-4265-87db-321dd5deb1d5} event:/music/win_screen_music
+{23aba737-4868-42e9-8a6a-e3eed78905d8} event:/sfx/abilities/player/misc/player_death
 {5d340d29-17f0-417f-9ae8-661484822477} event:/sfx/abilities/player/physical/strike
 {6765699f-d77b-4ece-a783-1a7f0679dbb6} event:/sfx/battle/countdown
 {b34b3dc9-e6f3-4ca4-aaf1-06f28ce9e235} event:/sfx/battle/countdown_selection_fail
