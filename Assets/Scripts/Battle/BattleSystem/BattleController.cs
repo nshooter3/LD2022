@@ -15,6 +15,8 @@ public class BattleController : MonoBehaviour
     private List<BattleParticipant> battleParticipants = new List<BattleParticipant>();
     public List<BattleParticipant> aliveEnemies { get { return enemies.FindAll(participant => !participant.Dead); } }
 
+    public FMODUnity.StudioEventEmitter fmodCountdownSFX;
+
     private bool battleEnded;
 
     private void Awake()
@@ -44,11 +46,13 @@ public class BattleController : MonoBehaviour
         battleParticipants.ForEach(participant => participant.ChooseAction());
         BattleUI.instance.UpdateIntents();
         SetFMODEncounterParameter((float)EncounterControllerValues.Action);
+        fmodCountdownSFX.Play();
     }
 
     public void RunBattleTurn()
     {
         SetFMODEncounterParameter((float)EncounterControllerValues.Idle);
+        fmodCountdownSFX.Stop();
 
         foreach (BattleParticipant target in player.targets)
         {

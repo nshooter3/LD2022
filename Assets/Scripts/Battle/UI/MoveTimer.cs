@@ -42,6 +42,7 @@ public class MoveTimer : MonoBehaviour
             if (Expired)
             {
                 timeExpiredAction.Invoke();
+                FMODUnity.RuntimeManager.PlayOneShot(FMODEventsAndParameters.COUNTDOWN_SELECTION_FAIL);
             }
         }
     }
