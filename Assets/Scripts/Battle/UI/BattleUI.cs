@@ -177,6 +177,14 @@ public class BattleUI : MenuBase
 
     public void ChooseAction(int actionIndex)
     {
+        if (PopUpGenerator.instance.IsBlockingInput())
+        {
+            PopUpGenerator.instance.InterceptInput();
+            return;
+        }
+
+        PopUpGenerator.instance.ToggleSpawnPopups(false);
+
         PlaySelectSound();
 
         chosenAction = actionIndex;
