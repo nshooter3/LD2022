@@ -1801,8 +1801,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfc93a116538863428cf3a9df322cdb2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  popUps: []
   popUp: {fileID: 7858901125204068475, guid: fc8611e3786477a41ac9e53448c78ed7, type: 3}
-  timeBetweenPopUps: 1
+  minTime: 0.5
+  maxTime: 1.5
+  hasLastPopup: 0
 --- !u!4 &306845202
 Transform:
   m_ObjectHideFlags: 0
@@ -3401,10 +3404,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 102152154, guid: fc8611e3786477a41ac9e53448c78ed7, type: 3}
-      propertyPath: popInDuration
-      value: 5
-      objectReference: {fileID: 0}
     - target: {fileID: 5178031867653095599, guid: fc8611e3786477a41ac9e53448c78ed7, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
