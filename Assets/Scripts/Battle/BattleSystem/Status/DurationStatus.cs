@@ -22,12 +22,17 @@ public abstract class DurationStatus : Status
         turnsRemaining = statusDuration;
     }
 
-    public void TickTurnDuration()
+    public override void OnTurnEnd()
     {
-        if (turnsRemaining > 0)
+        TickTurnDuration();
+        if (TurnsRemaining <= 0)
         {
-            --turnsRemaining;
+            RemoveStatus();
         }
     }
 
+    public void TickTurnDuration()
+    {
+        --turnsRemaining;
+    }
 }

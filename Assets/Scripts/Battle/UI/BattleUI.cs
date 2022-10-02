@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using TMPro;
@@ -34,6 +35,8 @@ public class BattleUI : MenuBase
     private ActionDescriptions actionDescriptions;
 
     private Queue<BattleAnimation> animationQueue = new Queue<BattleAnimation>();
+
+    private List<BattleUIInterference> interferences = new List<BattleUIInterference>();
 
     public bool AnimationsComplete { get { return animationQueue.Count == 0; } }
 
@@ -139,7 +142,6 @@ public class BattleUI : MenuBase
             if (!enemies[i].Dead)
             {
                 enemyDisplays[i].SetIntent(enemies[i].currentAction.GetIntentDisplay());
-
             }
         }
     }
@@ -177,6 +179,8 @@ public class BattleUI : MenuBase
             }
         }
 
+        interferences.ForEach(interference => interference.StartInterference(gameObject));
+
         SetSelectedGameObject(firstSelectableAction.gameObject);
 
         moveTimer.StartTimer(ChooseRandomAction);
@@ -196,13 +200,10 @@ public class BattleUI : MenuBase
 
     public void ChooseAction(int actionIndex)
     {
-        if (PopUpGenerator.instance.IsBlockingInput())
+        if (!ShouldAllowActionInput())
         {
-            PopUpGenerator.instance.InterceptInput();
             return;
         }
-
-        PopUpGenerator.instance.ToggleSpawnPopups(false);
 
         PlaySelectSound();
 
@@ -252,21 +253,47 @@ public class BattleUI : MenuBase
 
     public void ChooseTarget(int targetIndex)
     {
+        if (!ShouldAllowActionInput())
+        {
+            return;
+        }
+
         HideSelectionIndicators();
         enemyDisplays.ForEach(display => display.SetTargetButtonActive(false));
         playerDisplay.SetTargetButtonActive(false);
 
         List<BattleParticipant> targets = GetTargets(targetIndex);
         player.ChoosePlayerAction(actions[chosenAction], targets);
-        foreach (BattleParticipantDisplay enemyDisplay in enemyDisplays){
-            enemyDisplay.SetIntent("NoIntent");
-        }
         FMODUnity.RuntimeManager.PlayOneShot(FMODEventsAndParameters.CURSOR_SELECT);
     }
 
     public void QueueAnimation(BattleAnimation animation)
     {
         animationQueue.Enqueue(animation);
+    }
+
+    public void AddInterference(BattleUIInterference interference)
+    {
+        interferences.Add(interference);
+    }
+
+    public void RemoveInterference(Type interferenceType)
+    {
+        int interferenceIndex = interferences.FindIndex(interference => interference.GetType() == interferenceType);
+        if (interferenceIndex >= 0)
+        {
+            interferences.RemoveAt(interferenceIndex);
+        }
+    }
+
+    private bool ShouldAllowActionInput()
+    {
+        bool allowInput = true;
+        foreach (BattleUIInterference interference in interferences)
+        {
+            allowInput = interference.OnActionSelectInput() && allowInput;
+        }
+        return allowInput;
     }
 
     private void PositionSelectionIndicator(GameObject targetObject, GameObject currentSelectionIndicator)
@@ -296,15 +323,11 @@ public class BattleUI : MenuBase
             }
         }
 
-        List<BattleParticipant> randomTargets = GetTargets(eligibleEnemies[Random.Range(0, eligibleEnemies.Count - 1)]);
-        BattleAction randomAction = actions[eligibleActions[Random.Range(0, eligibleActions.Count - 1)]];
+        List<BattleParticipant> randomTargets = GetTargets(eligibleEnemies[UnityEngine.Random.Range(0, eligibleEnemies.Count - 1)]);
+        BattleAction randomAction = actions[eligibleActions[UnityEngine.Random.Range(0, eligibleActions.Count - 1)]];
         player.ChoosePlayerAction(randomAction, randomTargets);
-        foreach (BattleParticipantDisplay enemyDisplay in enemyDisplays)
-        {
-            enemyDisplay.SetIntent("NoIntent");
-            break;
-        }
     }
+
     private List<BattleParticipant> GetTargets(int targetIndex)
     {
         BattleAction action = actions[chosenAction];
@@ -330,7 +353,14 @@ public class BattleUI : MenuBase
         areaOfEffectSelectionIndicators.ForEach(indicator => indicator.SetActive(false));
         useAreaOfEffectIndicators = false;
         moveTimer.StopTimer();
-        PopUpGenerator.instance.ToggleSpawnPopups(false);
+        foreach (BattleParticipantDisplay enemyDisplay in enemyDisplays)
+        {
+            enemyDisplay.SetIntent("NoIntent");
+        }
+        foreach (BattleUIInterference interference in interferences)
+        {
+            interference.OnActionSelectionEnd();
+        }
     }
 
     private BattleParticipantDisplay FindDisplayForParticipant(BattleParticipant participant)

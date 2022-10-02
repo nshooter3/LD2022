@@ -9,7 +9,7 @@ public class BattleController : MonoBehaviour
 {
     public static BattleController instance { get; private set; }
 
-    private const float SCENE_CHANGE_DELAY = 6f;
+    private const float SCENE_CHANGE_DELAY = 4f;
 
     [SerializeField]
     private BattlePlayer player;
@@ -35,6 +35,7 @@ public class BattleController : MonoBehaviour
     private void Awake()
     {
         instance = this;
+        SetFMODEncounterParameter((float)EncounterControllerValues.StartBattle);
     }
 
     private void Start()
@@ -48,9 +49,6 @@ public class BattleController : MonoBehaviour
     {
         battleParticipants.Add(player);
         enemies.ForEach(enemy => battleParticipants.Add(enemy));
-
-        SetFMODEncounterParameter((float)EncounterControllerValues.StartBattle);
-
         battleParticipants.ForEach(participant => participant.Initialize());
         BattleUI.instance.Initialize(player, enemies);
         ChooseActions();
@@ -131,6 +129,7 @@ public class BattleController : MonoBehaviour
     private void LoseBattle()
     {
         SetFMODEncounterParameter((float)EncounterControllerValues.PlayerDies);
+        FMODUnity.RuntimeManager.PlayOneShot(FMODEventsAndParameters.PLAYER_DEATH);
         ChangeScene(loseScene);
     }
 
