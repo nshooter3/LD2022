@@ -30,7 +30,13 @@ public class BattleUI : MonoBehaviour
     [SerializeField]
     private MoveTimer moveTimer;
 
+    private Queue<BattleAnimation> animationQueue = new Queue<BattleAnimation>();
+
+    public bool AnimationsComplete { get { return animationQueue.Count == 0; } }
+
     private int chosenAction;
+
+    private GameObject previousSelectorGameObject;
 
     private void Awake()
     {
@@ -48,6 +54,34 @@ public class BattleUI : MonoBehaviour
             else
             {
                 PositionSelectionIndicator(EventSystem.current.currentSelectedGameObject, selectionIndicator);
+            }
+        }
+
+        if (!AnimationsComplete)
+        {
+            BattleAnimation currentAnimation = animationQueue.Peek();
+            if (!currentAnimation.started)
+            {
+                BattleParticipantDisplay userDisplay = null;
+                List<BattleParticipantDisplay> targetDisplays = new List<BattleParticipantDisplay>();
+                if (currentAnimation.user != null)
+                {
+                    userDisplay = FindDisplayForParticipant(currentAnimation.user);
+                }
+                foreach (BattleParticipant target in currentAnimation.targets)
+                {
+                    targetDisplays.Add(FindDisplayForParticipant(target));
+                }
+                currentAnimation.StartAnimation(userDisplay, targetDisplays);
+            }
+            else if (currentAnimation.IsAnimationFinished())
+            {
+                animationQueue.Dequeue();
+                currentAnimation.EndAnimation();
+            }
+            else
+            {
+                currentAnimation.UpdateAnimation();
             }
         }
     }
@@ -106,6 +140,12 @@ public class BattleUI : MonoBehaviour
 
     public void PromptAction(List<BattleAction> actions)
     {
+        this.actions = actions;
+        animationQueue.Enqueue(gameObject.AddComponent<DisplayActionAnimation>());
+    }
+
+    public void DisplayActionPrompt()
+    {
         Button firstSelectableAction = null;
         for (int i = 0; i < actionButtons.Count; i++)
         {
@@ -130,15 +170,16 @@ public class BattleUI : MonoBehaviour
                 }
             }
         }
-        this.actions = actions;
 
-        EventSystem.current.SetSelectedGameObject(firstSelectableAction.gameObject);
+        SetSelectedGameObject(firstSelectableAction.gameObject);
 
         moveTimer.StartTimer(ChooseRandomAction);
     }
 
     public void ChooseAction(int actionIndex)
     {
+        FMODUnity.RuntimeManager.PlayOneShot(FMODEventsAndParameters.CURSOR_SELECT);
+
         chosenAction = actionIndex;
         BattleAction action = actions[chosenAction];
 
@@ -168,7 +209,7 @@ public class BattleUI : MonoBehaviour
             }
         }
 
-        EventSystem.current.SetSelectedGameObject(firstSelectableEnemyDisplay.gameObject);
+        SetSelectedGameObject(firstSelectableEnemyDisplay.gameObject);
 
         if (action.AreaOfEffect)
         {
@@ -191,12 +232,25 @@ public class BattleUI : MonoBehaviour
 
         List<BattleParticipant> targets = GetTargets(targetIndex);
         player.ChoosePlayerAction(actions[chosenAction], targets);
+        FMODUnity.RuntimeManager.PlayOneShot(FMODEventsAndParameters.CURSOR_SELECT);
+    }
+
+    public void QueueAnimation(BattleAnimation animation)
+    {
+        animationQueue.Enqueue(animation);
     }
 
     private void PositionSelectionIndicator(GameObject targetObject, GameObject currentSelectionIndicator)
     {
         currentSelectionIndicator.transform.position = targetObject.transform.position + Vector3.left * 60;
         currentSelectionIndicator.SetActive(true);
+
+
+        if (previousSelectorGameObject != targetObject)
+        {
+            FMODUnity.RuntimeManager.PlayOneShot(FMODEventsAndParameters.CURSOR_MOVE);
+        }
+        previousSelectorGameObject = targetObject;
     }
 
     private void ChooseRandomAction()
@@ -246,8 +300,24 @@ public class BattleUI : MonoBehaviour
 
     private void HideSelectionIndicators()
     {
-        EventSystem.current.SetSelectedGameObject(null);
+        SetSelectedGameObject(null);
         areaOfEffectSelectionIndicators.ForEach(indicator => indicator.SetActive(false));
         useAreaOfEffectIndicators = false;
+        moveTimer.StopTimer();
+    }
+
+    private BattleParticipantDisplay FindDisplayForParticipant(BattleParticipant participant)
+    {
+        if (participant == player)
+        {
+            return playerDisplay;
+        }
+        return enemyDisplays[enemies.FindIndex(p => p == participant)];
+    }
+
+    private void SetSelectedGameObject(GameObject gameObject)
+    {
+        EventSystem.current.SetSelectedGameObject(gameObject);
+        previousSelectorGameObject = gameObject;
     }
 }

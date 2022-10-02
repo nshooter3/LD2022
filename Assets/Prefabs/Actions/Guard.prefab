@@ -48,4 +48,5 @@ MonoBehaviour:
   mpCost: 0
   targetSelf: 1
   areaOfEffect: 0
+  battleAnimation: {fileID: 3121892039281223010, guid: 679507323cd9844968aaae7b932e6e81, type: 3}
   status: {fileID: -2571575862629369259, guid: 43db8d3f093c44179b16a7509b068c32, type: 3}

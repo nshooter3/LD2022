@@ -2,8 +2,15 @@
 {e2c66875-b45f-0373-1311-ba23aea48df0} bank:/Master.strings
 {f260cab5-d569-4d41-9bc0-cfe9d7814066} bank:/Music
 {3bb0b093-c473-4873-87b3-b530822cfd42} bank:/SFX
+{f1169cc8-3f0b-4c7e-ba54-57f87cc849a2} bank:/UI
 {47d0b882-a182-47b5-8fe0-1430d83cab9e} bus:/
 {80884dbe-6f79-45a9-ad0a-1263910bf1a7} bus:/Reverb
 {416b9ac7-0f06-47a8-8a44-1a4fd6a0ccfc} event:/music/encounter_music
 {3d4ef981-a2f6-4dcf-8d58-9bdbcee4a3bf} event:/music/enemy_selection_music
+{6765699f-d77b-4ece-a783-1a7f0679dbb6} event:/sfx/battle/countdown
+{b34b3dc9-e6f3-4ca4-aaf1-06f28ce9e235} event:/sfx/battle/countdown_selection_fail
+{b117dd7e-b732-4c8f-98bd-8a05d965fcea} event:/ui/cursor_move
+{8bfd5b7f-4b07-4062-aa29-7d1c0ca5b88a} event:/ui/cursor_select
+{abfc4563-8538-45ce-85e2-192db1c981f3} event:/ui/enemy_select_cursor_move
+{3f005bd8-6c9a-4839-bf63-1fb10bdd4ec9} event:/ui/enemy_select_cursor_select
 {124b8d07-05e6-4ec7-8f86-cbc728291623} parameter:/encounter_controller
