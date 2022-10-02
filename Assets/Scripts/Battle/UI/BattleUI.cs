@@ -5,13 +5,13 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class BattleUI : MonoBehaviour
+public class BattleUI : MenuBase
 {
     public static BattleUI instance { get; private set; }
 
     private BattlePlayer player;
     private List<BattleAction> actions;
-    private List<BattleParticipant> enemies;
+    private List<Enemy> enemies;
 
     [SerializeField]
     private PlayerDisplay playerDisplay;
@@ -36,15 +36,14 @@ public class BattleUI : MonoBehaviour
 
     private int chosenAction;
 
-    private GameObject previousSelectorGameObject;
-
     private void Awake()
     {
         instance = this;
     }
 
-    private void Update()
+    protected override void Update()
     {
+        base.Update();
         if (!useAreaOfEffectIndicators)
         {
             if (EventSystem.current.currentSelectedGameObject == null)
@@ -86,7 +85,7 @@ public class BattleUI : MonoBehaviour
         }
     }
 
-    public void Initialize(BattlePlayer player, List<BattleParticipant> enemies)
+    public void Initialize(BattlePlayer player, List<Enemy> enemies)
     {
         this.player = player;
         this.enemies = enemies;
@@ -178,7 +177,7 @@ public class BattleUI : MonoBehaviour
 
     public void ChooseAction(int actionIndex)
     {
-        FMODUnity.RuntimeManager.PlayOneShot(FMODEventsAndParameters.CURSOR_SELECT);
+        PlaySelectSound();
 
         chosenAction = actionIndex;
         BattleAction action = actions[chosenAction];
@@ -244,13 +243,6 @@ public class BattleUI : MonoBehaviour
     {
         currentSelectionIndicator.transform.position = targetObject.transform.position + Vector3.left * 60;
         currentSelectionIndicator.SetActive(true);
-
-
-        if (previousSelectorGameObject != targetObject)
-        {
-            FMODUnity.RuntimeManager.PlayOneShot(FMODEventsAndParameters.CURSOR_MOVE);
-        }
-        previousSelectorGameObject = targetObject;
     }
 
     private void ChooseRandomAction()
@@ -289,7 +281,7 @@ public class BattleUI : MonoBehaviour
         }
         else if (action.AreaOfEffect)
         {
-            targets = enemies;
+            targets = new List<BattleParticipant>(enemies);
         }
         else
         {
@@ -313,11 +305,5 @@ public class BattleUI : MonoBehaviour
             return playerDisplay;
         }
         return enemyDisplays[enemies.FindIndex(p => p == participant)];
-    }
-
-    private void SetSelectedGameObject(GameObject gameObject)
-    {
-        EventSystem.current.SetSelectedGameObject(gameObject);
-        previousSelectorGameObject = gameObject;
     }
 }

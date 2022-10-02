@@ -1,0 +1,69 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &855153855562829023
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 855153855562829022}
+  - component: {fileID: 855153855562829089}
+  m_Layer: 0
+  m_Name: Battle Orchestrator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &855153855562829022
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 855153855562829023}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &855153855562829089
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 855153855562829023}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0a0e405d1184427b98dc48f24870e04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentEncounter: {fileID: 0}
+  startingActions:
+  - {fileID: 5732525588903787617, guid: 761d1c605391c445f96b27649cbb99a2, type: 3}
+  - {fileID: 5732525588903787617, guid: 7df3a6518e9a24f8ca69af23f6587f3f, type: 3}
+  - {fileID: 2471912401758918748, guid: bd9e1e0dccdbf474fb3965afd99dc2b6, type: 3}
+  - {fileID: 5732525588903787617, guid: d30d319649c914c8b8a1019b6d9b6f13, type: 3}
+  - {fileID: -543957618713076393, guid: 0dc7e45f4a910475c8950160676c4f6c, type: 3}
+  - {fileID: 2471912401758918748, guid: 95cd5c4307f6b4cd9a281590a9d6bb70, type: 3}
+  - {fileID: 2471912401758918748, guid: 1592c84e51bc04c43920211ec26fcdd3, type: 3}
+  - {fileID: 2471912401758918748, guid: e7bdfeb19d0844581a9604a1dd046dae, type: 3}
+  - {fileID: 7745600367430230134, guid: f49a2b3f798d0f445b16c23746aadefc, type: 3}
+  unlockableActions:
+  - {fileID: 5732525588903787617, guid: 3747d2a921aff48f3890b40f4ff9fd97, type: 3}
+  - {fileID: 5732525588903787617, guid: 03b3d6b15b2404a499cb6939ee15aa28, type: 3}
+  - {fileID: 5732525588903787617, guid: f44db9efdc21247c393a2e2d1d202a87, type: 3}
+  - {fileID: 5732525588903787617, guid: 8e576409b394e4aa7a04c5ff365fa66c, type: 3}
+  - {fileID: 5732525588903787617, guid: 450b9182434f34fe4b1c6bb2f3bf97b4, type: 3}
+  - {fileID: 2471912401758918748, guid: 190bb3b1bcd1248c8a3fd26c161b290f, type: 3}
+  - {fileID: -1150081982860130872, guid: 00f076275f44e42c9a5abcf9a037bdbe, type: 3}
+  - {fileID: 5732525588903787617, guid: 98d7d4e2abf294301b38e5defd3f3e4f, type: 3}
+  - {fileID: 5732525588903787617, guid: 84a88314455794224aaee36ef9c707d1, type: 3}
+  - {fileID: 5732525588903787617, guid: 95f9dac0fc9844ae883c3c04f60e86a8, type: 3}
+  - {fileID: 7745600367430230134, guid: 538fe667ca4164905bc3b0f39b5853b3, type: 3}

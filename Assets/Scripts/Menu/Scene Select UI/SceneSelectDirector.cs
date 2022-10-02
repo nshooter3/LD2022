@@ -3,12 +3,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Playables;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
-public class SceneSelectDirector : MonoBehaviour
+public class SceneSelectDirector : MenuBase
 {
     // Assets (Might migrate UI assets specifically to its own script so this is only focused on Director)
-    [SerializeField] List<Sprite> characterSprites;
+    [SerializeField] List<EnemyEncounter> encounters;
     [SerializeField] GameObject animatingIconGroup;
     private List<Transform> animatingIconTransforms;
 
@@ -22,6 +23,9 @@ public class SceneSelectDirector : MonoBehaviour
     // Menu Control Variables
     private int iconIndex;
     [SerializeField] List<CharacterSelectIcon> playerIcons;
+
+    [SerializeField]
+    private string battleScene;
 
     void Awake()
     {
@@ -37,12 +41,12 @@ public class SceneSelectDirector : MonoBehaviour
         UpdateRoster(director);
     }
 
-    void Update()
+    protected override void Update()
     {
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            if (iconIndex == 0) { iconIndex = characterSprites.Count - 1; }
-            else { iconIndex = Mathf.Clamp(iconIndex - 1, 0, characterSprites.Count); }
+            if (iconIndex == 0) { iconIndex = encounters.Count - 1; }
+            else { iconIndex = Mathf.Clamp(iconIndex - 1, 0, encounters.Count); }
             animatingIconGroup.SetActive(true);
             foreach (CharacterSelectIcon icon in playerIcons)
             {
@@ -52,8 +56,8 @@ public class SceneSelectDirector : MonoBehaviour
         }
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
-            if (iconIndex == (characterSprites.Count - 1)) { iconIndex = 0; }
-            else { iconIndex = Mathf.Clamp(iconIndex + 1, 0, characterSprites.Count); }
+            if (iconIndex == (encounters.Count - 1)) { iconIndex = 0; }
+            else { iconIndex = Mathf.Clamp(iconIndex + 1, 0, encounters.Count); }
             animatingIconGroup.SetActive(true);
             foreach (CharacterSelectIcon icon in playerIcons)
             {
@@ -61,20 +65,26 @@ public class SceneSelectDirector : MonoBehaviour
             }
             PlayRightScroll();
         }
+        if (Input.GetButtonDown("Submit"))
+        {
+            BattleOrchestrator.Instance.currentEncounter = encounters[iconIndex];
+            FMODUnity.RuntimeManager.PlayOneShot(FMODEventsAndParameters.ENEMY_SELECT_CURSOR_SELECT);
+            ChangeScene(battleScene);
+        }
     }
 
     public void PlayLeftScroll()
     {
         director.stopped += UpdateRoster;
         director.Play(goLeftTimeline);
-        FMODUnity.RuntimeManager.PlayOneShot(FMODEventsAndParameters.ENEMY_SELECT_CURSOR_MOVE);
+        PlayMoveSound();
     }
 
     public void PlayRightScroll()
     {
         director.stopped += UpdateRoster;
         director.Play(goRightTimeline);
-        FMODUnity.RuntimeManager.PlayOneShot(FMODEventsAndParameters.ENEMY_SELECT_CURSOR_MOVE);
+        PlayMoveSound();
     }
 
     private void UpdateRoster(PlayableDirector director)
@@ -92,19 +102,17 @@ public class SceneSelectDirector : MonoBehaviour
             i++;
         }
 
-        if (nextIndex == characterSprites.Count) { nextIndex = 0; }
-        if (previousIndex < 0) { previousIndex = characterSprites.Count - 1; }
+        if (nextIndex == encounters.Count) { nextIndex = 0; }
+        if (previousIndex < 0) { previousIndex = encounters.Count - 1; }
 
-        playerIcons[0].UpdateIcon(characterSprites[previousIndex]);
-        playerIcons[1].UpdateIcon(characterSprites[iconIndex]);
-        playerIcons[2].UpdateIcon(characterSprites[nextIndex]);
+        playerIcons[0].UpdateIcon(encounters[previousIndex].CharacterSprite);
+        playerIcons[1].UpdateIcon(encounters[iconIndex].CharacterSprite);
+        playerIcons[2].UpdateIcon(encounters[nextIndex].CharacterSprite);
 
         animatingIconGroup.SetActive(false);
         foreach (CharacterSelectIcon icon in playerIcons)
         {
             icon.gameObject.SetActive(true);
         }
-
-        //onFinished?.Invoke();
     }
 }
