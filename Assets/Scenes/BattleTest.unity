@@ -265,6 +265,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1718754607}
     m_Modifications:
+    - target: {fileID: 1150169525804004349, guid: 145b7f85fdf664e14b16ebd9aafeeb45, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -85
+      objectReference: {fileID: 0}
     - target: {fileID: 2328459354892952489, guid: 145b7f85fdf664e14b16ebd9aafeeb45, type: 3}
       propertyPath: m_Name
       value: Enemy Display 0
@@ -304,6 +308,10 @@ PrefabInstance:
     - target: {fileID: 5467384481952449202, guid: 145b7f85fdf664e14b16ebd9aafeeb45, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5743289257750909146, guid: 145b7f85fdf664e14b16ebd9aafeeb45, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 8531044557218771767, guid: 145b7f85fdf664e14b16ebd9aafeeb45, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -1886,7 +1894,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 9, y: -75}
+  m_AnchoredPosition: {x: 9, y: -85}
   m_SizeDelta: {x: 256, y: 32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &436692902
@@ -2014,51 +2022,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 481500155}
   m_CullTransparentMesh: 1
---- !u!1 &509595506
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 509595508}
-  - component: {fileID: 509595507}
-  m_Layer: 0
-  m_Name: BattleOrchestrator
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &509595507
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 509595506}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a0a0e405d1184427b98dc48f24870e04, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  currentEncounter: {fileID: 2542181326343833092, guid: 6707e3c8d12024461905ce8bd2581a69, type: 3}
---- !u!4 &509595508
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 509595506}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &527106032
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4440,6 +4403,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1718754607}
     m_Modifications:
+    - target: {fileID: 1150169525804004349, guid: 145b7f85fdf664e14b16ebd9aafeeb45, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -85
+      objectReference: {fileID: 0}
     - target: {fileID: 2328459354892952489, guid: 145b7f85fdf664e14b16ebd9aafeeb45, type: 3}
       propertyPath: m_Name
       value: Enemy Display 2
@@ -4479,6 +4446,10 @@ PrefabInstance:
     - target: {fileID: 5467384481952449202, guid: 145b7f85fdf664e14b16ebd9aafeeb45, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5743289257750909146, guid: 145b7f85fdf664e14b16ebd9aafeeb45, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 8531044557218771767, guid: 145b7f85fdf664e14b16ebd9aafeeb45, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -4651,7 +4622,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 9, y: -114}
+  m_AnchoredPosition: {x: 9, y: -124}
   m_SizeDelta: {x: 256, y: 32}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1289413881
@@ -6748,6 +6719,63 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2136845641}
   m_CullTransparentMesh: 1
+--- !u!1001 &763597903264684192
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 763597903148113937, guid: a84820cf6f67c8f4a875d7bcf2df4f37, type: 3}
+      propertyPath: m_Name
+      value: EnemyPositions
+      objectReference: {fileID: 0}
+    - target: {fileID: 763597903148113939, guid: a84820cf6f67c8f4a875d7bcf2df4f37, type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 763597903148113939, guid: a84820cf6f67c8f4a875d7bcf2df4f37, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 763597903148113939, guid: a84820cf6f67c8f4a875d7bcf2df4f37, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 763597903148113939, guid: a84820cf6f67c8f4a875d7bcf2df4f37, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 763597903148113939, guid: a84820cf6f67c8f4a875d7bcf2df4f37, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 763597903148113939, guid: a84820cf6f67c8f4a875d7bcf2df4f37, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 763597903148113939, guid: a84820cf6f67c8f4a875d7bcf2df4f37, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 763597903148113939, guid: a84820cf6f67c8f4a875d7bcf2df4f37, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 763597903148113939, guid: a84820cf6f67c8f4a875d7bcf2df4f37, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 763597903148113939, guid: a84820cf6f67c8f4a875d7bcf2df4f37, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 763597903148113939, guid: a84820cf6f67c8f4a875d7bcf2df4f37, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a84820cf6f67c8f4a875d7bcf2df4f37, type: 3}
 --- !u!1001 &855153855589668897
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -6806,7 +6834,7 @@ PrefabInstance:
     - target: {fileID: 855153855562829089, guid: a2944855c72d94b558fe29fdc782cc02, type: 3}
       propertyPath: currentEncounter
       value: 
-      objectReference: {fileID: 2542181326343833092, guid: 413f50c48578843a4b3ea1b0fe28dbb7, type: 3}
+      objectReference: {fileID: 2542181326343833092, guid: 6707e3c8d12024461905ce8bd2581a69, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2944855c72d94b558fe29fdc782cc02, type: 3}
 --- !u!1001 &8246462256920963692
@@ -6816,6 +6844,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1718754607}
     m_Modifications:
+    - target: {fileID: 1150169525804004349, guid: 145b7f85fdf664e14b16ebd9aafeeb45, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -85
+      objectReference: {fileID: 0}
     - target: {fileID: 2328459354892952489, guid: 145b7f85fdf664e14b16ebd9aafeeb45, type: 3}
       propertyPath: m_Name
       value: Enemy Display 1
@@ -6855,6 +6887,10 @@ PrefabInstance:
     - target: {fileID: 5467384481952449202, guid: 145b7f85fdf664e14b16ebd9aafeeb45, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 5743289257750909146, guid: 145b7f85fdf664e14b16ebd9aafeeb45, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 120
       objectReference: {fileID: 0}
     - target: {fileID: 8531044557218771767, guid: 145b7f85fdf664e14b16ebd9aafeeb45, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
