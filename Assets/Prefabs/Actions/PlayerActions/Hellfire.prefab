@@ -49,6 +49,7 @@ MonoBehaviour:
   targetSelf: 0
   areaOfEffect: 1
   battleAnimation: {fileID: 6496146970332895624, guid: 86ab25b42ecebca4685808adf14787df, type: 3}
-  damage: 20
+  description: Incinerate all enemies, dealing fire damage.
   recoil: 0
+  damage: 20
   elementType: 0

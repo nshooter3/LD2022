@@ -7,18 +7,14 @@ public class Attack : BattleAction
     /// </summary>
     [SerializeField]
     private int damage;
-
-    /// <summary>
-    /// The Recoil Damage the attack does.
-    /// </summary>
-    [SerializeField]
-    private int recoil;
+    public int Damage { get { return damage; } }
 
     /// <summary>
     /// Element type of attack to apply.
     /// </summary>
     [SerializeField]
     private ElementType elementType = ElementType.Typeless;
+    public ElementType ElementType { get { return elementType; } }
 
     protected override void OnRunAction(BattleParticipant user, BattleParticipant target)
     {

@@ -31,6 +31,9 @@ public class BattleUI : MenuBase
     [SerializeField]
     private MoveTimer moveTimer;
 
+    [SerializeField]
+    private ActionDescriptions actionDescriptions;
+
     private Queue<BattleAnimation> animationQueue = new Queue<BattleAnimation>();
 
     private List<BattleUIInterference> interferences = new List<BattleUIInterference>();
@@ -47,6 +50,7 @@ public class BattleUI : MenuBase
     protected override void Update()
     {
         base.Update();
+        SetActionDescription();
         if (!useAreaOfEffectIndicators)
         {
             if (EventSystem.current.currentSelectedGameObject == null)
@@ -180,6 +184,18 @@ public class BattleUI : MenuBase
         SetSelectedGameObject(firstSelectableAction.gameObject);
 
         moveTimer.StartTimer(ChooseRandomAction);
+    }
+
+    public void SetActionDescription()
+    {
+        if (EventSystem.current.currentSelectedGameObject != null)
+        {
+            ActionButton currentButton = EventSystem.current.currentSelectedGameObject.GetComponent<ActionButton>();
+            if (currentButton != null)
+            {
+                actionDescriptions.SetAction(actions[currentButton.index]);
+            }
+        }
     }
 
     public void ChooseAction(int actionIndex)
