@@ -26,7 +26,9 @@ public abstract class BattleParticipant : MonoBehaviour
     /// <summary> Backing statuses list. Don't use this for most iteration. </summary>
     private List<Status> _statuses = new List<Status>();
     /// <summary> Use this statuses list for general iteration. It clones the list to avoid issues with statuses being removed during iteration. </summary>
-    private List<Status> statuses { get { return new List<Status>(_statuses); } }
+    public List<Status> statuses { get { return new List<Status>(_statuses); } }
+
+    public StatusDisplay StatusPanel;
 
     public virtual void Initialize()
     {
@@ -129,16 +131,28 @@ public abstract class BattleParticipant : MonoBehaviour
         Status newStatus = Instantiate<Status>(status, transform);
         _statuses.Add(newStatus);
         newStatus.AddStatus(this);
+        if (StatusPanel != null)
+        {
+            StatusPanel.DisplayStatus();
+        }
     }
 
     public void RemoveStatus(Status status)
     {
         _statuses.Remove(status);
         Destroy(status.gameObject);
+        if (StatusPanel != null)
+        {
+            StatusPanel.DisplayStatus();
+        }
     }
 
     public virtual void OnTurnEnd()
     {
         statuses.ForEach(status => status.OnTurnEnd());
+        if (StatusPanel != null)
+        {
+            StatusPanel.DisplayStatus();
+        }
     }
 }

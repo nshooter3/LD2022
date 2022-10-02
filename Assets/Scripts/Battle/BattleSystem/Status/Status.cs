@@ -4,6 +4,9 @@ public abstract class Status : MonoBehaviour
 {
     private BattleParticipant participant;
 
+    [SerializeField]
+    public Sprite StatusSprite;
+
     public virtual int ModifyIncomingDamage(int damage)
     {
         return damage;
