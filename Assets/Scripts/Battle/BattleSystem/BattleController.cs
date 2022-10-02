@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -14,6 +15,8 @@ public class BattleController : MonoBehaviour
 
     private List<BattleParticipant> battleParticipants = new List<BattleParticipant>();
     public List<BattleParticipant> aliveEnemies { get { return enemies.FindAll(participant => !participant.Dead); } }
+
+    public FMODUnity.StudioEventEmitter fmodCountdownSFX;
 
     private bool battleEnded;
 
@@ -44,25 +47,37 @@ public class BattleController : MonoBehaviour
         battleParticipants.ForEach(participant => participant.ChooseAction());
         BattleUI.instance.UpdateIntents();
         SetFMODEncounterParameter((float)EncounterControllerValues.Action);
+        fmodCountdownSFX.Play();
     }
 
     public void RunBattleTurn()
     {
         SetFMODEncounterParameter((float)EncounterControllerValues.Idle);
+        fmodCountdownSFX.Stop();
 
+        StartCoroutine(RunBattleTurnCoroutine());
+    }
+
+    public IEnumerator RunBattleTurnCoroutine()
+    {
         foreach (BattleParticipant target in player.targets)
         {
             RunAction(player, target);
         }
+        QueueAnimation(player.currentAction.InstantiateAnimation(player, player.targets));
+        yield return WaitForAnimationCompletion();
 
         foreach (BattleParticipant enemy in enemies)
         {
             RunAction(enemy, player);
+            List<BattleParticipant> targets = new List<BattleParticipant>();
+            targets.Add(player);
+            QueueAnimation(enemy.currentAction.InstantiateAnimation(enemy, targets));
+            yield return WaitForAnimationCompletion();
         }
 
         battleParticipants.ForEach(participant => participant.OnTurnEnd());
-
-        BattleUI.instance.UpdateStatBars();
+        yield return WaitForAnimationCompletion();
 
         if (player.Dead)
         {
@@ -79,11 +94,16 @@ public class BattleController : MonoBehaviour
         }
     }
 
-    private void RunAction(BattleParticipant user, BattleParticipant enemy)
+    public void QueueAnimation(BattleAnimation battleAnimation)
     {
-        if (!user.Dead)
+        BattleUI.instance.QueueAnimation(battleAnimation);
+    }
+
+    private void RunAction(BattleParticipant user, BattleParticipant target)
+    {
+        if (!user.Dead && !target.Dead)
         {
-            user.currentAction.RunAction(user, enemy);
+            user.currentAction.RunAction(user, target);
         }
     }
 
@@ -104,5 +124,13 @@ public class BattleController : MonoBehaviour
     private void SetFMODEncounterParameter(float paramValue)
     {
         FMODUnity.RuntimeManager.StudioSystem.setParameterByName(FMODEventsAndParameters.ENCOUNTER_CONTROLLER, paramValue);
+    }
+
+    private IEnumerator WaitForAnimationCompletion()
+    {
+        while (!BattleUI.instance.AnimationsComplete)
+        {
+            yield return null;
+        }
     }
 }

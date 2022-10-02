@@ -8,6 +8,12 @@ public class Enemy : BattleParticipant
     [SerializeField]
     private CombatBehavior combatBehavior;
 
+    public override void Initialize()
+    {
+        base.Initialize();
+        combatBehavior = Instantiate(combatBehavior, transform);
+    }
+
     /// <summary>
     /// Use the current action.
     /// </summary>
