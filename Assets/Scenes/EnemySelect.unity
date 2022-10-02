@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028352, g: 0.22571376, b: 0.30692244, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571336, b: 0.3069219, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1627,6 +1627,51 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1681003041
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1681003042}
+  - component: {fileID: 1681003043}
+  m_Layer: 0
+  m_Name: Battle Orchestrator
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1681003042
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1681003041}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1681003043
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1681003041}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a0a0e405d1184427b98dc48f24870e04, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currentEncounter: {fileID: 0}
 --- !u!1 &1796583196
 GameObject:
   m_ObjectHideFlags: 0
@@ -2254,14 +2299,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 193b208b375d3e54da09f47ede6fbd70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  characterSprites:
-  - {fileID: 21300000, guid: 6c54ed4b2f0f3fd4dbe545615ed66fdb, type: 3}
-  - {fileID: 21300000, guid: 2c1074f0e05eb104d9d0fa2b7f8b584a, type: 3}
-  - {fileID: 21300000, guid: 696bc376afa66a64f881829f5ce12212, type: 3}
-  - {fileID: 21300000, guid: f5cd26a3eb38ad144b46eb4c4f91f222, type: 3}
-  - {fileID: 21300000, guid: f5cd26a3eb38ad144b46eb4c4f91f222, type: 3}
-  - {fileID: 21300000, guid: 6c54ed4b2f0f3fd4dbe545615ed66fdb, type: 3}
-  - {fileID: 21300000, guid: 2c1074f0e05eb104d9d0fa2b7f8b584a, type: 3}
+  encounters:
+  - {fileID: 2542181326343833092, guid: 35f300e828e36496b96bb0035ee680f9, type: 3}
+  - {fileID: 2542181326343833092, guid: 6d4e383d34a184cf1b0ddc35ce4f47e3, type: 3}
+  - {fileID: 2542181326343833092, guid: 72566664adc7b4a2392bceaf4e2508f9, type: 3}
+  - {fileID: 2542181326343833092, guid: 31cd1f4ada8624c00a97779ccfd5d53f, type: 3}
+  - {fileID: 2542181326343833092, guid: f104edae820284657a949e80caa719c0, type: 3}
+  - {fileID: 2542181326343833092, guid: 2c41eecdb07fb4e4da67f9c9c3ebe0d1, type: 3}
   animatingIconGroup: {fileID: 1368809566}
   goLeftTimeline: {fileID: 11400000, guid: 18fbeaa391e59f845a81d558ca708071, type: 2}
   goRightTimeline: {fileID: 11400000, guid: a5b2abbf58585134182d7d8c2230ba3f, type: 2}
@@ -2269,3 +2313,4 @@ MonoBehaviour:
   - {fileID: 1833780453}
   - {fileID: 200944160}
   - {fileID: 713443920}
+  battleScene: BattleTest

@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class CharacterSelectIcon : MonoBehaviour
 {
-    public enum CharacterChoice { THIEF, HACKER, GAMBLER, CAVEMAN, CYBER, FIGHT, FINAL }
+    public enum CharacterChoice { THIEF, HACKER, GAMBLER, LIZARDS, FIGHT, FINAL }
 
     [SerializeField] private Image icon;
 
