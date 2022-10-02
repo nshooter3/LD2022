@@ -11,7 +11,7 @@ public class BattleUI : MonoBehaviour
 
     private BattlePlayer player;
     private List<BattleAction> actions;
-    private List<BattleParticipant> enemies;
+    private List<Enemy> enemies;
 
     [SerializeField]
     private PlayerDisplay playerDisplay;
@@ -86,7 +86,7 @@ public class BattleUI : MonoBehaviour
         }
     }
 
-    public void Initialize(BattlePlayer player, List<BattleParticipant> enemies)
+    public void Initialize(BattlePlayer player, List<Enemy> enemies)
     {
         this.player = player;
         this.enemies = enemies;
@@ -289,7 +289,7 @@ public class BattleUI : MonoBehaviour
         }
         else if (action.AreaOfEffect)
         {
-            targets = enemies;
+            targets = new List<BattleParticipant>(enemies);
         }
         else
         {
