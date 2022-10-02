@@ -30,7 +30,12 @@ public class BattlePlayer : BattleParticipant
     /// </summary>
     public override void ChooseAction()
     {
-        BattleUI.instance.PromptAction(actions);
+        List<BattleAction> currentActions = new List<BattleAction>(actions);
+        foreach (Status status in statuses)
+        {
+            currentActions = status.ModifyBattleActions(currentActions);
+        }
+        BattleUI.instance.PromptAction(currentActions);
     }
 
     /// <summary>
@@ -51,7 +56,7 @@ public class BattlePlayer : BattleParticipant
         currentMp = Mathf.Max(0, currentMp - mp);
     }
 
-    public bool CanUseAction(BattleAction action)
+    public override bool CanUseAction(BattleAction action)
     {
         return currentMp >= action.MpCost;
     }

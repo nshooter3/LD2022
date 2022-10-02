@@ -11,7 +11,7 @@ public class BattleUI : MenuBase
     public static BattleUI instance { get; private set; }
 
     private BattlePlayer player;
-    private List<BattleAction> actions;
+    public List<BattleAction> actions { get; private set; }
     private List<Enemy> enemies;
 
     [SerializeField]
@@ -150,34 +150,42 @@ public class BattleUI : MenuBase
 
     public void DisplayActionPrompt()
     {
-        Button firstSelectableAction = null;
-        for (int i = 0; i < actionButtons.Count; i++)
+        bool actionSelectionOverridden = false;
+        foreach (BattleUIInterference interference in interferences)
         {
-            Button button = actionButtons[i];
-            if (i < actions.Count)
+            actionSelectionOverridden = interference.OverrideActionSelection() || actionSelectionOverridden;
+        }
+        if (!actionSelectionOverridden)
+        {
+            Button firstSelectableAction = null;
+            for (int i = 0; i < actionButtons.Count; i++)
             {
-                BattleAction action = actions[i];
-                button.gameObject.SetActive(true);
-                button.GetComponentInChildren<TextMeshProUGUI>().text = action.ActionName;
-
-                if (player.CanUseAction(action))
+                Button button = actionButtons[i];
+                if (i < actions.Count)
                 {
-                    button.interactable = true;
-                    if (firstSelectableAction == null)
+                    BattleAction action = actions[i];
+                    button.gameObject.SetActive(true);
+                    button.GetComponentInChildren<TextMeshProUGUI>().text = action.ActionName;
+
+                    if (player.CanUseAction(action))
                     {
-                        firstSelectableAction = button;
+                        button.interactable = true;
+                        if (firstSelectableAction == null)
+                        {
+                            firstSelectableAction = button;
+                        }
+                    }
+                    else
+                    {
+                        button.interactable = false;
                     }
                 }
-                else
-                {
-                    button.interactable = false;
-                }
             }
+
+            SetSelectedGameObject(firstSelectableAction.gameObject);
         }
 
-        interferences.ForEach(interference => interference.StartInterference(gameObject));
-
-        SetSelectedGameObject(firstSelectableAction.gameObject);
+        interferences.ForEach(interference => interference.StartInterference());
 
         moveTimer.StartTimer(ChooseRandomAction);
     }
@@ -307,8 +315,8 @@ public class BattleUI : MenuBase
             }
         }
 
-        List<BattleParticipant> randomTargets = GetTargets(eligibleEnemies[UnityEngine.Random.Range(0, eligibleEnemies.Count - 1)]);
-        BattleAction randomAction = actions[eligibleActions[UnityEngine.Random.Range(0, eligibleActions.Count - 1)]];
+        List<BattleParticipant> randomTargets = GetTargets(RandomUtil.GetRandomElementFromList(eligibleEnemies));
+        BattleAction randomAction = actions[RandomUtil.GetRandomElementFromList(eligibleActions)];
         player.ChoosePlayerAction(randomAction, randomTargets);
     }
 

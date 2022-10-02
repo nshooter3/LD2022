@@ -2,11 +2,8 @@ using UnityEngine;
 
 public class BattleUIInterference : MonoBehaviour
 {
-    protected GameObject canvas;
-
-    public void StartInterference(GameObject canvas)
+    public void StartInterference()
     {
-        this.canvas = canvas;
         OnInterferenceStart();
     }
 
@@ -30,5 +27,10 @@ public class BattleUIInterference : MonoBehaviour
     public virtual bool OnActionSelectInput()
     {
         return true;
+    }
+
+    public virtual bool OverrideActionSelection()
+    {
+        return false;
     }
 }

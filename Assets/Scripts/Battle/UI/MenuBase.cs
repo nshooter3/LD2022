@@ -32,7 +32,7 @@ public abstract class MenuBase : MonoBehaviour
         FMODUnity.RuntimeManager.PlayOneShot(FMODEventsAndParameters.CURSOR_SELECT);
     }
 
-    protected void SetSelectedGameObject(GameObject gameObject)
+    public void SetSelectedGameObject(GameObject gameObject)
     {
         EventSystem.current.SetSelectedGameObject(gameObject);
         previousSelectorGameObject = gameObject;

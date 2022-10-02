@@ -16,14 +16,17 @@ public class BasicEnemyAttackAnimation : ActionAnimation
     {
         durationTimer = duration;
         anim = user.GetComponentInChildren<EnemyAnimator>();
-        switch (playerAnimationType)
+        if (anim != null)
         {
-            case PlayerAnimationType.Attack:
-                anim.Attack();
-                break;
-            case PlayerAnimationType.Spell:
-                anim.Spell();
-                break;
+            switch (playerAnimationType)
+            {
+                case PlayerAnimationType.Attack:
+                    anim.Attack();
+                    break;
+                case PlayerAnimationType.Spell:
+                    anim.Spell();
+                    break;
+            }
         }
     }
 

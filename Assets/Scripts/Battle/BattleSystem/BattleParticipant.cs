@@ -145,4 +145,9 @@ public abstract class BattleParticipant : MonoBehaviour
     {
         statuses.ForEach(status => status.OnTurnEnd());
     }
+
+    public virtual bool CanUseAction(BattleAction action)
+    {
+        return true;
+    }
 }
