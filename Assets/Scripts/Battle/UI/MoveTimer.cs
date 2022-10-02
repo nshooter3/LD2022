@@ -29,6 +29,7 @@ public class MoveTimer : MonoBehaviour
     public void StopTimer()
     {
         gameObject.SetActive(false);
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByName(FMODEventsAndParameters.COUNTDOWN_TIMER, 10f);
     }
 
     // Update is called once per frame
@@ -37,13 +38,24 @@ public class MoveTimer : MonoBehaviour
         if (!Expired)
         {
             currentTime = Mathf.Max(0, currentTime - Time.deltaTime);
+            FMODUnity.RuntimeManager.StudioSystem.setParameterByName(FMODEventsAndParameters.COUNTDOWN_TIMER, currentTime);
             timerText.text = currentTime.ToString("F3");
+            PlayCountdownTickAudio();
 
             if (Expired)
             {
                 timeExpiredAction.Invoke();
                 FMODUnity.RuntimeManager.PlayOneShot(FMODEventsAndParameters.COUNTDOWN_SELECTION_FAIL);
+                FMODUnity.RuntimeManager.StudioSystem.setParameterByName(FMODEventsAndParameters.COUNTDOWN_TIMER, 10f);
             }
+        }
+    }
+
+    private void PlayCountdownTickAudio()
+    {
+        if (currentTime <= 3f && currentTime > 0.1f)
+        {
+            FMODUnity.RuntimeManager.PlayOneShot(FMODEventsAndParameters.COUNTDOWN_TICK);
         }
     }
 }

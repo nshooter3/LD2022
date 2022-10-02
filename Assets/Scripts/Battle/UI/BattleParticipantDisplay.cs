@@ -34,6 +34,8 @@ public class BattleParticipantDisplay : MonoBehaviour
 
     public void SetIntent(string intent)
     {
+        anims.ResetTrigger("NoIntent");
+        intentSprite.color = Color.white;
         switch (intent)
         {
             case "Attack":
@@ -46,6 +48,7 @@ public class BattleParticipantDisplay : MonoBehaviour
                 anims.SetTrigger("Debuffing");
                 break;
             case "NoIntent":
+                intentSprite.color = Color.clear;
                 anims.SetTrigger("NoIntent");
                 break;
             default:

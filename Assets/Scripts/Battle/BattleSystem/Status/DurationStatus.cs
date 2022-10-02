@@ -7,27 +7,18 @@ public abstract class DurationStatus : Status
     [SerializeField]
     private int statusDuration;
 
-    private int turnsRemaining;
-
-    public int TurnsRemaining
-    {
-        get 
-        { 
-            return turnsRemaining; 
-        }
-    }
+    protected int turnsRemaining;
 
     public override void OnStatusAdded()
     {
         turnsRemaining = statusDuration;
     }
 
-    public void TickTurnDuration()
+    public override void OnTurnEnd()
     {
-        if (turnsRemaining > 0)
+        if (--turnsRemaining <= 0)
         {
-            --turnsRemaining;
+            RemoveStatus();
         }
     }
-
 }

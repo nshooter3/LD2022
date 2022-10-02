@@ -16,17 +16,20 @@ public class PlayerAttackAnimation : ActionAnimation
     {
         durationTimer = duration;
         anim = user.GetComponentInChildren<PlayerAnimator>();
-        switch (playerAnimationType)
+        if (anim != null)
         {
-            case PlayerAnimationType.Punch:
-                anim.Punch();
-                break;
-            case PlayerAnimationType.Kick:
-                anim.Kick();
-                break;
-            case PlayerAnimationType.Spell:
-                anim.Spell();
-                break;
+            switch (playerAnimationType)
+            {
+                case PlayerAnimationType.Punch:
+                    anim.Punch();
+                    break;
+                case PlayerAnimationType.Kick:
+                    anim.Kick();
+                    break;
+                case PlayerAnimationType.Spell:
+                    anim.Spell();
+                    break;
+            }
         }
     }
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class PopUpGenerator : MonoBehaviour
+public class PopUpGenerator : BattleUIInterference
 {
     public List<GameObject> popUps;
     public GameObject popUp;
@@ -12,25 +12,31 @@ public class PopUpGenerator : MonoBehaviour
 
     private bool spawnPopups = false;
 
-    public static PopUpGenerator instance;
-
-    private void Awake()
+    protected override void OnInterferenceStart()
     {
-        if (instance == null)
+        ToggleSpawnPopups(true);
+    }
+
+    public override void OnActionSelectionEnd()
+    {
+        ToggleSpawnPopups(false);
+    }
+
+    public override bool OnActionSelectInput()
+    {
+        if (popUps.Count > 0)
         {
-            instance = this;
+            RemoveLastPopUp();
+            return false;
         }
-        else
-        {
-            Destroy(gameObject);
-        }
+        return true;
     }
 
     IEnumerator PopIn(float popInTime)
     {
         yield return new WaitForSeconds(popInTime);
         var popUpInstance = Instantiate(popUp, new Vector3(Random.Range(-500, 500), Random.Range(-300, 200), 0), Quaternion.identity);
-        popUpInstance.transform.SetParent(GameObject.Find("Canvas").transform, false);
+        popUpInstance.transform.SetParent(BattleUI.instance.transform, false);
         FMODUnity.RuntimeManager.PlayOneShot(FMODEventsAndParameters.POP_UP_OPEN);
         popUps.Add(popUpInstance);
         var newTime = Random.Range(minTime, maxTime);
@@ -57,15 +63,7 @@ public class PopUpGenerator : MonoBehaviour
         popUps.Clear();
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.Q))
-        {
-            ToggleSpawnPopups(!spawnPopups);
-        }
-    }
-
-    public void ToggleSpawnPopups(bool spawnPopups)
+    private void ToggleSpawnPopups(bool spawnPopups)
     {
         this.spawnPopups = spawnPopups;
         if (spawnPopups)
@@ -78,15 +76,5 @@ public class PopUpGenerator : MonoBehaviour
             RemoveAllPopUps();
             StopAllCoroutines();
         }
-    }
-
-    public bool IsBlockingInput()
-    {
-        return popUps.Count > 0;
-    }
-
-    public void InterceptInput()
-    {
-        RemoveLastPopUp();
     }
 }

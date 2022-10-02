@@ -49,4 +49,6 @@ MonoBehaviour:
   targetSelf: 1
   areaOfEffect: 0
   battleAnimation: {fileID: 6496146970332895624, guid: 86ab25b42ecebca4685808adf14787df, type: 3}
+  description: Cast a healing spell.
+  recoil: 0
   healAmount: 20
