@@ -237,6 +237,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dc230cf00e6cb4c72b5c147391ff7352, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fmodMusicEvent: {fileID: 0}
   actionButtons:
   - {fileID: 1568581644}
   - {fileID: 1512610804}
@@ -619,7 +620,7 @@ RectTransform:
   m_GameObject: {fileID: 632020107}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.80080086, y: 0.80080086, z: 0.80080086}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1955847626}
@@ -888,7 +889,7 @@ RectTransform:
   m_GameObject: {fileID: 1259058659}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.80080086, y: 0.80080086, z: 0.80080086}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1662875516}
@@ -1102,7 +1103,7 @@ RectTransform:
   m_GameObject: {fileID: 1512610802}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.80080086, y: 0.80080086, z: 0.80080086}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 555504863}
@@ -1330,7 +1331,7 @@ RectTransform:
   m_GameObject: {fileID: 1568581643}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.80080086, y: 0.80080086, z: 0.80080086}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1152682606}

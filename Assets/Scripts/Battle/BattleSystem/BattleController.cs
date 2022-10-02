@@ -23,7 +23,11 @@ public class BattleController : MonoBehaviour
     private bool battleEnded;
 
     [SerializeField]
-    private string nextScene;
+    private string loseScene;
+    [SerializeField]
+    private string winScene;
+    [SerializeField]
+    private string gameEndScene;
 
     private void Awake()
     {
@@ -61,7 +65,6 @@ public class BattleController : MonoBehaviour
     {
         SetFMODEncounterParameter((float)EncounterControllerValues.Idle);
         fmodCountdownSFX.Stop();
-
         StartCoroutine(RunBattleTurnCoroutine());
     }
 
@@ -85,8 +88,8 @@ public class BattleController : MonoBehaviour
             }
             yield return WaitForAnimationCompletion();
         }
-
         battleParticipants.ForEach(participant => participant.OnTurnEnd());
+        BattleUI.instance.UpdateStatBars();
         yield return WaitForAnimationCompletion();
 
         if (player.Dead)
@@ -106,7 +109,10 @@ public class BattleController : MonoBehaviour
 
     public void QueueAnimation(BattleAnimation battleAnimation)
     {
-        BattleUI.instance.QueueAnimation(battleAnimation);
+        if (battleAnimation != null)
+        {
+            BattleUI.instance.QueueAnimation(battleAnimation);
+        }
     }
 
     private bool RunAction(BattleParticipant user, BattleParticipant target)
@@ -121,21 +127,32 @@ public class BattleController : MonoBehaviour
 
     private void LoseBattle()
     {
-        Debug.Log("You lost!");
-        battleEnded = true;
         SetFMODEncounterParameter((float)EncounterControllerValues.PlayerDies);
+        ChangeScene(loseScene);
     }
 
     private void WinBattle()
     {
-        Debug.Log("You won!");
-        battleEnded = true;
+        BattleOrchestrator.Instance.CompleteEncounter();
         SetFMODEncounterParameter((float)EncounterControllerValues.EnemyDefeated);
-        fmodCountdownSFX.Stop();
-        StartCoroutine(DelaySceneChange());
+        if (BattleOrchestrator.Instance.currentEncounter.FinalBoss)
+        {
+            ChangeScene(gameEndScene);
+        }
+        else
+        {
+            ChangeScene(winScene);
+        }
     }
 
-    private IEnumerator DelaySceneChange()
+    private void ChangeScene(string nextScene)
+    {
+        battleEnded = true;
+        fmodCountdownSFX.Stop();
+        StartCoroutine(DelaySceneChange(nextScene));
+    }
+
+    private IEnumerator DelaySceneChange(string nextScene)
     {
         yield return new WaitForSeconds(SCENE_CHANGE_DELAY);
         SceneManager.LoadScene(nextScene);

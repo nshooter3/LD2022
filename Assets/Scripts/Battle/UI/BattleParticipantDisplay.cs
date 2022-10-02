@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,6 +12,8 @@ public class BattleParticipantDisplay : MonoBehaviour
     [SerializeField]
     private TextMeshProUGUI intentText;
     public int maxHp { private get; set; }
+
+    public StatusDisplay statusPanel;
 
     public void SetHealth(int health)
     {
@@ -30,5 +33,10 @@ public class BattleParticipantDisplay : MonoBehaviour
     public void SetIntent(string intent)
     {
         intentText.text = intent;
+    }
+
+    public void DisplayStatus(List<Status> activeStatuses)
+    {
+        statusPanel.DisplayStatus(activeStatuses);
     }
 }

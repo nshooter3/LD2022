@@ -7,7 +7,12 @@ public class BattleOrchestrator : MonoBehaviour
 {
     public static BattleOrchestrator Instance { get; private set; }
 
+    [SerializeField]
+    private List<EnemyEncounter> allEncounters;
     public EnemyEncounter currentEncounter;
+    private HashSet<EnemyEncounter> completedEncounters = new HashSet<EnemyEncounter>();
+    public bool finalBossUnlocked { get; private set; }
+
     [SerializeField]
     private List<BattleAction> startingActions;
     [SerializeField]
@@ -29,7 +34,7 @@ public class BattleOrchestrator : MonoBehaviour
 
     public void Start()
     {
-        currentActions = new List<BattleAction>(startingActions);
+        Reset();
     }
 
     public void AddAction(BattleAction action)
@@ -55,5 +60,34 @@ public class BattleOrchestrator : MonoBehaviour
             }
         }
         return chosenActions;
+    }
+
+    public void CompleteEncounter()
+    {
+        completedEncounters.Add(currentEncounter);
+        finalBossUnlocked = allEncounters.All(encounter => EncounterCompleted(encounter) || encounter.FinalBoss);
+    }
+
+    public bool EncounterCompleted(EnemyEncounter encounter)
+    {
+        return completedEncounters.Contains(encounter);
+    }
+
+    public List<EnemyEncounter> GetAvailableEncounters()
+    {
+        if (finalBossUnlocked)
+        {
+            List<EnemyEncounter> encounters = new List<EnemyEncounter>();
+            encounters.Add(allEncounters.Find(encounter => encounter.FinalBoss));
+            return encounters;
+        }
+        return allEncounters;
+    }
+
+    public void Reset()
+    {
+        currentActions = new List<BattleAction>(startingActions);
+        completedEncounters.Clear();
+        finalBossUnlocked = false;
     }
 }

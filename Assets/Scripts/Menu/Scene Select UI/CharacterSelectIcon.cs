@@ -14,8 +14,9 @@ public class CharacterSelectIcon : MonoBehaviour
         
     }
 
-    public void UpdateIcon(Sprite s)
+    public void UpdateIcon(Sprite s, Color color)
     {
         icon.sprite = s;
+        icon.color = color;
     }
 }

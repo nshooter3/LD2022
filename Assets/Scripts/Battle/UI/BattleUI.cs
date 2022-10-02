@@ -120,9 +120,11 @@ public class BattleUI : MenuBase
     {
         playerDisplay.SetHealth(player.currentHp);
         playerDisplay.SetMp(player.currentMp);
+        playerDisplay.DisplayStatus(player.statuses);
         for (int i = 0; i < enemies.Count; i++)
         {
             enemyDisplays[i].SetHealth(enemies[i].currentHp);
+            enemyDisplays[i].DisplayStatus(enemies[i].statuses);
         }
     }
 
