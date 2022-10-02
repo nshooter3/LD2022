@@ -306,6 +306,7 @@ public class BattleUI : MenuBase
         areaOfEffectSelectionIndicators.ForEach(indicator => indicator.SetActive(false));
         useAreaOfEffectIndicators = false;
         moveTimer.StopTimer();
+        PopUpGenerator.instance.ToggleSpawnPopups(false);
     }
 
     private BattleParticipantDisplay FindDisplayForParticipant(BattleParticipant participant)

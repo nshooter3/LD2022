@@ -17,9 +17,13 @@ public class PopUpGenerator : MonoBehaviour
     private void Awake()
     {
         if (instance == null)
+        {
             instance = this;
+        }
         else
+        {
             Destroy(gameObject);
+        }
     }
 
     IEnumerator PopIn(float popInTime)
@@ -44,11 +48,11 @@ public class PopUpGenerator : MonoBehaviour
 
     private void RemoveAllPopUps()
     {
-        popUps.ForEach(p => 
+        for(int i= 0;i<popUps.Count;i++)
         {
-            popUps.Remove(p);
-            Destroy(p);
-        });
+            Destroy(popUps[i]);
+        }
+        popUps.Clear();
     }
 
     private void Update()
