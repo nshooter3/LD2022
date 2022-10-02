@@ -48,7 +48,7 @@ public abstract class MenuBase : MonoBehaviour
         }
     }
 
-    protected void SetSelectedGameObject(GameObject gameObject)
+    public void SetSelectedGameObject(GameObject gameObject)
     {
         EventSystem.current.SetSelectedGameObject(gameObject);
         previousSelectorGameObject = gameObject;

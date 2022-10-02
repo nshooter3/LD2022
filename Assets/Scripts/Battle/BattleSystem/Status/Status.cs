@@ -1,9 +1,10 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class Status : MonoBehaviour, IEquatable<Status>
 {
-    private BattleParticipant participant;
+    protected BattleParticipant participant;
 
     [SerializeField]
     public Sprite statusSprite;
@@ -20,6 +21,11 @@ public abstract class Status : MonoBehaviour, IEquatable<Status>
 
     public virtual void OnTurnEnd()
     {
+    }
+
+    public virtual List<BattleAction> ModifyBattleActions(List<BattleAction> actions)
+    {
+        return actions;
     }
 
     public void AddStatus(BattleParticipant participant)

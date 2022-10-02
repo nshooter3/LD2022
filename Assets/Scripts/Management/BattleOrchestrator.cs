@@ -46,20 +46,7 @@ public class BattleOrchestrator : MonoBehaviour
     {
         HashSet<BattleAction> currentActionSet = new HashSet<BattleAction>(currentActions);
         List<BattleAction> newActions = unlockableActions.FindAll(action => !currentActionSet.Contains(action));
-        if (newActions.Count <= numActions)
-        {
-            return newActions;
-        }
-        List<BattleAction> chosenActions = new List<BattleAction>();
-        while (chosenActions.Count < numActions)
-        {
-            int randomIndex = Random.Range(0, newActions.Count);
-            if (!chosenActions.Contains(newActions[randomIndex]))
-            {
-                chosenActions.Add(newActions[randomIndex]);
-            }
-        }
-        return chosenActions;
+        return RandomUtil.ChooseRandomElementsFromList(newActions, numActions);
     }
 
     public void CompleteEncounter()
