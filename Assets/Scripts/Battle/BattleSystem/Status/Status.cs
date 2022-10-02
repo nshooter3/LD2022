@@ -3,6 +3,7 @@ using UnityEngine;
 
 public abstract class Status : MonoBehaviour, IEquatable<Status>
 {
+    [SerializeField]
     private int statusIdentifier;
     private BattleParticipant participant;
 
