@@ -27,6 +27,7 @@ public class BattleController : MonoBehaviour
     private void Start()
     {
         enemies = BattleOrchestrator.Instance.currentEncounter.SpawnEnemies();
+        player.SetActions(BattleOrchestrator.Instance.currentActions);
         StartBattle();
     }
 
