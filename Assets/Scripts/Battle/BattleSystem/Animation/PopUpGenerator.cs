@@ -37,6 +37,7 @@ public class PopUpGenerator : BattleUIInterference
         yield return new WaitForSeconds(popInTime);
         var popUpInstance = Instantiate(popUp, new Vector3(Random.Range(-500, 500), Random.Range(-300, 200), 0), Quaternion.identity);
         popUpInstance.transform.SetParent(canvas.transform, false);
+        FMODUnity.RuntimeManager.PlayOneShot(FMODEventsAndParameters.POP_UP_OPEN);
         popUps.Add(popUpInstance);
         var newTime = Random.Range(minTime, maxTime);
         StartCoroutine(PopIn(newTime));
@@ -48,6 +49,7 @@ public class PopUpGenerator : BattleUIInterference
         {
             var popUp = popUps[popUps.Count - 1];
             popUps.Remove(popUp);
+            FMODUnity.RuntimeManager.PlayOneShot(FMODEventsAndParameters.POP_UP_CLOSE);
             Destroy(popUp);
         }
     }
