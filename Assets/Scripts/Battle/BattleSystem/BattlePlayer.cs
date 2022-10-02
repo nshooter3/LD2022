@@ -20,6 +20,11 @@ public class BattlePlayer : BattleParticipant
         currentMp = maxMp;
     }
 
+    public void SetActions(List<BattleAction> actions)
+    {
+        this.actions = new List<BattleAction>(actions);
+    }
+
     /// <summary>
     /// <inheritdoc/>
     /// </summary>
