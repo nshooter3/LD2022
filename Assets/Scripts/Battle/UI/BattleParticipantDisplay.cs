@@ -42,6 +42,9 @@ public class BattleParticipantDisplay : MonoBehaviour
             case "Debuff":
                 anims.SetTrigger("Debuffing");
                 break;
+            case "NoIntent":
+                anims.SetTrigger("NoIntent");
+                break;
             default:
                 break;
         }
