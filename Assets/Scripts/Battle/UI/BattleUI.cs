@@ -32,6 +32,9 @@ public class BattleUI : MenuBase
     private MoveTimer moveTimer;
 
     [SerializeField]
+    private List<Image> actionMenuImages;
+
+    [SerializeField]
     private ActionDescriptions actionDescriptions;
 
     private Queue<BattleAnimation> animationQueue = new Queue<BattleAnimation>();
@@ -41,6 +44,8 @@ public class BattleUI : MenuBase
     public bool AnimationsComplete { get { return animationQueue.Count == 0; } }
 
     private int chosenAction;
+
+    private bool actionSelectionOverridden;
 
     private void Awake()
     {
@@ -154,13 +159,18 @@ public class BattleUI : MenuBase
 
     public void DisplayActionPrompt()
     {
-        bool actionSelectionOverridden = false;
+        actionSelectionOverridden = false;
         foreach (BattleUIInterference interference in interferences)
         {
             actionSelectionOverridden = interference.OverrideActionSelection() || actionSelectionOverridden;
         }
-        if (!actionSelectionOverridden)
+        if (actionSelectionOverridden)
         {
+            ToggleMenuImages(false);
+        }
+        else
+        {
+            ToggleMenuImages(true);
             Button firstSelectableAction = null;
             for (int i = 0; i < actionButtons.Count; i++)
             {
@@ -196,7 +206,7 @@ public class BattleUI : MenuBase
 
     public void SetActionDescription()
     {
-        if (EventSystem.current.currentSelectedGameObject != null)
+        if (EventSystem.current.currentSelectedGameObject != null && !actionSelectionOverridden)
         {
             ActionButton currentButton = EventSystem.current.currentSelectedGameObject.GetComponent<ActionButton>();
             if (currentButton != null)
@@ -257,6 +267,7 @@ public class BattleUI : MenuBase
                 }
             }
         }
+        ToggleMenuImages(false);
     }
 
     public void ChooseTarget(int targetIndex)
@@ -369,6 +380,7 @@ public class BattleUI : MenuBase
         {
             interference.OnActionSelectionEnd();
         }
+        ToggleMenuImages(false);
     }
 
     private BattleParticipantDisplay FindDisplayForParticipant(BattleParticipant participant)
@@ -378,5 +390,10 @@ public class BattleUI : MenuBase
             return playerDisplay;
         }
         return enemyDisplays[enemies.FindIndex(p => p == participant)];
+    }
+
+    private void ToggleMenuImages(bool enabled)
+    {
+        actionMenuImages.ForEach(image => image.gameObject.SetActive(enabled));
     }
 }
