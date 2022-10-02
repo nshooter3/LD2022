@@ -32,6 +32,6 @@ public class Attack : BattleAction
 
     public override string GetIntentDisplay()
     {
-        return "Attack " + damage;
+        return "Attack";
     }
 }
