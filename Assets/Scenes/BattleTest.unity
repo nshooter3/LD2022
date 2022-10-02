@@ -5928,9 +5928,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 185461839}
   fmodCountdownSFX: {fileID: 1767897840}
-  loseScene: 
-  winScene: 
-  gameEndScene: 
+  loseScene: EnemySelect
+  winScene: NewAction
+  gameEndScene: GameEnd
 --- !u!4 &1767897839
 Transform:
   m_ObjectHideFlags: 0
