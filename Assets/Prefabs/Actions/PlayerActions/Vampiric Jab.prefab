@@ -51,6 +51,8 @@ MonoBehaviour:
   targetSelf: 0
   areaOfEffect: 0
   battleAnimation: {fileID: 0}
+  description: A draining jab that deals saps health from the enemy.
+  recoil: 0
 --- !u!114 &151773535136298870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68,8 +70,9 @@ MonoBehaviour:
   targetSelf: 0
   areaOfEffect: 0
   battleAnimation: {fileID: 1654458526421221007, guid: a5e875f6f03c54d42aa7d42fc8eb0098, type: 3}
-  damage: 7
+  description: 
   recoil: 0
+  damage: 7
   elementType: 3
 --- !u!114 &5518705628836857013
 MonoBehaviour:
@@ -88,4 +91,6 @@ MonoBehaviour:
   targetSelf: 0
   areaOfEffect: 0
   battleAnimation: {fileID: 0}
+  description: 
+  recoil: 0
   healAmount: 7

@@ -4,36 +4,68 @@ using TMPro;
 public class ActionDescriptions : MonoBehaviour
 {
     [SerializeField]
-    private Color hpCostColor, mpCostColor;
+    private Color typelessColor, fireColor, waterColor, grassColor, hpCostColor, mpCostColor;
 
     [SerializeField]
-    private TextMeshProUGUI title, description, cost;
+    private TextMeshProUGUI title, description, cost, damage;
 
-    public void SetAction(BattleAction attack)
+    public void SetAction(BattleAction action)
     {
-        string tempTitle = attack.ActionName;
-        if (attack.AreaOfEffect)
+        string tempTitle = action.ActionName;
+        if (action.AreaOfEffect)
         {
             tempTitle += " (multi)";
         }
 
         title.text = tempTitle;
+        title.color = typelessColor;
 
-        description.text = attack.Description;
+        description.text = action.Description;
 
-        if (attack.MpCost > 0)
+        if (action.MpCost > 0)
         {
             cost.color = mpCostColor;
-            cost.text = "MP Cost: " + attack.MpCost;
+            cost.text = "MP Cost: " + action.MpCost;
         }
-        else if (attack.Recoil > 0)
+        else if (action.Recoil > 0)
         {
             cost.color = hpCostColor;
-            cost.text = "HP Cost: " + attack.Recoil;
+            cost.text = "HP Cost: " + action.Recoil;
         }
         else
         {
             cost.text = "";
+        }
+
+        if (action.ActionName == "Vampiric Jab")
+        {
+            damage.text = "Saps: 7";
+        }
+        else if (action is Attack)
+        {
+            damage.text = "Damage: " + ((Attack)action).Damage;
+            switch (((Attack)action).ElementType)
+            {
+                case ElementType.Fire:
+                    title.color = fireColor;
+                    break;
+                case ElementType.Grass:
+                    title.color = grassColor;
+                    break;
+                case ElementType.Water:
+                    title.color = waterColor;
+                    break;
+                case ElementType.Typeless:
+                    break;
+            }
+        }
+        else if (action is Heal)
+        {
+            damage.text = "Heal amount: " + ((Heal)action).HealAmount;
+        }
+        else
+        {
+            damage.text = "";
         }
     }
 }

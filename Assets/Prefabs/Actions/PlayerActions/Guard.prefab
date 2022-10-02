@@ -49,4 +49,6 @@ MonoBehaviour:
   targetSelf: 1
   areaOfEffect: 0
   battleAnimation: {fileID: 6496146970332895624, guid: 86ab25b42ecebca4685808adf14787df, type: 3}
+  description: Halves incoming damage for this turn.
+  recoil: 0
   status: {fileID: -2571575862629369259, guid: 43db8d3f093c44179b16a7509b068c32, type: 3}
