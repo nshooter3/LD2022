@@ -8,9 +8,11 @@ public class PopUpBehavior : MonoBehaviour
     public float popInDuration;
     private float currentTime;
     private float randomScaleModifier;
+
     // Start is called before the first frame update
     void Start()
     {
+        transform.localScale = Vector3.zero;
         isPoppingIn = true;
         currentTime = 0;
         randomScaleModifier = Random.Range(2f, 3f);
@@ -21,13 +23,13 @@ public class PopUpBehavior : MonoBehaviour
     {
         if (isPoppingIn)
         {
-            GetComponent<Transform>().localScale = Vector3.Lerp(Vector3.zero, Vector3.one* randomScaleModifier, currentTime/ popInDuration);
+           transform.localScale = Vector3.Lerp(Vector3.zero, Vector3.one * randomScaleModifier, currentTime / popInDuration);
         }
-        if (GetComponent<Transform>().localScale == Vector3.one*randomScaleModifier)
+        if (transform.localScale.x >= randomScaleModifier)
         {
             isPoppingIn = false;
         }
-        if (currentTime <= 1.0* popInDuration)
+        if (currentTime <= 1 * popInDuration)
         {
             currentTime += 0.1f;
         }
