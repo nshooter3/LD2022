@@ -12,6 +12,13 @@ public class ApplyStatus : BattleAction
 
     public override string GetIntentDisplay()
     {
-        return "";
+        if (TargetSelf == true)
+        {
+            return "Buff";
+        }
+        else
+        {
+            return "Debuff";
+        }
     }
 }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571336, b: 0.3069219, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -305,6 +305,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 5743289257750909146, guid: 145b7f85fdf664e14b16ebd9aafeeb45, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8531044557218771767, guid: 145b7f85fdf664e14b16ebd9aafeeb45, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -491,7 +495,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 481500157}
   targetButton: {fileID: 23184724}
-  intentText: {fileID: 0}
+  intentSprite: {fileID: 0}
+  anims: {fileID: 0}
   mpBar: {fileID: 401889350}
 --- !u!114 &23184722
 MonoBehaviour:

@@ -134,6 +134,7 @@ public class BattleUI : MonoBehaviour
             if (!enemies[i].Dead)
             {
                 enemyDisplays[i].SetIntent(enemies[i].currentAction.GetIntentDisplay());
+
             }
         }
     }
@@ -277,6 +278,7 @@ public class BattleUI : MonoBehaviour
         List<BattleParticipant> randomTargets = GetTargets(eligibleEnemies[Random.Range(0, eligibleEnemies.Count - 1)]);
         BattleAction randomAction = actions[eligibleActions[Random.Range(0, eligibleActions.Count - 1)]];
         player.ChoosePlayerAction(randomAction, randomTargets);
+
     }
 
     private List<BattleParticipant> GetTargets(int targetIndex)
