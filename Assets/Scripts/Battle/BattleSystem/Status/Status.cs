@@ -13,6 +13,11 @@ public abstract class Status : MonoBehaviour, IEquatable<Status>
         return damage;
     }
 
+
+    public virtual void OnStatusAdded()
+    {
+    }
+
     public virtual void OnTurnEnd()
     {
     }
@@ -20,11 +25,17 @@ public abstract class Status : MonoBehaviour, IEquatable<Status>
     public void AddStatus(BattleParticipant participant)
     {
         this.participant = participant;
+        OnStatusAdded();
     }
 
     public void RemoveStatus()
     {
+        OnStatusRemove();
         participant.RemoveStatus(this);
+    }
+
+    public virtual void OnStatusRemove()
+    {
     }
 
     public bool Equals(Status otherStatus)

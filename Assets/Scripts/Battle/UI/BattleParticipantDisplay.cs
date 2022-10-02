@@ -10,7 +10,9 @@ public class BattleParticipantDisplay : MonoBehaviour
     [SerializeField]
     private Button targetButton;
     [SerializeField]
-    private TextMeshProUGUI intentText;
+    private Image intentSprite;
+    [SerializeField]
+    private Animator anims;
     public int maxHp { private get; set; }
 
     public StatusDisplay statusPanel;
@@ -32,7 +34,23 @@ public class BattleParticipantDisplay : MonoBehaviour
 
     public void SetIntent(string intent)
     {
-        intentText.text = intent;
+        switch (intent)
+        {
+            case "Attack":
+                anims.SetTrigger("Attacking");
+                break;
+            case "Buff":
+                anims.SetTrigger("Buffing");
+                break;
+            case "Debuff":
+                anims.SetTrigger("Debuffing");
+                break;
+            case "NoIntent":
+                anims.SetTrigger("NoIntent");
+                break;
+            default:
+                break;
+        }
     }
 
     public void DisplayStatus(List<Status> activeStatuses)

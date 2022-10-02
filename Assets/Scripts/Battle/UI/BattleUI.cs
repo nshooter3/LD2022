@@ -135,6 +135,7 @@ public class BattleUI : MenuBase
             if (!enemies[i].Dead)
             {
                 enemyDisplays[i].SetIntent(enemies[i].currentAction.GetIntentDisplay());
+
             }
         }
     }
@@ -179,6 +180,14 @@ public class BattleUI : MenuBase
 
     public void ChooseAction(int actionIndex)
     {
+        if (PopUpGenerator.instance.IsBlockingInput())
+        {
+            PopUpGenerator.instance.InterceptInput();
+            return;
+        }
+
+        PopUpGenerator.instance.ToggleSpawnPopups(false);
+
         PlaySelectSound();
 
         chosenAction = actionIndex;
@@ -233,6 +242,9 @@ public class BattleUI : MenuBase
 
         List<BattleParticipant> targets = GetTargets(targetIndex);
         player.ChoosePlayerAction(actions[chosenAction], targets);
+        foreach (BattleParticipantDisplay enemyDisplay in enemyDisplays){
+            enemyDisplay.SetIntent("NoIntent");
+        }
         FMODUnity.RuntimeManager.PlayOneShot(FMODEventsAndParameters.CURSOR_SELECT);
     }
 
@@ -271,8 +283,12 @@ public class BattleUI : MenuBase
         List<BattleParticipant> randomTargets = GetTargets(eligibleEnemies[Random.Range(0, eligibleEnemies.Count - 1)]);
         BattleAction randomAction = actions[eligibleActions[Random.Range(0, eligibleActions.Count - 1)]];
         player.ChoosePlayerAction(randomAction, randomTargets);
+        foreach (BattleParticipantDisplay enemyDisplay in enemyDisplays)
+        {
+            enemyDisplay.SetIntent("NoIntent");
+            break;
+        }
     }
-
     private List<BattleParticipant> GetTargets(int targetIndex)
     {
         BattleAction action = actions[chosenAction];
@@ -298,6 +314,7 @@ public class BattleUI : MenuBase
         areaOfEffectSelectionIndicators.ForEach(indicator => indicator.SetActive(false));
         useAreaOfEffectIndicators = false;
         moveTimer.StopTimer();
+        PopUpGenerator.instance.ToggleSpawnPopups(false);
     }
 
     private BattleParticipantDisplay FindDisplayForParticipant(BattleParticipant participant)
