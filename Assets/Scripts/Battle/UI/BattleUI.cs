@@ -128,12 +128,12 @@ public class BattleUI : MenuBase
 
     public void UpdateStatus()
     {
-        playerDisplay.DisplayStatus();
-        /*
+        playerDisplay.DisplayStatus(player.statuses);
+        
         for (int i = 0; i < enemies.Count; i++)
         {
-            enemyDisplays[i].DisplayStatus();
-        }*/
+            enemyDisplays[i].DisplayStatus(enemies[i].statuses);
+        }
     }
 
     public void UpdateIntents()

@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -34,8 +35,8 @@ public class BattleParticipantDisplay : MonoBehaviour
         intentText.text = intent;
     }
 
-    public void DisplayStatus()
+    public void DisplayStatus(List<Status> activeStatuses)
     {
-        statusPanel.DisplayStatus();
+        statusPanel.DisplayStatus(activeStatuses);
     }
 }

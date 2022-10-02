@@ -126,6 +126,10 @@ public abstract class BattleParticipant : MonoBehaviour
 
     public void AddStatus(Status status)
     {
+        if (_statuses.Contains(status))
+        {
+            return;
+        }
         Status newStatus = Instantiate<Status>(status, transform);
         _statuses.Add(newStatus);
         newStatus.AddStatus(this);

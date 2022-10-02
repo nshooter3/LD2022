@@ -6,12 +6,9 @@ using UnityEngine.UI;
 public class StatusDisplay : MonoBehaviour
 {
     [SerializeField]
-    private BattleParticipant battleParticipant;
-
-    [SerializeField]
     private List<Image> statusIcons = new List<Image>();
 
-    public void DisplayStatus()
+    public void DisplayStatus(List<Status> activeStatuses)
     {
         foreach (var statusIcon in statusIcons)
         {
@@ -19,7 +16,7 @@ public class StatusDisplay : MonoBehaviour
         }
 
         int statusIconIndex = 0;
-        foreach (var status in battleParticipant.statuses)
+        foreach (var status in activeStatuses)
         {
             statusIcons[statusIconIndex].gameObject.SetActive(true);
             statusIcons[statusIconIndex].sprite = status.statusSprite;
