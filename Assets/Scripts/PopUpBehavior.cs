@@ -13,7 +13,7 @@ public class PopUpBehavior : MonoBehaviour
     {
         isPoppingIn = true;
         currentTime = 0;
-        randomScaleModifier = Random.Range(1f, 3f);
+        randomScaleModifier = Random.Range(2f, 3f);
     }
 
     // Update is called once per frame

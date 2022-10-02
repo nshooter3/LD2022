@@ -39,7 +39,6 @@ public class PopupMayhem : Status
             {
                 popUps.Remove(popUp);
                 Destroy(popUp);
-                Debug.Log("Pop Up destroyed.");
                 hasLastPopup = false;
             }
         }
@@ -49,7 +48,7 @@ public class PopupMayhem : Status
     {
         if (!hasLastPopup)
         {
-            if (Input.GetKey(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space))
             {
                 RemoveLastPopUp();
             }

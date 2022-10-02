@@ -1804,7 +1804,7 @@ MonoBehaviour:
   popUps: []
   popUp: {fileID: 7858901125204068475, guid: fc8611e3786477a41ac9e53448c78ed7, type: 3}
   minTime: 0.5
-  maxTime: 1.5
+  maxTime: 1
   hasLastPopup: 0
 --- !u!4 &306845202
 Transform:
@@ -3491,6 +3491,10 @@ PrefabInstance:
     - target: {fileID: 7858901125204068475, guid: fc8611e3786477a41ac9e53448c78ed7, type: 3}
       propertyPath: m_Name
       value: Popup
+      objectReference: {fileID: 0}
+    - target: {fileID: 7858901125204068475, guid: fc8611e3786477a41ac9e53448c78ed7, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc8611e3786477a41ac9e53448c78ed7, type: 3}
