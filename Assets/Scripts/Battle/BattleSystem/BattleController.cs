@@ -109,7 +109,10 @@ public class BattleController : MonoBehaviour
 
     public void QueueAnimation(BattleAnimation battleAnimation)
     {
-        BattleUI.instance.QueueAnimation(battleAnimation);
+        if (battleAnimation != null)
+        {
+            BattleUI.instance.QueueAnimation(battleAnimation);
+        }
     }
 
     private bool RunAction(BattleParticipant user, BattleParticipant target)

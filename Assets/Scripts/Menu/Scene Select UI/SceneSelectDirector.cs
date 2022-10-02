@@ -82,14 +82,14 @@ public class SceneSelectDirector : MenuBase
     {
         director.stopped += UpdateRoster;
         director.Play(goLeftTimeline);
-        PlayMoveSound();
+        FMODUnity.RuntimeManager.PlayOneShot(FMODEventsAndParameters.ENEMY_SELECT_CURSOR_MOVE);
     }
 
     public void PlayRightScroll()
     {
         director.stopped += UpdateRoster;
         director.Play(goRightTimeline);
-        PlayMoveSound();
+        FMODUnity.RuntimeManager.PlayOneShot(FMODEventsAndParameters.ENEMY_SELECT_CURSOR_MOVE);
     }
 
     private void UpdateRoster(PlayableDirector director)
