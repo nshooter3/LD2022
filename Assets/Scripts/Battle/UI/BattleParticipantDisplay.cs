@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,6 +14,8 @@ public class BattleParticipantDisplay : MonoBehaviour
     [SerializeField]
     private Animator anims;
     public int maxHp { private get; set; }
+
+    public StatusDisplay statusPanel;
 
     public void SetHealth(int health)
     {
@@ -48,5 +51,10 @@ public class BattleParticipantDisplay : MonoBehaviour
             default:
                 break;
         }
+    }
+
+    public void DisplayStatus(List<Status> activeStatuses)
+    {
+        statusPanel.DisplayStatus(activeStatuses);
     }
 }

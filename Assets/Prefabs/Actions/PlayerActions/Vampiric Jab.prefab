@@ -1,0 +1,91 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &211676350669287713
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6512037651808092697}
+  - component: {fileID: -1150081982860130872}
+  - component: {fileID: 151773535136298870}
+  - component: {fileID: 5518705628836857013}
+  m_Layer: 0
+  m_Name: Vampiric Jab
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6512037651808092697
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211676350669287713}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &-1150081982860130872
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211676350669287713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ed4e0045e67445a29e03158d8a43c87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionName: Vampiric Jab
+  mpCost: 0
+  targetSelf: 0
+  areaOfEffect: 0
+  battleAnimation: {fileID: 0}
+--- !u!114 &151773535136298870
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211676350669287713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34be79a8227b94558b1fdd48720c2861, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionName: 
+  mpCost: 0
+  targetSelf: 0
+  areaOfEffect: 0
+  battleAnimation: {fileID: 1654458526421221007, guid: a5e875f6f03c54d42aa7d42fc8eb0098, type: 3}
+  damage: 7
+  recoil: 0
+  elementType: 3
+--- !u!114 &5518705628836857013
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 211676350669287713}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 024f3472158d5414eac6f4fd2b33df83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionName: 
+  mpCost: 0
+  targetSelf: 0
+  areaOfEffect: 0
+  battleAnimation: {fileID: 0}
+  healAmount: 7

@@ -8,31 +8,6 @@ public class PlayerAnimator : MonoBehaviour
     [SerializeField]
     private DamageFlicker damageFlicker;
 
-    // Update is called once per frame
-    void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.A))
-        {
-            Punch();
-        }
-        else if (Input.GetKeyDown(KeyCode.S))
-        {
-            Kick();
-        }
-        else if (Input.GetKeyDown(KeyCode.D))
-        {
-            Spell();
-        }
-        else if (Input.GetKeyDown(KeyCode.F))
-        {
-            Hurt();
-        }
-        else if (Input.GetKeyDown(KeyCode.G))
-        {
-            Die();
-        }
-    }
-
     public void Punch()
     {
         anim.SetTrigger("Punch");

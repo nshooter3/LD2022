@@ -45,6 +45,10 @@ public abstract class BattleAction : MonoBehaviour
 
     public ActionAnimation InstantiateAnimation(BattleParticipant user, List<BattleParticipant> targets)
     {
+        if (battleAnimation == null)
+        {
+            return null;
+        }
         ActionAnimation animation = Instantiate<ActionAnimation>(battleAnimation);
         animation.action = this;
         animation.gameObject.SetActive(false);
