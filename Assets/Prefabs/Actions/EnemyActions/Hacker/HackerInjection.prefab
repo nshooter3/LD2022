@@ -9,11 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7597166729613027658}
-  - component: {fileID: 3446064254096135621}
-  - component: {fileID: -2550300874168957154}
-  - component: {fileID: 703288615583922023}
+  - component: {fileID: -5437807686523268911}
   m_Layer: 0
-  m_Name: GoonStrike
+  m_Name: HackerInjection
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -34,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3446064254096135621
+--- !u!114 &-5437807686523268911
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -43,38 +41,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1698453600616238615}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 34be79a8227b94558b1fdd48720c2861, type: 3}
+  m_Script: {fileID: 11500000, guid: 79fc144e75d60e445b04fd8307304e5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionName: Strike
+  actionName: Injection
   mpCost: 0
   targetSelf: 0
   areaOfEffect: 0
   battleAnimation: {fileID: 2815643081771685000, guid: 052a4cf6aec053a4cac4418f3cca64f9, type: 3}
-  damage: 4
-  recoil: 0
-  elementType: 3
---- !u!114 &-2550300874168957154
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1698453600616238615}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5971291364f14fc79e7f21f325756cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &703288615583922023
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1698453600616238615}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b5971291364f14fc79e7f21f325756cb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
+  injectedAction: {fileID: 3446064254096135621, guid: e660549c834d1c14ebc7d76283ecd101, type: 3}

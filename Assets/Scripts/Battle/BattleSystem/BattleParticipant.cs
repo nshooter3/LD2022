@@ -28,6 +28,8 @@ public abstract class BattleParticipant : MonoBehaviour
     /// <summary> Use this statuses list for general iteration. It clones the list to avoid issues with statuses being removed during iteration. </summary>
     public List<Status> statuses { get { return new List<Status>(_statuses); } }
 
+    public List<BattleAction> Actions { get { return actions; }}
+
     public virtual void Initialize()
     {
         currentHp = maxHp;
