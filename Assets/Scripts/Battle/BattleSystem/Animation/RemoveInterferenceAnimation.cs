@@ -8,6 +8,6 @@ public class RemoveInterferenceAnimation : InstantAnimation
     protected override void OnAnimationEnd()
     {
         BattleUI.instance.RemoveInterference(interference);
-        Destroy(gameObject);
+        Destroy(this);
     }
 }

@@ -138,7 +138,6 @@ public class BattleUI : MenuBase
             if (!enemies[i].Dead)
             {
                 enemyDisplays[i].SetIntent(enemies[i].currentAction.GetIntentDisplay());
-
             }
         }
     }
