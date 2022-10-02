@@ -43,13 +43,23 @@ public abstract class BattleAction : MonoBehaviour
         return Instantiate<BattleAction>(this, user.transform);
     }
 
-    public ActionAnimation InstantiateAnimation(BattleParticipant user, List<BattleParticipant> targets)
+    public List<BattleAnimation> InstantiateAnimations(BattleParticipant user, List<BattleParticipant> targets, ActionAnimation textAnimation)
+    {
+        List<BattleAnimation> animations = new List<BattleAnimation>();
+        animations.Add(InstantiateAnimation(user, targets, textAnimation));
+        animations.Add(InstantiateAnimation(user, targets, battleAnimation));
+        animations.Add(gameObject.AddComponent<UpdateStatDisplayAnimation>());
+        return animations;
+    }
+
+
+    private ActionAnimation InstantiateAnimation(BattleParticipant user, List<BattleParticipant> targets, ActionAnimation animationPrefab)
     {
         if (battleAnimation == null)
         {
             return null;
         }
-        ActionAnimation animation = Instantiate<ActionAnimation>(battleAnimation);
+        ActionAnimation animation = Instantiate<ActionAnimation>(animationPrefab);
         animation.action = this;
         animation.gameObject.SetActive(false);
         animation.SetParticipants(user, targets);

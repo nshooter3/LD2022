@@ -23,6 +23,9 @@ public class BattleController : MonoBehaviour
     private bool battleEnded;
 
     [SerializeField]
+    private ActionAnimation attackTextAnimation;
+
+    [SerializeField]
     private string loseScene;
     [SerializeField]
     private string winScene;
@@ -74,7 +77,7 @@ public class BattleController : MonoBehaviour
         {
             RunAction(player, target);
         }
-        QueueAnimation(player.currentAction.InstantiateAnimation(player, player.targets));
+        player.currentAction.InstantiateAnimations(player, player.targets, attackTextAnimation).ForEach(animation => QueueAnimation(animation));
         yield return WaitForAnimationCompletion();
 
         foreach (BattleParticipant enemy in enemies)
@@ -84,7 +87,7 @@ public class BattleController : MonoBehaviour
             targets.Add(player);
             if (actionSuccessful)
             {
-                QueueAnimation(enemy.currentAction.InstantiateAnimation(enemy, targets));
+                enemy.currentAction.InstantiateAnimations(enemy, targets, attackTextAnimation).ForEach(animation => QueueAnimation(animation));
             }
             yield return WaitForAnimationCompletion();
         }
