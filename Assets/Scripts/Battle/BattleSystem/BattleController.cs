@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using FMODParamValues;
 
 public class BattleController : MonoBehaviour
 {
     public static BattleController instance { get; private set; }
+
+    private const float SCENE_CHANGE_DELAY = 6f;
 
     [SerializeField]
     private BattlePlayer player;
@@ -19,6 +22,9 @@ public class BattleController : MonoBehaviour
 
     private bool battleEnded;
 
+    [SerializeField]
+    private string nextScene;
+
     private void Awake()
     {
         instance = this;
@@ -27,6 +33,7 @@ public class BattleController : MonoBehaviour
     private void Start()
     {
         enemies = BattleOrchestrator.Instance.currentEncounter.SpawnEnemies();
+        player.SetActions(BattleOrchestrator.Instance.currentActions);
         StartBattle();
     }
 
@@ -69,10 +76,13 @@ public class BattleController : MonoBehaviour
 
         foreach (BattleParticipant enemy in enemies)
         {
-            RunAction(enemy, player);
+            bool actionSuccessful = RunAction(enemy, player);
             List<BattleParticipant> targets = new List<BattleParticipant>();
             targets.Add(player);
-            QueueAnimation(enemy.currentAction.InstantiateAnimation(enemy, targets));
+            if (actionSuccessful)
+            {
+                QueueAnimation(enemy.currentAction.InstantiateAnimation(enemy, targets));
+            }
             yield return WaitForAnimationCompletion();
         }
 
@@ -99,12 +109,14 @@ public class BattleController : MonoBehaviour
         BattleUI.instance.QueueAnimation(battleAnimation);
     }
 
-    private void RunAction(BattleParticipant user, BattleParticipant target)
+    private bool RunAction(BattleParticipant user, BattleParticipant target)
     {
         if (!user.Dead && !target.Dead)
         {
             user.currentAction.RunAction(user, target);
+            return true;
         }
+        return false;
     }
 
     private void LoseBattle()
@@ -119,6 +131,14 @@ public class BattleController : MonoBehaviour
         Debug.Log("You won!");
         battleEnded = true;
         SetFMODEncounterParameter((float)EncounterControllerValues.EnemyDefeated);
+        fmodCountdownSFX.Stop();
+        StartCoroutine(DelaySceneChange());
+    }
+
+    private IEnumerator DelaySceneChange()
+    {
+        yield return new WaitForSeconds(SCENE_CHANGE_DELAY);
+        SceneManager.LoadScene(nextScene);
     }
 
     private void SetFMODEncounterParameter(float paramValue)
