@@ -6,6 +6,7 @@ public class FMODEventsAndParameters
 
     // Battle
     public const string COUNTDOWN_SELECTION_FAIL = "event:/sfx/battle/countdown_selection_fail";
+    public const string PLAYER_DEATH = "event:/sfx/abilities/player/misc/player_death";
 
 
     // UI
