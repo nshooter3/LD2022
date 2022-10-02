@@ -3,8 +3,6 @@ using UnityEngine;
 
 public abstract class Status : MonoBehaviour, IEquatable<Status>
 {
-    [SerializeField]
-    private int statusIdentifier;
     private BattleParticipant participant;
 
     [SerializeField]
@@ -31,7 +29,7 @@ public abstract class Status : MonoBehaviour, IEquatable<Status>
 
     public bool Equals(Status otherStatus)
     {
-        if (this.statusIdentifier == otherStatus.statusIdentifier)
+        if (this.GetType() == otherStatus.GetType())
         {
             return true;
         }

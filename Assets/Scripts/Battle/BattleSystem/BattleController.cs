@@ -71,8 +71,6 @@ public class BattleController : MonoBehaviour
             RunAction(player, target);
         }
         QueueAnimation(player.currentAction.InstantiateAnimation(player, player.targets));
-        BattleUI.instance.UpdateStatus();
-
         yield return WaitForAnimationCompletion();
 
         foreach (BattleParticipant enemy in enemies)
@@ -84,11 +82,10 @@ public class BattleController : MonoBehaviour
             {
                 QueueAnimation(enemy.currentAction.InstantiateAnimation(enemy, targets));
             }
-            BattleUI.instance.UpdateStatus();
             yield return WaitForAnimationCompletion();
         }
         battleParticipants.ForEach(participant => participant.OnTurnEnd());
-        BattleUI.instance.UpdateStatus();
+        BattleUI.instance.UpdateStatBars();
         yield return WaitForAnimationCompletion();
 
         if (player.Dead)
