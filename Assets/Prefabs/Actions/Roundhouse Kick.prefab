@@ -48,7 +48,7 @@ MonoBehaviour:
   mpCost: 0
   targetSelf: 0
   areaOfEffect: 1
-  battleAnimation: {fileID: 3121892039281223010, guid: 679507323cd9844968aaae7b932e6e81, type: 3}
+  battleAnimation: {fileID: 5604767406992085730, guid: f15beb55d6a7e2f4cb9f06046888610d, type: 3}
   damage: 6
   recoil: 2
   elementType: 3
