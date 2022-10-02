@@ -13,6 +13,11 @@ public class StatusDisplay : MonoBehaviour
 
     public void DisplayStatus()
     {
+        foreach (var statusIcon in statusIcons)
+        {
+            statusIcon.gameObject.SetActive(false);
+        }
+
         int statusIconIndex = 0;
         foreach (var status in battleParticipant.statuses)
         {
