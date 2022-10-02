@@ -9,7 +9,7 @@ public class BattleController : MonoBehaviour
 {
     public static BattleController instance { get; private set; }
 
-    private const float SCENE_CHANGE_DELAY = 6f;
+    private const float SCENE_CHANGE_DELAY = 4f;
 
     [SerializeField]
     private BattlePlayer player;
