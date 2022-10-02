@@ -9,16 +9,13 @@ using UnityEngine.UI;
 public class SceneSelectDirector : MenuBase
 {
     // Assets (Might migrate UI assets specifically to its own script so this is only focused on Director)
-    [SerializeField] List<EnemyEncounter> encounters;
+    private List<EnemyEncounter> encounters;
     [SerializeField] GameObject animatingIconGroup;
     private List<Transform> animatingIconTransforms;
 
     // Director
     private PlayableDirector director;
     [SerializeField] private PlayableAsset goLeftTimeline, goRightTimeline;
-    
-    // When Finished, Callback:
-    private Action onFinished = null;
 
     // Menu Control Variables
     private int iconIndex;
@@ -27,7 +24,12 @@ public class SceneSelectDirector : MenuBase
     [SerializeField]
     private string battleScene;
 
-    void Awake()
+    [SerializeField]
+    private Color lockColor;
+    [SerializeField]
+    private Color completedColor;
+
+    void Start()
     {
         director = GetComponent<PlayableDirector>();
         director.playOnAwake = false;
@@ -38,12 +40,15 @@ public class SceneSelectDirector : MenuBase
             animatingIconTransforms.Add(child);
         }
         iconIndex = 0;
+
+        encounters = BattleOrchestrator.Instance.GetAvailableEncounters();
+
         UpdateRoster(director);
     }
 
     protected override void Update()
     {
-        if (Input.GetKeyDown(KeyCode.LeftArrow))
+        if (Input.GetKeyDown(KeyCode.LeftArrow) && encounters.Count > 1)
         {
             if (iconIndex == 0) { iconIndex = encounters.Count - 1; }
             else { iconIndex = Mathf.Clamp(iconIndex - 1, 0, encounters.Count); }
@@ -54,7 +59,7 @@ public class SceneSelectDirector : MenuBase
             }
             PlayLeftScroll();
         }
-        if (Input.GetKeyDown(KeyCode.RightArrow))
+        if (Input.GetKeyDown(KeyCode.RightArrow) && encounters.Count > 1)
         {
             if (iconIndex == (encounters.Count - 1)) { iconIndex = 0; }
             else { iconIndex = Mathf.Clamp(iconIndex + 1, 0, encounters.Count); }
@@ -65,7 +70,7 @@ public class SceneSelectDirector : MenuBase
             }
             PlayRightScroll();
         }
-        if (Input.GetButtonDown("Submit"))
+        if (Input.GetButtonDown("Submit") && (!encounters[iconIndex].FinalBoss || BattleOrchestrator.Instance.finalBossUnlocked))
         {
             BattleOrchestrator.Instance.currentEncounter = encounters[iconIndex];
             FMODUnity.RuntimeManager.PlayOneShot(FMODEventsAndParameters.ENEMY_SELECT_CURSOR_SELECT);
@@ -105,14 +110,37 @@ public class SceneSelectDirector : MenuBase
         if (nextIndex == encounters.Count) { nextIndex = 0; }
         if (previousIndex < 0) { previousIndex = encounters.Count - 1; }
 
-        playerIcons[0].UpdateIcon(encounters[previousIndex].CharacterSprite);
-        playerIcons[1].UpdateIcon(encounters[iconIndex].CharacterSprite);
-        playerIcons[2].UpdateIcon(encounters[nextIndex].CharacterSprite);
+        UpdateIcon(playerIcons[0], encounters[previousIndex]);
+        UpdateIcon(playerIcons[1], encounters[iconIndex]);
+        UpdateIcon(playerIcons[2], encounters[nextIndex]);
 
         animatingIconGroup.SetActive(false);
-        foreach (CharacterSelectIcon icon in playerIcons)
+        if (encounters.Count > 1)
         {
-            icon.gameObject.SetActive(true);
+            foreach (CharacterSelectIcon icon in playerIcons)
+            {
+                icon.gameObject.SetActive(true);
+            }
         }
+        else
+        {
+            playerIcons[0].gameObject.SetActive(false);
+            playerIcons[1].gameObject.SetActive(true);
+            playerIcons[2].gameObject.SetActive(false);
+        }
+    }
+
+    private void UpdateIcon(CharacterSelectIcon icon, EnemyEncounter encounter)
+    {
+        Color color = Color.white;
+        if (BattleOrchestrator.Instance.EncounterCompleted(encounter))
+        {
+            color = completedColor;
+        }
+        else if (encounter.FinalBoss && !BattleOrchestrator.Instance.finalBossUnlocked)
+        {
+            color = lockColor;
+        }
+        icon.UpdateIcon(encounter.CharacterSprite, color);
     }
 }

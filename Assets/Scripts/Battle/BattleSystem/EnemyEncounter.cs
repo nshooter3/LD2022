@@ -7,6 +7,9 @@ public class EnemyEncounter : MonoBehaviour
     private List<Enemy> enemies;
     [SerializeField]
     private Sprite characterSprite;
+    [SerializeField]
+    private bool finalBoss;
+    public bool FinalBoss { get { return finalBoss; } }
     public Sprite CharacterSprite { get { return characterSprite; } }
 
     public List<Enemy> SpawnEnemies()
