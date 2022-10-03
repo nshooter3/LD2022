@@ -767,6 +767,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timerDuration: 10
+  defaultTimerDuration: 0
 --- !u!1 &6490437682363026589
 GameObject:
   m_ObjectHideFlags: 0
@@ -1304,6 +1305,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fmodMusicEvent: {fileID: 0}
   useBaseCursorAudio: 1
+  actions: []
   playerDisplay: {fileID: 6490437681603618262}
   enemyDisplays:
   - {fileID: 428043459724194815}
@@ -2159,9 +2161,9 @@ RectTransform:
   m_Father: {fileID: 6490437683332578728}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -6.6, y: 299.5}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: -6.6, y: -60.5}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4289799373594062382
@@ -2255,7 +2257,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5547118296411060509, guid: 145b7f85fdf664e14b16ebd9aafeeb45, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8531044557218771767, guid: 145b7f85fdf664e14b16ebd9aafeeb45, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -2291,7 +2293,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8796211056417950269, guid: 145b7f85fdf664e14b16ebd9aafeeb45, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8842706760626217563, guid: 145b7f85fdf664e14b16ebd9aafeeb45, type: 3}
       propertyPath: m_RootOrder
@@ -2464,7 +2466,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5547118296411060509, guid: 145b7f85fdf664e14b16ebd9aafeeb45, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8531044557218771767, guid: 145b7f85fdf664e14b16ebd9aafeeb45, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -2496,7 +2498,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8796211056417950269, guid: 145b7f85fdf664e14b16ebd9aafeeb45, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8842706760626217563, guid: 145b7f85fdf664e14b16ebd9aafeeb45, type: 3}
       propertyPath: m_RootOrder
@@ -3633,7 +3635,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5547118296411060509, guid: 145b7f85fdf664e14b16ebd9aafeeb45, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 8531044557218771767, guid: 145b7f85fdf664e14b16ebd9aafeeb45, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -3669,7 +3671,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8796211056417950269, guid: 145b7f85fdf664e14b16ebd9aafeeb45, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8842706760626217563, guid: 145b7f85fdf664e14b16ebd9aafeeb45, type: 3}
       propertyPath: m_RootOrder
