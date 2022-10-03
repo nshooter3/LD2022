@@ -11,7 +11,7 @@ public class BattleUI : MenuBase
     public static BattleUI instance { get; private set; }
 
     private BattlePlayer player;
-    public List<BattleAction> actions { get; private set; }
+    public List<BattleAction> actions;
     private List<Enemy> enemies;
 
     [SerializeField]
@@ -208,6 +208,19 @@ public class BattleUI : MenuBase
         interferences.ForEach(interference => interference.StartInterference());
 
         moveTimer.StartTimer(ChooseDefaultAction);
+    }
+
+    public void UpdateButtonNames()
+    {
+        for (int i = 0; i < actionButtons.Count; i++)
+        {
+            Button button = actionButtons[i];
+            if (i < actions.Count)
+            {
+                BattleAction action = actions[i];
+                button.GetComponentInChildren<TextMeshProUGUI>().text = action.currentName;
+            }
+        }
     }
 
     public void SetActionDescription()
