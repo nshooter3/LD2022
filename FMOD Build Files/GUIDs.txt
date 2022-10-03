@@ -20,6 +20,7 @@
 {b741228e-ecb2-47fc-8673-cc345b484dbd} event:/sfx/abilities/player/physical/glitch
 {d9cdb516-6958-43b2-8467-075228901e15} event:/sfx/abilities/player/physical/guard
 {5d340d29-17f0-417f-9ae8-661484822477} event:/sfx/abilities/player/physical/strike
+{fc1a54aa-062b-4004-9b89-d4fe4ec71429} event:/sfx/abilities/player/physical/vampiric_jab
 {83f8576e-af17-491a-a788-142ac6ef98bb} event:/sfx/abilities/player/spells/fire_spell
 {73e23bba-2d44-469b-9348-5f27bcb51d2a} event:/sfx/abilities/player/spells/grass_spell
 {041eb24e-fced-4c1b-adef-25e2e3e680c4} event:/sfx/abilities/player/spells/heal_spell
