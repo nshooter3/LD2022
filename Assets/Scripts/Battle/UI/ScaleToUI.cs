@@ -15,6 +15,6 @@ public class ScaleToUI : MonoBehaviour
         Vector3 worldPos = Camera.main.ScreenToWorldPoint(anchor.transform.position);
         worldPos.z = 0;
         transform.position = worldPos;
-        transform.localScale = originalScale * BattleUI.instance.CanvasScale;
+        //transform.localScale = originalScale * BattleUI.instance.CanvasScale;
     }
 }

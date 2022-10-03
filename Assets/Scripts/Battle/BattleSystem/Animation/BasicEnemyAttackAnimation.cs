@@ -42,5 +42,13 @@ public class BasicEnemyAttackAnimation : ActionAnimation
 
     protected override void OnAnimationEnd()
     {
+        if (targets[0].Dead)
+        {
+            targets[0].GetComponentInChildren<PlayerAnimator>()?.Die();
+        }
+        else
+        {
+            targets[0].GetComponentInChildren<PlayerAnimator>()?.Hurt();
+        }
     }
 }
