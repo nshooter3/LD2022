@@ -74,31 +74,31 @@ public abstract class BattleParticipant : MonoBehaviour
             case ElementType.Fire:
                 if (attackElement == ElementType.Water)
                 {
-                    damageToReturn /= 2;
+                    damageToReturn *= 2;
                 }
                 if (attackElement == ElementType.Grass)
                 {
-                    damageToReturn *= 2;
+                    damageToReturn /= 2;
                 }
                 break;
             case ElementType.Water:
                 if (attackElement == ElementType.Fire)
                 {
-                    damageToReturn *= 2;
+                    damageToReturn /= 2;
                 }
                 if (attackElement == ElementType.Grass)
                 {
-                    damageToReturn /= 2;
+                    damageToReturn *= 2;
                 }
                 break;
             case ElementType.Grass:
                 if (attackElement == ElementType.Fire)
                 {
-                    damageToReturn /= 2;
+                    damageToReturn *= 2;
                 }
                 if (attackElement == ElementType.Water)
                 {
-                    damageToReturn *= 2;
+                    damageToReturn /= 2;
                 }
                 break;
         }
