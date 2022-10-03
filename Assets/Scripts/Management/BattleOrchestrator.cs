@@ -23,6 +23,7 @@ public class BattleOrchestrator : MonoBehaviour
 
     public bool IsFinalBoss()
     {
+
         if (currentEncounter.EncounterName == finalBossEncounterName)
         {
             return true;
