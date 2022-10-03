@@ -132,6 +132,7 @@ public class BattleController : MonoBehaviour
         if (damageAnimationRecords.Count > 0)
         {
             DamageAnimation newDamageAnimation = Instantiate<DamageAnimation>(damageAnimation);
+            newDamageAnimation.transform.localScale = new Vector3(3, 3, 3);
             newDamageAnimation.damageAnimationRecords = damageAnimationRecords;
             damageAnimationRecords = new List<DamageAnimationRecord>();
             QueueAnimation(newDamageAnimation);
