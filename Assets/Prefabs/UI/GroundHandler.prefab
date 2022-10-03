@@ -99,8 +99,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   renderer: {fileID: 3220648374092978990}
   mainTextures:
-  - {fileID: 21300000, guid: c9ae776c7b2efca4f9a91b16723fd2ea, type: 3}
-  - {fileID: 21300000, guid: 8b9ac74c4b11f8e41bc156fd34b905f7, type: 3}
-  - {fileID: 21300000, guid: de2a29553d32b3e43ac8a2417f18fab4, type: 3}
-  - {fileID: 21300000, guid: baa56545f20895f4187ad50607ad10c1, type: 3}
-  - {fileID: 21300000, guid: 2f11884ddc62ab347926b3f724c0e078, type: 3}
+  - {fileID: 21300000, guid: 4a9810e2cdd12354bae7001d5bdee34f, type: 3}
+  - {fileID: 21300000, guid: f4cc0a60bdb6b1e439b73942821a1912, type: 3}
+  - {fileID: 21300000, guid: 05640b90ed829344a8da7f15a30aa18d, type: 3}

@@ -14,7 +14,7 @@ public class GroundHandler : MonoBehaviour
     void Start()
     {
         //cloneMaterial = new Material(GetComponent<Renderer>().material);
-        renderer.sprite = mainTextures[Random.Range(0, mainTextures.Length - 1)];
+        renderer.sprite = mainTextures[Random.Range(0, mainTextures.Length)];
         //GetComponent<Renderer>().material = cloneMaterial;
     }
 
