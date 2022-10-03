@@ -156,4 +156,10 @@ public abstract class BattleParticipant : MonoBehaviour
     {
         return true;
     }
+
+    public void ChangeElementalType(ElementType newElementType)
+    {
+        currentElementType = newElementType;
+    }
+
 }
