@@ -54,10 +54,10 @@ MonoBehaviour:
   currentName: 
   fmodActionEvent:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -918045485
+      Data2: 1238224125
+      Data3: -1583079541
+      Data4: -1611755652
+    Path: event:/sfx/abilities/enemy/thief/thief_spanish
   recoil: 0
   status: {fileID: -8452107191980039475, guid: 49699351e7df93a47b6088ec8379c6f4, type: 3}

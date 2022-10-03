@@ -14,6 +14,7 @@
 {329859f0-e570-47c9-8459-1f73303d8919} event:/sfx/abilities/enemy/gambler/gambler_menu_shuffle
 {3ee6338d-9190-460a-8207-1cdfa0668587} event:/sfx/abilities/enemy/hacker/hacker_pop_up
 {d8f51369-79da-4091-aa45-42beb2d8f1a2} event:/sfx/abilities/enemy/misc/enemy_death
+{c947bcd3-ccfd-49cd-8b1f-a4a17c8fee9f} event:/sfx/abilities/enemy/thief/thief_spanish
 {23aba737-4868-42e9-8a6a-e3eed78905d8} event:/sfx/abilities/player/misc/player_death
 {b741228e-ecb2-47fc-8673-cc345b484dbd} event:/sfx/abilities/player/physical/glitch
 {d9cdb516-6958-43b2-8467-075228901e15} event:/sfx/abilities/player/physical/guard
