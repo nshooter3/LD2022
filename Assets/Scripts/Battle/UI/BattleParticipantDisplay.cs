@@ -15,12 +15,15 @@ public class BattleParticipantDisplay : MonoBehaviour
     [SerializeField]
     private Animator anims;
     public int maxHp { private get; set; }
+    [SerializeField]
+    private TextMeshProUGUI healthNumbers;
 
     public StatusDisplay statusPanel;
 
     public void SetHealth(int health)
     {
         SetBarValue(healthBar, health, maxHp);
+        healthNumbers.text = health + "/" + maxHp;
     }
 
     protected static void SetBarValue(Image bar, int value, int maxValue)
