@@ -52,5 +52,12 @@ MonoBehaviour:
   battleAnimation: {fileID: 6496146970332895624, guid: e2121ec75f163474e93f646ef297575c, type: 3}
   description: Cast a healing spell.
   currentName: 
+  fmodActionEvent:
+    Guid:
+      Data1: 69120590
+      Data2: 1276902637
+      Data3: -500830291
+      Data4: -998185245
+    Path: event:/sfx/abilities/player/spells/heal_spell
   recoil: 0
   healAmount: 20
