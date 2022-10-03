@@ -54,10 +54,10 @@ MonoBehaviour:
   currentName: 
   fmodActionEvent:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -1281919271
+      Data2: 1329935463
+      Data3: 759408826
+      Data4: -1492331569
+    Path: event:/sfx/abilities/enemy/thief/thief_steal
   recoil: 0
   status: {fileID: 1623485002954163404, guid: ede3b7e2e7d8c1f4eaef0c973d08b3f6, type: 3}
