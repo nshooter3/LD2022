@@ -45,11 +45,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0e17d0ca67ec42fea1d73a171f69062, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 60
+  maxHp: 156
   actions:
-  - {fileID: 7203658531264741535, guid: a691db14dda65024aa9f04c8a4ae17c0, type: 3}
   - {fileID: 1684084760287416780, guid: 06c1766e0e1e76c4ca99bd85e54c5118, type: 3}
-  currentElementType: 1
+  - {fileID: 4361372877000272062, guid: be16425b4c8ee674b9fddaca02476989, type: 3}
+  - {fileID: 7203658531264741535, guid: a691db14dda65024aa9f04c8a4ae17c0, type: 3}
+  - {fileID: 4261013244580680026, guid: 183c54924ff4db048ac2ee5fd6ca8e06, type: 3}
+  - {fileID: 1684084760287416780, guid: 06c1766e0e1e76c4ca99bd85e54c5118, type: 3}
+  - {fileID: 4795507197761775815, guid: b161b81d006621b4da82aee97f8be54f, type: 3}
+  - {fileID: 7203658531264741535, guid: a691db14dda65024aa9f04c8a4ae17c0, type: 3}
+  currentElementType: 0
   combatBehavior: {fileID: -4097403819614163732, guid: 5149017e795246a47aea7b2a803f92e1, type: 3}
 --- !u!1 &8546601047685098893
 GameObject:

@@ -11,8 +11,8 @@ public class GarbledInjection : Status
 
         for (int i = 0; i < counter; ++i)
         {
-            actions.Add(injectedAction);
-            actions.Add(injectedAction);
+            actions.Add(Instantiate(injectedAction));
+            actions.Add(Instantiate(injectedAction));
         }
         return actions;
     }

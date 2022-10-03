@@ -45,12 +45,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0e17d0ca67ec42fea1d73a171f69062, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 60
+  maxHp: 152
   actions:
-  - {fileID: 6773546682973441738, guid: 954ba9493f40cbf4d818576b2d237511, type: 3}
-  - {fileID: 5732525588903787617, guid: 7df3a6518e9a24f8ca69af23f6587f3f, type: 3}
   - {fileID: -3987002863933510903, guid: b6408b2d4cbf2401998292dbc280ed55, type: 3}
-  - {fileID: 5732525588903787617, guid: 7df3a6518e9a24f8ca69af23f6587f3f, type: 3}
+  - {fileID: 3562700384000513134, guid: 5af101810280ec74b8961f334285885f, type: 3}
+  - {fileID: 6773546682973441738, guid: 954ba9493f40cbf4d818576b2d237511, type: 3}
+  - {fileID: 4027425650072179870, guid: 16b9510614010804eb44ff253adb8eb5, type: 3}
+  - {fileID: -3987002863933510903, guid: b6408b2d4cbf2401998292dbc280ed55, type: 3}
+  - {fileID: 3347243449438005262, guid: 210cfdcbfabc1bf49ad72a4a7f7304a8, type: 3}
   currentElementType: 1
   combatBehavior: {fileID: 5598479242315832697, guid: eb7f0a389fa492e4a8d452288c7d834b, type: 3}
 --- !u!1 &6382303980072744569

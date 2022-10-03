@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &1614166392454077703
+--- !u!1 &5995588384460269068
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7537402512801774170}
-  - component: {fileID: 3325438194609931989}
+  - component: {fileID: 2760775373042548699}
+  - component: {fileID: 7045174312979095687}
   m_Layer: 0
-  m_Name: GoonKick
+  m_Name: ThiefStrike2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7537402512801774170
+--- !u!4 &2760775373042548699
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1614166392454077703}
+  m_GameObject: {fileID: 5995588384460269068}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -32,24 +32,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3325438194609931989
+--- !u!114 &7045174312979095687
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1614166392454077703}
+  m_GameObject: {fileID: 5995588384460269068}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 34be79a8227b94558b1fdd48720c2861, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionName: Kick
+  actionName: Keelhaul
   spanishActionName: 
   mpCost: 0
   targetSelf: 0
   areaOfEffect: 0
-  battleAnimation: {fileID: 2168730723449064563, guid: a87cab9688d730743b0946af4d40ff23, type: 3}
+  battleAnimation: {fileID: 2815643081771685000, guid: 052a4cf6aec053a4cac4418f3cca64f9, type: 3}
   description: 
   currentName: 
   fmodActionEvent:
@@ -60,5 +60,5 @@ MonoBehaviour:
       Data4: 1998881412
     Path: event:/sfx/abilities/player/physical/strike
   recoil: 0
-  damage: 4
+  damage: 16
   elementType: 3
