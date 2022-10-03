@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class Glitched : BattleAction
 {
-    public override string GetIntentDisplay()
+
+    public override IntentType GetIntentType()
     {
-        return "Glitched";
+        return IntentType.NONE;
     }
 
     protected override void OnRunAction(BattleParticipant user, BattleParticipant target)

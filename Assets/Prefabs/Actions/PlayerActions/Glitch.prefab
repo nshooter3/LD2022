@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 2633912186812982125}
   - component: {fileID: 356905485158555782}
   - component: {fileID: 5727730006075594139}
+  - component: {fileID: 3417508233472523176}
   m_Layer: 0
   m_Name: Glitch
   m_TagString: Untagged
@@ -49,11 +50,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionName: Glitched
+  spanishActionName: Glitched
   mpCost: 0
   targetSelf: 0
   areaOfEffect: 0
   battleAnimation: {fileID: 6496146970332895624, guid: 86ab25b42ecebca4685808adf14787df, type: 3}
   description: ?????
+  currentName: Glitched
   recoil: 0
 --- !u!114 &-3329434574175863712
 MonoBehaviour:
@@ -92,6 +95,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &5727730006075594139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4321351403726204815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5971291364f14fc79e7f21f325756cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3417508233472523176
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

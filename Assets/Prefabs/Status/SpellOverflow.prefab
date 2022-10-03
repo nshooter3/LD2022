@@ -44,5 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 79fc144e75d60e445b04fd8307304e5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statusSprite: {fileID: 0}
+  statusSprites:
+  - {fileID: 0}
   injectedAction: {fileID: 7304842457765439720, guid: 45d0a07d5b67b5d439893163b394b789, type: 3}
+  counter: 0
