@@ -6,6 +6,7 @@ public class BackgroundHandler : MonoBehaviour
 {
 
     public Material material;
+    Material cloneMaterial;
     public Texture[] mainTextures;
     public Texture[] distortionTextures;
     //public Color color;
@@ -13,12 +14,13 @@ public class BackgroundHandler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        cloneMaterial = new Material(material);
         RandomizeBG();
     }
 
     Color RandomColor()
     {
-        return new Color(Random.Range(0f, 1.0f), Random.Range(0f, 1.0f), Random.Range(0f, 1.0f));
+        return new Color(Random.Range(0f, .7f), Random.Range(0f, .7f), Random.Range(0f, .7f));
 
     }
 
@@ -36,13 +38,13 @@ public class BackgroundHandler : MonoBehaviour
 
     public void RandomizeBG()
     {
-        material.SetTexture("_MainTex", mainTextures[Random.Range(0, mainTextures.Length - 1)]); //Set main texture
-        material.SetTexture("_SecondTex", mainTextures[Random.Range(0, mainTextures.Length - 1)]); //Set secondary texture
-        material.SetTexture("_DistortionNormal", distortionTextures[Random.Range(0, distortionTextures.Length - 1)]); //Set distortion texture
-        material.SetColor("_Color", RandomColor());
-        material.SetColor("_Color2", RandomColor());
+        cloneMaterial.SetTexture("_MainTex", mainTextures[Random.Range(0, mainTextures.Length - 1)]); //Set main texture
+        cloneMaterial.SetTexture("_SecondTex", mainTextures[Random.Range(0, mainTextures.Length - 1)]); //Set secondary texture
+        cloneMaterial.SetTexture("_DistortionNormal", distortionTextures[Random.Range(0, distortionTextures.Length - 1)]); //Set distortion texture
+        cloneMaterial.SetColor("_Color", RandomColor());
+        cloneMaterial.SetColor("_Color2", RandomColor());
 
-        RenderSettings.skybox = material;
+        RenderSettings.skybox = cloneMaterial;
     }
 
     // Update is called once per frame
