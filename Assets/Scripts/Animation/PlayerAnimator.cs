@@ -3,34 +3,39 @@ using UnityEngine;
 public class PlayerAnimator : MonoBehaviour
 {
     [SerializeField]
-    private Animator anim;
+    private Animator movementAnim, spriteAnim;
 
     [SerializeField]
     private DamageFlicker damageFlicker;
 
     public void Punch()
     {
-        anim.SetTrigger("Punch");
+        movementAnim.SetTrigger("Punch");
+        spriteAnim.SetTrigger("Attack");
     }
 
     public void Kick()
     {
-        anim.SetTrigger("Kick");
+        movementAnim.SetTrigger("Kick");
+        spriteAnim.SetTrigger("Attack2");
     }
 
     public void Spell()
     {
-        anim.SetTrigger("Spell");
+        movementAnim.SetTrigger("Spell");
+        spriteAnim.SetTrigger("Cast");
     }
 
     public void Hurt()
     {
-        anim.SetTrigger("Hurt");
+        movementAnim.SetTrigger("Hurt");
         damageFlicker.StartFlicker();
+        spriteAnim.SetTrigger("Hurt");
     }
 
     public void Die()
     {
-        anim.SetTrigger("Die");
+        movementAnim.SetTrigger("Die");
+        spriteAnim.SetTrigger("Die");
     }
 }
