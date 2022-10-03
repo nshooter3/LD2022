@@ -6,8 +6,6 @@ Shader "Custom/DistortionScroller"
         _Color2 ("Color 2", Color) = (1,1,1,1)
         _MainTex ("Texture (RGB)", 2D) = "white" {}
         _SecondTex("Secondary Texture (RGB)", 2D) = "white" {}
-        _Glossiness ("Smoothness", Range(0,1)) = 0.5
-        _Metallic ("Metallic", Range(0,1)) = 0.0
         _DistortionNormal("Distortion Normal", 2D) = "white" {}
         _DistortionScroll("Distortion Scroll Speed", Float) = 1
         _DistortionStrength("Distortion Strength", Float) = 1
@@ -36,8 +34,6 @@ Shader "Custom/DistortionScroller"
             float2 uv_MainTex;
         };
 
-        half _Glossiness;
-        half _Metallic;
         fixed4 _Color, _Color2;
 
         float _DistortionScroll;
@@ -60,13 +56,11 @@ Shader "Custom/DistortionScroller"
             float2 texScroll = float2(pixelUVs.x + dist.r + _Time.x * _TextureScroll, pixelUVs.y + dist.g + _Time.y * _TextureScroll);
             float2 texScrollMinus = float2(pixelUVs.x + dist.g - _Time.y * _TextureScroll, pixelUVs.y - dist.b + _Time.y * _TextureScroll);
             // Albedo comes from a texture tinted by color
-            fixed4 c = (tex2D(_MainTex, texScroll).r * _Color + tex2D(_SecondTex, texScrollMinus * -1) * _Color2);
+            fixed4 c = (tex2D(_MainTex, texScroll).r * _Color + tex2D(_SecondTex, texScrollMinus * -1).r * _Color2);
 
             o.Albedo = c.rgb;
             o.Emission = c.rgb;
             // Metallic and smoothness come from slider variables
-            o.Metallic = _Metallic;
-            o.Smoothness = _Glossiness;
             o.Alpha = c.a;
         }
         ENDCG
