@@ -15,19 +15,12 @@ public class EnemyEncounter : MonoBehaviour
     public List<Enemy> SpawnEnemies()
     {
         List<Enemy> spawnedEnemies = new List<Enemy>();
-        foreach (Enemy enemy in enemies)
+        for (int i = 0; i < enemies.Count; i++)
         {
-            Enemy tempEnemy = Instantiate<Enemy>(enemy);
+            Enemy tempEnemy = Instantiate<Enemy>(enemies[i]);
             spawnedEnemies.Add(tempEnemy);
-            EnemyPosition enemyPos = EnemyPositions.instance.GetAvailablePosition(enemy);
-            if (enemyPos != null)
-            {
-                tempEnemy.transform.position = enemyPos.transform.position;
-            }
-            else
-            {
-                Debug.LogError("No position available for " + tempEnemy.name + ". Please ensure that you're not spawning too many enemies.");
-            }
+            ScaleToUI scaleToUI = tempEnemy.gameObject.AddComponent<ScaleToUI>();
+            scaleToUI.anchor = BattleUI.instance.GetEnemyAnchorPosition(i);
         }
         return spawnedEnemies;
     }

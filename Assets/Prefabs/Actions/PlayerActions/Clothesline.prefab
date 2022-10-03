@@ -49,6 +49,7 @@ MonoBehaviour:
   targetSelf: 0
   areaOfEffect: 1
   battleAnimation: {fileID: 1654458526421221007, guid: a5e875f6f03c54d42aa7d42fc8eb0098, type: 3}
-  damage: 11
+  description: A running attack that deals damage to all enemies.
   recoil: 0
+  damage: 11
   elementType: 3

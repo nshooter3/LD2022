@@ -49,6 +49,7 @@ MonoBehaviour:
   targetSelf: 0
   areaOfEffect: 0
   battleAnimation: {fileID: 5604767406992085730, guid: f15beb55d6a7e2f4cb9f06046888610d, type: 3}
-  damage: 8
+  description: An earthy kick that deals grass damage to an enemy.
   recoil: 0
+  damage: 8
   elementType: 1

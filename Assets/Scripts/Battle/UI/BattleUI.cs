@@ -11,7 +11,7 @@ public class BattleUI : MenuBase
     public static BattleUI instance { get; private set; }
 
     private BattlePlayer player;
-    private List<BattleAction> actions;
+    public List<BattleAction> actions { get; private set; }
     private List<Enemy> enemies;
 
     [SerializeField]
@@ -31,6 +31,12 @@ public class BattleUI : MenuBase
     [SerializeField]
     private MoveTimer moveTimer;
 
+    [SerializeField]
+    private List<Image> actionMenuImages;
+
+    [SerializeField]
+    private ActionDescriptions actionDescriptions;
+
     private Queue<BattleAnimation> animationQueue = new Queue<BattleAnimation>();
 
     private List<BattleUIInterference> interferences = new List<BattleUIInterference>();
@@ -38,6 +44,10 @@ public class BattleUI : MenuBase
     public bool AnimationsComplete { get { return animationQueue.Count == 0; } }
 
     private int chosenAction;
+
+    private bool actionSelectionOverridden;
+
+    public float CanvasScale { get { return transform.localScale.x; } }
 
     private void Awake()
     {
@@ -47,6 +57,7 @@ public class BattleUI : MenuBase
     protected override void Update()
     {
         base.Update();
+        SetActionDescription();
         if (!useAreaOfEffectIndicators)
         {
             if (EventSystem.current.currentSelectedGameObject == null)
@@ -150,36 +161,61 @@ public class BattleUI : MenuBase
 
     public void DisplayActionPrompt()
     {
-        Button firstSelectableAction = null;
-        for (int i = 0; i < actionButtons.Count; i++)
+        actionSelectionOverridden = false;
+        foreach (BattleUIInterference interference in interferences)
         {
-            Button button = actionButtons[i];
-            if (i < actions.Count)
+            actionSelectionOverridden = interference.OverrideActionSelection() || actionSelectionOverridden;
+        }
+        if (actionSelectionOverridden)
+        {
+            ToggleMenuImages(false);
+        }
+        else
+        {
+            ToggleMenuImages(true);
+            Button firstSelectableAction = null;
+            for (int i = 0; i < actionButtons.Count; i++)
             {
-                BattleAction action = actions[i];
-                button.gameObject.SetActive(true);
-                button.GetComponentInChildren<TextMeshProUGUI>().text = action.ActionName;
-
-                if (player.CanUseAction(action))
+                Button button = actionButtons[i];
+                if (i < actions.Count)
                 {
-                    button.interactable = true;
-                    if (firstSelectableAction == null)
+                    BattleAction action = actions[i];
+                    button.gameObject.SetActive(true);
+                    button.GetComponentInChildren<TextMeshProUGUI>().text = action.ActionName;
+
+                    if (player.CanUseAction(action))
                     {
-                        firstSelectableAction = button;
+                        button.interactable = true;
+                        if (firstSelectableAction == null)
+                        {
+                            firstSelectableAction = button;
+                        }
+                    }
+                    else
+                    {
+                        button.interactable = false;
                     }
                 }
-                else
-                {
-                    button.interactable = false;
-                }
             }
+
+            SetSelectedGameObject(firstSelectableAction.gameObject);
         }
 
-        interferences.ForEach(interference => interference.StartInterference(gameObject));
-
-        SetSelectedGameObject(firstSelectableAction.gameObject);
+        interferences.ForEach(interference => interference.StartInterference());
 
         moveTimer.StartTimer(ChooseRandomAction);
+    }
+
+    public void SetActionDescription()
+    {
+        if (EventSystem.current.currentSelectedGameObject != null && !actionSelectionOverridden)
+        {
+            ActionButton currentButton = EventSystem.current.currentSelectedGameObject.GetComponent<ActionButton>();
+            if (currentButton != null)
+            {
+                actionDescriptions.SetAction(actions[currentButton.index]);
+            }
+        }
     }
 
     public void ChooseAction(int actionIndex)
@@ -233,6 +269,7 @@ public class BattleUI : MenuBase
                 }
             }
         }
+        ToggleMenuImages(false);
     }
 
     public void ChooseTarget(int targetIndex)
@@ -270,6 +307,11 @@ public class BattleUI : MenuBase
         }
     }
 
+    public GameObject GetEnemyAnchorPosition(int enemyIndex)
+    {
+        return enemyDisplays[enemyIndex].gameObject;
+    }
+
     private bool ShouldAllowActionInput()
     {
         bool allowInput = true;
@@ -282,7 +324,7 @@ public class BattleUI : MenuBase
 
     private void PositionSelectionIndicator(GameObject targetObject, GameObject currentSelectionIndicator)
     {
-        currentSelectionIndicator.transform.position = targetObject.transform.position + Vector3.left * 60;
+        currentSelectionIndicator.transform.position = targetObject.transform.position + Vector3.left * 100 * CanvasScale;
         currentSelectionIndicator.SetActive(true);
     }
 
@@ -307,8 +349,8 @@ public class BattleUI : MenuBase
             }
         }
 
-        List<BattleParticipant> randomTargets = GetTargets(eligibleEnemies[UnityEngine.Random.Range(0, eligibleEnemies.Count - 1)]);
-        BattleAction randomAction = actions[eligibleActions[UnityEngine.Random.Range(0, eligibleActions.Count - 1)]];
+        List<BattleParticipant> randomTargets = GetTargets(RandomUtil.GetRandomElementFromList(eligibleEnemies));
+        BattleAction randomAction = actions[RandomUtil.GetRandomElementFromList(eligibleActions)];
         player.ChoosePlayerAction(randomAction, randomTargets);
     }
 
@@ -345,6 +387,7 @@ public class BattleUI : MenuBase
         {
             interference.OnActionSelectionEnd();
         }
+        ToggleMenuImages(false);
     }
 
     private BattleParticipantDisplay FindDisplayForParticipant(BattleParticipant participant)
@@ -354,5 +397,10 @@ public class BattleUI : MenuBase
             return playerDisplay;
         }
         return enemyDisplays[enemies.FindIndex(p => p == participant)];
+    }
+
+    private void ToggleMenuImages(bool enabled)
+    {
+        actionMenuImages.ForEach(image => image.gameObject.SetActive(enabled));
     }
 }

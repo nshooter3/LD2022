@@ -7,11 +7,14 @@
 {80884dbe-6f79-45a9-ad0a-1263910bf1a7} bus:/Reverb
 {416b9ac7-0f06-47a8-8a44-1a4fd6a0ccfc} event:/music/encounter_music
 {3d4ef981-a2f6-4dcf-8d58-9bdbcee4a3bf} event:/music/enemy_selection_music
+{d55d9d58-4ed8-4232-807b-61d53b48de93} event:/music/title_screen_music
 {71171e48-735f-4265-87db-321dd5deb1d5} event:/music/win_screen_music
+{d8f51369-79da-4091-aa45-42beb2d8f1a2} event:/sfx/abilities/enemy/misc/enemy_death
 {23aba737-4868-42e9-8a6a-e3eed78905d8} event:/sfx/abilities/player/misc/player_death
 {5d340d29-17f0-417f-9ae8-661484822477} event:/sfx/abilities/player/physical/strike
 {6765699f-d77b-4ece-a783-1a7f0679dbb6} event:/sfx/battle/countdown
 {b34b3dc9-e6f3-4ca4-aaf1-06f28ce9e235} event:/sfx/battle/countdown_selection_fail
+{43e631d6-47a4-44be-9fe0-7f82949a05b3} event:/sfx/battle/countdown_tick
 {5adfe81d-9ba5-4dd0-b021-dbdc3b469c09} event:/ui/cursor_deselect
 {b117dd7e-b732-4c8f-98bd-8a05d965fcea} event:/ui/cursor_move
 {8bfd5b7f-4b07-4062-aa29-7d1c0ca5b88a} event:/ui/cursor_select
@@ -19,4 +22,5 @@
 {3f005bd8-6c9a-4839-bf63-1fb10bdd4ec9} event:/ui/enemy_select_cursor_select
 {873f7884-0163-45ee-9c1e-0d7993d3d977} event:/ui/pop_up_close
 {714d7cc4-7010-43c9-9907-94d2748ed30e} event:/ui/pop_up_open
+{b9ff27db-5ba3-4888-8923-1f6e2161add4} parameter:/countdown_timer
 {124b8d07-05e6-4ec7-8f86-cbc728291623} parameter:/encounter_controller
