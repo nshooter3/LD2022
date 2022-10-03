@@ -34,8 +34,18 @@ public class DamageAnimation : BattleAnimation
             TextMeshProUGUI text = Instantiate<TextMeshProUGUI>(textPrefab, transform);
             if (record.damage >= 0)
             {
+                text.text = "";
+                if (record.typeEffectiveness == DamageAnimationRecord.TypeEffectiveness.Weak)
+                {
+                    text.text += "Weak!\n";
+                }
+                else if (record.typeEffectiveness == DamageAnimationRecord.TypeEffectiveness.Resist)
+                {
+                    text.text += "Resist\n";
+                }
+
                 text.color = record.damageType == DamageAnimationRecord.DamageType.HP ? hpDamageColor : mpDrainColor;
-                text.text = record.damage.ToString();
+                text.text += record.damage.ToString();
             }
             else
             {
