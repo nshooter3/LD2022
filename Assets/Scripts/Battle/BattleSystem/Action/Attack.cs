@@ -18,7 +18,8 @@ public class Attack : BattleAction
 
     protected override void OnRunAction(BattleParticipant user, BattleParticipant target)
     {
-        target.DealDamage(damage, elementType);
+        int dealtDamage = target.DealDamage(damage, elementType);
+        OnDealDamage(user, target, dealtDamage);
 
         if (recoil > 0)
         {
@@ -29,5 +30,9 @@ public class Attack : BattleAction
     public override string GetIntentDisplay()
     {
         return "Attack";
+    }
+
+    public virtual void OnDealDamage(BattleParticipant user, BattleParticipant target, int damage)
+    {
     }
 }

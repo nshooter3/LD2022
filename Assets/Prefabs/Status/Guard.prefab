@@ -45,3 +45,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statusSprite: {fileID: 21300000, guid: c55a2959c585b244cace2b6ec732bbb3, type: 3}
+  damageMultiplier: 0.5
