@@ -12,6 +12,7 @@ public class BattleOrchestrator : MonoBehaviour
     public EnemyEncounter currentEncounter;
     private EnemyEncounter initialEncounter;
     private HashSet<EnemyEncounter> completedEncounters = new HashSet<EnemyEncounter>();
+    public const string finalBossEncounterName = "Time Master";
     public bool finalBossUnlocked { get; private set; }
 
     [SerializeField]
@@ -22,7 +23,8 @@ public class BattleOrchestrator : MonoBehaviour
 
     public bool IsFinalBoss()
     {
-        if (currentEncounter.EncounterName == "Time Master")
+
+        if (currentEncounter.EncounterName == finalBossEncounterName)
         {
             return true;
         }
