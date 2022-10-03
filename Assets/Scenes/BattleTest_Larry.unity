@@ -840,7 +840,7 @@ PrefabInstance:
     - target: {fileID: 855153855562829089, guid: a2944855c72d94b558fe29fdc782cc02, type: 3}
       propertyPath: currentEncounter
       value: 
-      objectReference: {fileID: 2542181326343833092, guid: 6707e3c8d12024461905ce8bd2581a69, type: 3}
+      objectReference: {fileID: 2542181326343833092, guid: 2c41eecdb07fb4e4da67f9c9c3ebe0d1, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2944855c72d94b558fe29fdc782cc02, type: 3}
 --- !u!1001 &6490437681618280583
@@ -850,6 +850,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2898111368543065949, guid: 6e182283ac1489949873bf9ed6eff21f, type: 3}
+      propertyPath: m_fontSize
+      value: 16
+      objectReference: {fileID: 0}
+    - target: {fileID: 2898111368543065949, guid: 6e182283ac1489949873bf9ed6eff21f, type: 3}
+      propertyPath: m_fontStyle
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2898111368543065949, guid: 6e182283ac1489949873bf9ed6eff21f, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6490437682327313397, guid: 6e182283ac1489949873bf9ed6eff21f, type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6490437682327313397, guid: 6e182283ac1489949873bf9ed6eff21f, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6490437682327313397, guid: 6e182283ac1489949873bf9ed6eff21f, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6490437682327313397, guid: 6e182283ac1489949873bf9ed6eff21f, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 6490437682731012889, guid: 6e182283ac1489949873bf9ed6eff21f, type: 3}
       propertyPath: m_Name
       value: GameCanvas
