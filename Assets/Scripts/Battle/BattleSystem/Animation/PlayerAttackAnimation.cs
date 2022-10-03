@@ -7,7 +7,7 @@ public class PlayerAttackAnimation : ActionAnimation
     private float durationTimer;
 
     [SerializeField]
-    public enum PlayerAnimationType { Punch, Kick, Spell }
+    public enum PlayerAnimationType { Punch, Kick, Spell, ApplyStatus }
     public PlayerAnimationType playerAnimationType = PlayerAnimationType.Punch;
 
     private PlayerAnimator anim;
@@ -29,6 +29,9 @@ public class PlayerAttackAnimation : ActionAnimation
                 case PlayerAnimationType.Spell:
                     anim.Spell();
                     break;
+                case PlayerAnimationType.ApplyStatus:
+                    anim.Spell();
+                    break;
             }
         }
     }
@@ -45,5 +48,16 @@ public class PlayerAttackAnimation : ActionAnimation
 
     protected override void OnAnimationEnd()
     {
+        foreach (BattleParticipant target in targets)
+        {
+            if (target.Dead)
+            {
+                target.GetComponentInChildren<EnemyAnimator>()?.Die();
+            }
+            else if (playerAnimationType != PlayerAnimationType.ApplyStatus)
+            {
+                target.GetComponentInChildren<EnemyAnimator>()?.Hurt();
+            }
+        }
     }
 }

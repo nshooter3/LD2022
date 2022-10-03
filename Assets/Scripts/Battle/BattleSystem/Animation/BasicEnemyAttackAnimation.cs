@@ -46,7 +46,7 @@ public class BasicEnemyAttackAnimation : ActionAnimation
         {
             targets[0].GetComponentInChildren<PlayerAnimator>()?.Die();
         }
-        else
+        else if (playerAnimationType == PlayerAnimationType.Attack)
         {
             targets[0].GetComponentInChildren<PlayerAnimator>()?.Hurt();
         }
