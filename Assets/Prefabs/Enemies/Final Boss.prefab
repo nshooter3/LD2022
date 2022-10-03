@@ -47,8 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 60
   actions:
-  - {fileID: 5732525588903787617, guid: 761d1c605391c445f96b27649cbb99a2, type: 3}
-  - {fileID: 2471912401758918748, guid: bd9e1e0dccdbf474fb3965afd99dc2b6, type: 3}
+  - {fileID: -6741561213413030712, guid: 4af817230d45efd428bf17f13fa73a66, type: 3}
   currentElementType: 3
   combatBehavior: {fileID: 5598479242315832697, guid: eb7f0a389fa492e4a8d452288c7d834b, type: 3}
 --- !u!1001 &296066713382092252
