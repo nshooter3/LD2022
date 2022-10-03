@@ -47,6 +47,6 @@ MonoBehaviour:
   encounterName: Time Master
   enemies:
   - {fileID: 5589785919465164886, guid: 541c09e0c1ebb46fb8cfaa30778b9cae, type: 3}
-  characterSprite: {fileID: 21300000, guid: 696bc376afa66a64f881829f5ce12212, type: 3}
+  characterSprite: {fileID: 21300000, guid: dad9142f935c241b1a032eaccc83de4f, type: 3}
   finalBoss: 1
   initialBattle: 0
