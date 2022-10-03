@@ -40,5 +40,6 @@
 {3f005bd8-6c9a-4839-bf63-1fb10bdd4ec9} event:/ui/enemy_select_cursor_select
 {873f7884-0163-45ee-9c1e-0d7993d3d977} event:/ui/pop_up_close
 {714d7cc4-7010-43c9-9907-94d2748ed30e} event:/ui/pop_up_open
+{247003e1-6a86-4dbd-8e39-ee4effc9965e} parameter:/boss_fight
 {b9ff27db-5ba3-4888-8923-1f6e2161add4} parameter:/countdown_timer
 {124b8d07-05e6-4ec7-8f86-cbc728291623} parameter:/encounter_controller
