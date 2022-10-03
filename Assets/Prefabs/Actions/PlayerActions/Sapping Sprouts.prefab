@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6512037651808092697}
   - component: {fileID: 2997822440293431618}
   m_Layer: 0
-  m_Name: Vampiric Jab
+  m_Name: Sapping Sprouts
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -44,12 +44,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca9b12c822cf04bec833238c0ee32260, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionName: Vampiric Jab
-  mpCost: 0
+  actionName: Sapping Sprouts
+  mpCost: 30
   targetSelf: 0
   areaOfEffect: 0
   battleAnimation: {fileID: 1654458526421221007, guid: a5e875f6f03c54d42aa7d42fc8eb0098, type: 3}
-  description: A draining jab that deals saps health from the enemy.
+  description: Cover an enemy in roots, dealing grass damage and absorbing their
+    health.
   recoil: 0
-  damage: 7
-  elementType: 3
+  damage: 15
+  elementType: 1

@@ -44,14 +44,16 @@ public abstract class BattleParticipant : MonoBehaviour
     /// </summary>
     /// <param name="damage"></param>
     /// <param name="attackElement"></param>
-    public void DealDamage(int damage, ElementType attackElement)
+    public int DealDamage(int damage, ElementType attackElement)
     {
         int finalDamage = CalculateElementalDamage(attackElement, damage);
         foreach (Status status in statuses)
         {
             finalDamage = status.ModifyIncomingDamage(finalDamage);
         }
-        currentHp = Mathf.Max(0, currentHp - finalDamage);
+        finalDamage = Mathf.Min(currentHp, finalDamage);
+        currentHp -= finalDamage;
+        return finalDamage;
     }
 
     /// <summary>

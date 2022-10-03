@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &211676350669287713
+--- !u!1 &6551468831149905990
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6512037651808092697}
-  - component: {fileID: 2997822440293431618}
+  - component: {fileID: 6966425655536643156}
+  - component: {fileID: -543957618713076393}
   m_Layer: 0
-  m_Name: Vampiric Jab
+  m_Name: Barrier
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6512037651808092697
+--- !u!4 &6966425655536643156
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 211676350669287713}
+  m_GameObject: {fileID: 6551468831149905990}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -32,24 +32,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2997822440293431618
+--- !u!114 &-543957618713076393
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 211676350669287713}
+  m_GameObject: {fileID: 6551468831149905990}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ca9b12c822cf04bec833238c0ee32260, type: 3}
+  m_Script: {fileID: 11500000, guid: 2340d3f0085924189b4f5d0c51033562, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionName: Vampiric Jab
-  mpCost: 0
-  targetSelf: 0
+  actionName: Barrier
+  mpCost: 30
+  targetSelf: 1
   areaOfEffect: 0
-  battleAnimation: {fileID: 1654458526421221007, guid: a5e875f6f03c54d42aa7d42fc8eb0098, type: 3}
-  description: A draining jab that deals saps health from the enemy.
+  battleAnimation: {fileID: 6496146970332895624, guid: 86ab25b42ecebca4685808adf14787df, type: 3}
+  description: An impenetrable spell that blocks all damage for this turn.
   recoil: 0
-  damage: 7
-  elementType: 3
+  status: {fileID: -2571575862629369259, guid: 5898d5870596449c6823fd4474e89a64, type: 3}
