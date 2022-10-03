@@ -29,11 +29,11 @@ public class RandomUtil : MonoBehaviour
 
     public static string ReplaceVowels(string word)
     {
-        return Regex.Replace(word, "[aeiouyAEIOUY]", "*");
+        return Regex.Replace(word, "[aeiouyAEIOUY]", "_");
     }
 
     public static string ReplaceConsonants(string word)
     {
-        return Regex.Replace(word, "[qwrtpsdfghjklzxcvbnmQWRTPSDFGHJKLZXCVBNM]", "*");
+        return Regex.Replace(word, "[qwrtpsdfghjklzxcvbnmQWRTPSDFGHJKLZXCVBNM]", "_");
     }
 }

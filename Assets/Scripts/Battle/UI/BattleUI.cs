@@ -47,6 +47,8 @@ public class BattleUI : MenuBase
 
     private bool actionSelectionOverridden;
 
+    public float CanvasScale { get { return transform.localScale.x; } }
+
     private void Awake()
     {
         instance = this;
@@ -305,6 +307,11 @@ public class BattleUI : MenuBase
         }
     }
 
+    public GameObject GetEnemyAnchorPosition(int enemyIndex)
+    {
+        return enemyDisplays[enemyIndex].gameObject;
+    }
+
     private bool ShouldAllowActionInput()
     {
         bool allowInput = true;
@@ -317,7 +324,7 @@ public class BattleUI : MenuBase
 
     private void PositionSelectionIndicator(GameObject targetObject, GameObject currentSelectionIndicator)
     {
-        currentSelectionIndicator.transform.position = targetObject.transform.position + Vector3.left * 60;
+        currentSelectionIndicator.transform.position = targetObject.transform.position + Vector3.left * 100 * CanvasScale;
         currentSelectionIndicator.SetActive(true);
     }
 

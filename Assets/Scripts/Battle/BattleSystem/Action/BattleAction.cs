@@ -37,7 +37,7 @@ public abstract class BattleAction : MonoBehaviour
 
     public string currentName;
 
-    private void Start()
+    protected virtual void Start()
     {
         noVowelsName = RandomUtil.ReplaceVowels(ActionName);
         noConsonantsName = RandomUtil.ReplaceConsonants(ActionName);
