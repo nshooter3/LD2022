@@ -1,7 +1,8 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class BattleAction : MonoBehaviour
+public abstract class BattleAction : MonoBehaviour, IEquatable<BattleAction>
 {
     [SerializeField]
     private string actionName;
@@ -75,5 +76,33 @@ public abstract class BattleAction : MonoBehaviour
         animation.gameObject.SetActive(false);
         animation.SetParticipants(user, targets);
         return animation;
+    }
+
+    public bool Equals(BattleAction other)
+    {
+        return this.ActionName.Equals(other.actionName);
+    }
+
+    public static bool operator ==(BattleAction battleActionLeft, BattleAction battleActionRight)
+    {
+        if (battleActionLeft.Equals(battleActionRight))
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    public static bool operator !=(BattleAction battleActionLeft, BattleAction battleActionRight)
+    {
+        if (battleActionLeft.Equals(battleActionRight))
+        {
+            return false;
+        }
+        else
+        {
+            return true;
+        }
     }
 }

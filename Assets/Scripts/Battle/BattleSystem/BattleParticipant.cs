@@ -128,14 +128,17 @@ public abstract class BattleParticipant : MonoBehaviour
 
     public void AddStatus(Status status)
     {
-        if (_statuses.Contains(status))
+        var foundStatus = _statuses.Find(s => s.Equals(status));
+        if (foundStatus!=null)
         {
+            foundStatus.OnStatusRepeat();
             return;
         }
         Status newStatus = Instantiate<Status>(status, transform);
         _statuses.Add(newStatus);
         newStatus.AddStatus(this);
     }
+
 
     public void RemoveStatus(Status status)
     {

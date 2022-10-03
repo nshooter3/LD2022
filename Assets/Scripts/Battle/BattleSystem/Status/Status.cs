@@ -44,6 +44,10 @@ public abstract class Status : MonoBehaviour, IEquatable<Status>
     {
     }
 
+    public virtual void OnStatusRepeat()
+    {
+    }
+
     public bool Equals(Status otherStatus)
     {
         return GetType() == otherStatus.GetType();

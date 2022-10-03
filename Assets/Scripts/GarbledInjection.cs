@@ -2,23 +2,30 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GarbledInjection : BattleAction
+public class GarbledInjection : Status
 {
     public BattleAction injectedAction;
-    private List<BattleAction> temporaryActionList;
-    public override string GetIntentDisplay()
+    public int counter = 0;
+    public override List<BattleAction> ModifyBattleActions(List<BattleAction> actions)
     {
-        return "Debuff";
+
+        for (int i = 0; i < counter; ++i)
+        {
+            actions.Add(injectedAction);
+            actions.Add(injectedAction);
+        }
+        return actions;
     }
 
-    protected override void OnRunAction(BattleParticipant user, BattleParticipant target)
+    public override void OnStatusAdded()
     {
-        temporaryActionList = target.Actions;
-        temporaryActionList.Add(injectedAction);
-        temporaryActionList.Add(injectedAction);
-        if (target is BattlePlayer)
-        {
-            (target as BattlePlayer).SetActions(temporaryActionList);
-        }
+        ++counter;
+        base.OnStatusAdded();
     }
+
+    public override void OnStatusRepeat()
+    {
+        ++counter;
+    }
+
 }
