@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionName: Hellfire
+  spanishActionName: El Hellfire
   mpCost: 30
   targetSelf: 0
   areaOfEffect: 1

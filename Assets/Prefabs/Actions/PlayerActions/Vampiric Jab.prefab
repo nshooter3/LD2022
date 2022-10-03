@@ -47,6 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionName: Vampiric Jab
+  spanishActionName: El Vampiric Jab
   mpCost: 0
   targetSelf: 0
   areaOfEffect: 0
@@ -66,6 +67,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionName: 
+  spanishActionName: 
   mpCost: 0
   targetSelf: 0
   areaOfEffect: 0
@@ -87,6 +89,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionName: 
+  spanishActionName: 
   mpCost: 0
   targetSelf: 0
   areaOfEffect: 0
