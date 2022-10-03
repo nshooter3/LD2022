@@ -57,7 +57,7 @@ public class BattlePlayer : BattleParticipant
         currentMp -= finalMpDrain;
         if (finalMpDrain != 0)
         {
-            BattleController.instance.AddDamageRecord(new DamageAnimationRecord(this, finalMpDrain, DamageAnimationRecord.DamageType.MP));
+            //BattleController.instance.AddDamageRecord(new DamageAnimationRecord(this, finalMpDrain, DamageAnimationRecord.DamageType.MP));
         }
     }
 

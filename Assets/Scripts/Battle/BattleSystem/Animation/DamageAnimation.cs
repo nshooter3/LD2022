@@ -51,7 +51,10 @@ public class DamageAnimation : BattleAnimation
     public override void UpdateAnimation()
     {
         durationTimer -= Time.deltaTime;
-        transform.Translate(new Vector3(0, durationTimer, 0));
+        if (durationTimer > duration * 0.5f)
+        {
+            transform.Translate(new Vector3(0, durationTimer, 0));
+        }
     }
 
     public override bool IsAnimationFinished()
