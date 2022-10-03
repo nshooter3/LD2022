@@ -48,9 +48,9 @@ MonoBehaviour:
   maxHp: 60
   actions:
   - {fileID: 7203658531264741535, guid: a691db14dda65024aa9f04c8a4ae17c0, type: 3}
-  - {fileID: 3446064254096135621, guid: e660549c834d1c14ebc7d76283ecd101, type: 3}
+  - {fileID: 1684084760287416780, guid: 06c1766e0e1e76c4ca99bd85e54c5118, type: 3}
   currentElementType: 1
-  combatBehavior: {fileID: 5598479242315832697, guid: eb7f0a389fa492e4a8d452288c7d834b, type: 3}
+  combatBehavior: {fileID: -4097403819614163732, guid: 5149017e795246a47aea7b2a803f92e1, type: 3}
 --- !u!1001 &4606979346942673074
 PrefabInstance:
   m_ObjectHideFlags: 0

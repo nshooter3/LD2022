@@ -4,6 +4,8 @@ using UnityEngine;
 
 public abstract class CombatBehavior : MonoBehaviour
 {
+
+
     /// <summary>
     /// Chooses an action for the AI to perform.
     /// </summary>
