@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82c436451d9f948d9899655aeb573dbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  encounterName: Elementals
   enemies:
   - {fileID: 5589785919465164886, guid: f844809a74802429b9c034f6a63d3af9, type: 3}
   - {fileID: 5589785919465164886, guid: 17be8d3391fa342f8a1b8aa00a011818, type: 3}

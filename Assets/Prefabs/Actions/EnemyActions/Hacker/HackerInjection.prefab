@@ -45,10 +45,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionName: Spell Overflow
+  spanishActionName: 
   mpCost: 0
   targetSelf: 0
   areaOfEffect: 0
   battleAnimation: {fileID: 2815643081771685000, guid: 052a4cf6aec053a4cac4418f3cca64f9, type: 3}
   description: 
+  currentName: 
+  fmodActionEvent:
+    Guid:
+      Data1: 1055273869
+      Data2: 1175097744
+      Data3: -551811198
+      Data4: -2021300576
+    Path: event:/sfx/abilities/enemy/hacker/hacker_pop_up
   recoil: 0
   status: {fileID: 2382337206356763416, guid: cb34ac1fd59d18d4dbc9b2fcfb700962, type: 3}

@@ -45,6 +45,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statusSprites:
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 2c1074f0e05eb104d9d0fa2b7f8b584a, type: 3}
   injectedAction: {fileID: 7304842457765439720, guid: 45d0a07d5b67b5d439893163b394b789, type: 3}
   counter: 0

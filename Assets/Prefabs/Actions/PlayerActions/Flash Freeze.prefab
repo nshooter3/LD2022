@@ -51,6 +51,14 @@ MonoBehaviour:
   areaOfEffect: 1
   battleAnimation: {fileID: 6496146970332895624, guid: 86ab25b42ecebca4685808adf14787df, type: 3}
   description: A blizzard that deals massive water damage to all enemies.
+  currentName: 
+  fmodActionEvent:
+    Guid:
+      Data1: -1514794363
+      Data2: 1245186020
+      Data3: 223579827
+      Data4: 1601170599
+    Path: event:/sfx/abilities/player/spells/water_spell
   recoil: 0
   damage: 34
   elementType: 2

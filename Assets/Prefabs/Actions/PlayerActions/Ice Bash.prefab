@@ -51,6 +51,14 @@ MonoBehaviour:
   areaOfEffect: 0
   battleAnimation: {fileID: 1654458526421221007, guid: a5e875f6f03c54d42aa7d42fc8eb0098, type: 3}
   description: A frosty slam that deals water damage to an enemy.
+  currentName: 
+  fmodActionEvent:
+    Guid:
+      Data1: -1514794363
+      Data2: 1245186020
+      Data3: 223579827
+      Data4: 1601170599
+    Path: event:/sfx/abilities/player/spells/water_spell
   recoil: 0
   damage: 8
   elementType: 2

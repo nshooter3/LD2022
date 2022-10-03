@@ -38,6 +38,8 @@ public abstract class BattleAction : MonoBehaviour, IEquatable<BattleAction>
 
     public string currentName;
 
+    public FMODUnity.EventReference fmodActionEvent;
+
     protected virtual void Start()
     {
         noVowelsName = RandomUtil.ReplaceVowels(ActionName);

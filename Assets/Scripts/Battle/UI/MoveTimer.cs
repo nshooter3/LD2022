@@ -9,9 +9,30 @@ public class MoveTimer : MonoBehaviour
     [SerializeField]
     private float timerDuration;
 
+    [SerializeField]
+    private float defaultTimerDuration;
+
     private Action timeExpiredAction;
 
+    public static MoveTimer instance
+    {
+        get; private set;
+    }
+
+    public float CurrentTimerDuration
+    {
+        get
+        {
+            return timerDuration;
+        }
+    }
+
     public bool Expired { get { return currentTime <= 0; } }
+
+    private void Awake()
+    {
+        instance = this;
+    }
 
     private void Start()
     {
@@ -30,6 +51,16 @@ public class MoveTimer : MonoBehaviour
     {
         gameObject.SetActive(false);
         FMODUnity.RuntimeManager.StudioSystem.setParameterByName(FMODEventsAndParameters.COUNTDOWN_TIMER, 10f);
+    }
+
+    public void ResetTimerToDefault()
+    {
+        timerDuration = defaultTimerDuration;
+    }
+
+    public void SetNewTimer(float newTime)
+    {
+        timerDuration = newTime;
     }
 
     // Update is called once per frame

@@ -51,6 +51,14 @@ MonoBehaviour:
   areaOfEffect: 0
   battleAnimation: {fileID: 5604767406992085730, guid: f15beb55d6a7e2f4cb9f06046888610d, type: 3}
   description: An earthy kick that deals grass damage to an enemy.
+  currentName: 
+  fmodActionEvent:
+    Guid:
+      Data1: 1944206266
+      Data2: 1184574788
+      Data3: 660555923
+      Data4: 706590140
+    Path: event:/sfx/abilities/player/spells/grass_spell
   recoil: 0
   damage: 8
   elementType: 1
