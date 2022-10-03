@@ -51,6 +51,14 @@ MonoBehaviour:
   areaOfEffect: 1
   battleAnimation: {fileID: 6496146970332895624, guid: 86ab25b42ecebca4685808adf14787df, type: 3}
   description: Slam an enemy with a mass of vegetation.
+  currentName: 
+  fmodActionEvent:
+    Guid:
+      Data1: 1944206266
+      Data2: 1184574788
+      Data3: 660555923
+      Data4: 706590140
+    Path: event:/sfx/abilities/player/spells/grass_spell
   recoil: 0
   damage: 14
   elementType: 1

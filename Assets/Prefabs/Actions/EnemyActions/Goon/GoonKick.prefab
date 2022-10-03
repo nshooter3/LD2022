@@ -45,10 +45,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionName: Kick
+  spanishActionName: 
   mpCost: 6
   targetSelf: 0
   areaOfEffect: 0
   battleAnimation: {fileID: 2168730723449064563, guid: a87cab9688d730743b0946af4d40ff23, type: 3}
-  damage: 4
+  description: 
+  currentName: 
+  fmodActionEvent:
+    Guid:
+      Data1: 1563692329
+      Data2: 1098848240
+      Data3: 342288538
+      Data4: 1998881412
+    Path: event:/sfx/abilities/player/physical/strike
   recoil: 0
+  damage: 4
   elementType: 3

@@ -19,6 +19,7 @@
 {73e23bba-2d44-469b-9348-5f27bcb51d2a} event:/sfx/abilities/player/spells/grass_spell
 {041eb24e-fced-4c1b-adef-25e2e3e680c4} event:/sfx/abilities/player/spells/heal_spell
 {a5b61285-07e4-4a38-b38e-530da7ec6f5f} event:/sfx/abilities/player/spells/water_spell
+{ee473939-ff8c-459f-897b-122cd73e63c0} event:/sfx/abilities/silence
 {6765699f-d77b-4ece-a783-1a7f0679dbb6} event:/sfx/battle/countdown
 {b34b3dc9-e6f3-4ca4-aaf1-06f28ce9e235} event:/sfx/battle/countdown_selection_fail
 {43e631d6-47a4-44be-9fe0-7f82949a05b3} event:/sfx/battle/countdown_tick
