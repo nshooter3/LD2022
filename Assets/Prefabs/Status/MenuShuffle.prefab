@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   statusSprites:
-  - {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 21300000, guid: 696bc376afa66a64f881829f5ce12212, type: 3}
   statusDuration: 2
   displayDuration: 0
   interference: {fileID: 5638684612970076929, guid: 4023538e7c0307a4cba765f02c1abc20, type: 3}
