@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionName: Steam Cannon
+  spanishActionName: El Steam Cannon
   mpCost: 20
   targetSelf: 0
   areaOfEffect: 0

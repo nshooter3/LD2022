@@ -19,6 +19,7 @@ public class GameEndScreen : MonoBehaviour
         durationTimer -= Time.deltaTime;
         if (durationTimer <= 0)
         {
+            BattleOrchestrator.Instance.Reset();
             SceneManager.LoadScene(nextScene);
         }
     }

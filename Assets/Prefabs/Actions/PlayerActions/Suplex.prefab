@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionName: Suplex
+  spanishActionName: El Suplex
   mpCost: 0
   targetSelf: 0
   areaOfEffect: 0

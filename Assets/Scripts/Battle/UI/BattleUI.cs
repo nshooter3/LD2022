@@ -43,7 +43,7 @@ public class BattleUI : MenuBase
 
     public bool AnimationsComplete { get { return animationQueue.Count == 0; } }
 
-    private int chosenAction;
+    private int chosenActionIndex;
 
     private bool actionSelectionOverridden;
 
@@ -148,7 +148,8 @@ public class BattleUI : MenuBase
         {
             if (!enemies[i].Dead)
             {
-                enemyDisplays[i].SetIntent(enemies[i].currentAction.GetIntentDisplay());
+                BattleAction enemyAction = enemies[i].currentAction;
+                enemyDisplays[i].SetIntent(enemyAction.GetIntentType(), enemyAction.GetIntentText());
             }
         }
     }
@@ -161,6 +162,8 @@ public class BattleUI : MenuBase
 
     public void DisplayActionPrompt()
     {
+        chosenActionIndex = -1;
+
         actionSelectionOverridden = false;
         foreach (BattleUIInterference interference in interferences)
         {
@@ -172,6 +175,7 @@ public class BattleUI : MenuBase
         }
         else
         {
+            actions = RandomUtil.ChooseRandomElementsFromList(actions, actions.Count);
             ToggleMenuImages(true);
             Button firstSelectableAction = null;
             for (int i = 0; i < actionButtons.Count; i++)
@@ -181,7 +185,7 @@ public class BattleUI : MenuBase
                 {
                     BattleAction action = actions[i];
                     button.gameObject.SetActive(true);
-                    button.GetComponentInChildren<TextMeshProUGUI>().text = action.ActionName;
+                    button.GetComponentInChildren<TextMeshProUGUI>().text = action.currentName;
 
                     if (player.CanUseAction(action))
                     {
@@ -203,7 +207,7 @@ public class BattleUI : MenuBase
 
         interferences.ForEach(interference => interference.StartInterference());
 
-        moveTimer.StartTimer(ChooseRandomAction);
+        moveTimer.StartTimer(ChooseDefaultAction);
     }
 
     public void SetActionDescription()
@@ -227,8 +231,8 @@ public class BattleUI : MenuBase
 
         PlaySelectSound();
 
-        chosenAction = actionIndex;
-        BattleAction action = actions[chosenAction];
+        chosenActionIndex = actionIndex;
+        BattleAction action = actions[chosenActionIndex];
 
         foreach (Button button in actionButtons)
         {
@@ -284,7 +288,7 @@ public class BattleUI : MenuBase
         playerDisplay.SetTargetButtonActive(false);
 
         List<BattleParticipant> targets = GetTargets(targetIndex);
-        player.ChoosePlayerAction(actions[chosenAction], targets);
+        player.ChoosePlayerAction(actions[chosenActionIndex], targets);
         FMODUnity.RuntimeManager.PlayOneShot(FMODEventsAndParameters.CURSOR_SELECT);
     }
 
@@ -328,35 +332,65 @@ public class BattleUI : MenuBase
         currentSelectionIndicator.SetActive(true);
     }
 
-    private void ChooseRandomAction()
+    private void ChooseDefaultAction()
     {
-        HideSelectionIndicators();
+        List<int> eligibleActions = new List<int>();
+        if (chosenActionIndex < 0)
+        {
+            for (int i = 0; i < actionButtons.Count; i++)
+            {
+                if (EventSystem.current.currentSelectedGameObject == actionButtons[i].gameObject)
+                {
+                    chosenActionIndex = i;
+                    break;
+                }
+            }
+        }
+        
+        if (chosenActionIndex < 0)
+        {
+            for (int i = 0; i < actions.Count; i++)
+            {
+                if (actionButtons[i].interactable)
+                {
+                    eligibleActions.Add(i);
+                }
+            }
+            chosenActionIndex = RandomUtil.GetRandomElementFromList(eligibleActions);
+        }
+        BattleAction chosenAction = actions[chosenActionIndex];
 
         List<int> eligibleEnemies = new List<int>();
-        List<int> eligibleActions = new List<int>();
-        for (int i = 0; i < enemies.Count; i++)
+        int chosenTargetIndex = -1;
+        for (int i = 0; i < enemyDisplays.Count; i++)
         {
-            if (!enemies[i].Dead)
+            if (EventSystem.current.currentSelectedGameObject == enemyDisplays[i].TargetButton.gameObject)
             {
-                eligibleEnemies.Add(i);
+                chosenTargetIndex = i;
+                break;
             }
         }
-        for (int i = 0; i < actions.Count; i++)
+        if (chosenTargetIndex < 0)
         {
-            if (actionButtons[i].interactable)
+            for (int i = 0; i < enemies.Count; i++)
             {
-                eligibleActions.Add(i);
+                if (!enemies[i].Dead)
+                {
+                    eligibleEnemies.Add(i);
+                }
             }
+            chosenTargetIndex = RandomUtil.GetRandomElementFromList(eligibleEnemies);
         }
+        List<BattleParticipant> chosenTargets = GetTargets(chosenTargetIndex);
 
-        List<BattleParticipant> randomTargets = GetTargets(RandomUtil.GetRandomElementFromList(eligibleEnemies));
-        BattleAction randomAction = actions[RandomUtil.GetRandomElementFromList(eligibleActions)];
-        player.ChoosePlayerAction(randomAction, randomTargets);
+        HideSelectionIndicators();
+
+        player.ChoosePlayerAction(chosenAction, chosenTargets);
     }
 
     private List<BattleParticipant> GetTargets(int targetIndex)
     {
-        BattleAction action = actions[chosenAction];
+        BattleAction action = actions[chosenActionIndex];
         List<BattleParticipant> targets = new List<BattleParticipant>();
         if (action.TargetSelf)
         {
@@ -381,7 +415,7 @@ public class BattleUI : MenuBase
         moveTimer.StopTimer();
         foreach (BattleParticipantDisplay enemyDisplay in enemyDisplays)
         {
-            enemyDisplay.SetIntent("NoIntent");
+            enemyDisplay.SetIntent(IntentType.NONE, "");
         }
         foreach (BattleUIInterference interference in interferences)
         {
@@ -390,7 +424,7 @@ public class BattleUI : MenuBase
         ToggleMenuImages(false);
     }
 
-    private BattleParticipantDisplay FindDisplayForParticipant(BattleParticipant participant)
+    public BattleParticipantDisplay FindDisplayForParticipant(BattleParticipant participant)
     {
         if (participant == player)
         {
@@ -402,5 +436,25 @@ public class BattleUI : MenuBase
     private void ToggleMenuImages(bool enabled)
     {
         actionMenuImages.ForEach(image => image.gameObject.SetActive(enabled));
+    }
+
+    public void SetActionsDefaultName()
+    {
+        actions.ForEach(p => p.SetDefaultName());
+    }
+
+    public void SetActionsSpanishName()
+    {
+        actions.ForEach(p => p.SetSpanishName());
+    }
+
+    public void SetActionsNoVowelsName()
+    {
+        actions.ForEach(p => p.SetNoVowelsName());
+    }
+
+    public void SetActionsNoConsonantsName()
+    {
+        actions.ForEach(p => p.SetNoConsonantsName());
     }
 }

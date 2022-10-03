@@ -26,11 +26,17 @@ public class BattleController : MonoBehaviour
     private ActionAnimation attackTextAnimation;
 
     [SerializeField]
+    private DamageAnimation damageAnimation;
+    private List<DamageAnimationRecord> damageAnimationRecords = new List<DamageAnimationRecord>();
+
+    [SerializeField]
     private string loseScene;
     [SerializeField]
     private string winScene;
     [SerializeField]
     private string gameEndScene;
+    [SerializeField]
+    private string loseInitialScene;
 
     private void Awake()
     {
@@ -76,6 +82,7 @@ public class BattleController : MonoBehaviour
             RunAction(player, target);
         }
         player.currentAction.InstantiateAnimations(player, player.targets, attackTextAnimation).ForEach(animation => QueueAnimation(animation));
+        QueueDamageAnimations();
         yield return WaitForAnimationCompletion();
 
         foreach (BattleParticipant enemy in enemies)
@@ -86,11 +93,15 @@ public class BattleController : MonoBehaviour
             if (actionSuccessful)
             {
                 enemy.currentAction.InstantiateAnimations(enemy, targets, attackTextAnimation).ForEach(animation => QueueAnimation(animation));
+                QueueDamageAnimations();
             }
             yield return WaitForAnimationCompletion();
         }
-        battleParticipants.ForEach(participant => participant.OnTurnEnd());
+        battleParticipants
+            .FindAll(participant => !participant.Dead)
+            .ForEach(participant => participant.OnTurnEnd());
         BattleUI.instance.UpdateStatBars();
+        QueueDamageAnimations();
         yield return WaitForAnimationCompletion();
 
         if (player.Dead)
@@ -116,6 +127,22 @@ public class BattleController : MonoBehaviour
         }
     }
 
+    public void QueueDamageAnimations()
+    {
+        if (damageAnimationRecords.Count > 0)
+        {
+            DamageAnimation newDamageAnimation = Instantiate<DamageAnimation>(damageAnimation);
+            newDamageAnimation.damageAnimationRecords = damageAnimationRecords;
+            damageAnimationRecords = new List<DamageAnimationRecord>();
+            QueueAnimation(newDamageAnimation);
+        }
+    }
+
+    public void AddDamageRecord(DamageAnimationRecord damageAnimationRecord)
+    {
+        damageAnimationRecords.Add(damageAnimationRecord);
+    }
+
     private bool RunAction(BattleParticipant user, BattleParticipant target)
     {
         if (!user.Dead && !target.Dead)
@@ -130,21 +157,14 @@ public class BattleController : MonoBehaviour
     {
         SetFMODEncounterParameter((float)EncounterControllerValues.PlayerDies);
         FMODUnity.RuntimeManager.PlayOneShot(FMODEventsAndParameters.PLAYER_DEATH);
-        ChangeScene(loseScene);
+        ChangeScene(BattleOrchestrator.Instance.currentEncounter.InitialBattle ? loseInitialScene : loseScene);
     }
 
     private void WinBattle()
     {
         BattleOrchestrator.Instance.CompleteEncounter();
         SetFMODEncounterParameter((float)EncounterControllerValues.EnemyDefeated);
-        if (BattleOrchestrator.Instance.currentEncounter.FinalBoss)
-        {
-            ChangeScene(gameEndScene);
-        }
-        else
-        {
-            ChangeScene(winScene);
-        }
+        ChangeScene(BattleOrchestrator.Instance.currentEncounter.FinalBoss ? gameEndScene : winScene);
     }
 
     private void ChangeScene(string nextScene)

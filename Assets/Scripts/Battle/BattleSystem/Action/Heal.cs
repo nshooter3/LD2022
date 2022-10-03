@@ -11,9 +11,9 @@ public class Heal : BattleAction
     private int healAmount;
     public int HealAmount { get { return healAmount; } }
 
-    public override string GetIntentDisplay()
+    public override IntentType GetIntentType()
     {
-        return "Heal " + healAmount;
+        return IntentType.BUFF;
     }
 
     protected override void OnRunAction(BattleParticipant user, BattleParticipant target)

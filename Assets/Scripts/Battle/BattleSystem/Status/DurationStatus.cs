@@ -6,6 +6,9 @@ public abstract class DurationStatus : Status
 {
     [SerializeField]
     private int statusDuration;
+    [SerializeField]
+    private bool displayDuration;
+    public bool DisplayDuration { get { return displayDuration; } }
 
     protected int turnsRemaining;
 

@@ -8,6 +8,12 @@ public abstract class BattleAction : MonoBehaviour, IEquatable<BattleAction>
     private string actionName;
     public string ActionName { get { return actionName; } }
 
+    [SerializeField]
+    private string spanishActionName;
+
+    private string noVowelsName;
+    private string noConsonantsName;
+
     /// <summary>
     /// The cost of MP per Attack.
     /// </summary>
@@ -30,6 +36,35 @@ public abstract class BattleAction : MonoBehaviour, IEquatable<BattleAction>
     private string description;
     public string Description { get { return description; } }
 
+    public string currentName;
+
+    protected virtual void Start()
+    {
+        noVowelsName = RandomUtil.ReplaceVowels(ActionName);
+        noConsonantsName = RandomUtil.ReplaceConsonants(ActionName);
+        SetDefaultName();
+    }
+
+    public void SetDefaultName()
+    {
+        currentName = actionName;
+    }
+
+    public void SetSpanishName()
+    {
+        currentName = spanishActionName;
+    }
+
+    public void SetNoVowelsName()
+    {
+        currentName = noVowelsName;
+    }
+
+    public void SetNoConsonantsName()
+    {
+        currentName = noConsonantsName;
+    }
+
     /// <summary>
     /// The Recoil Damage the attack does.
     /// </summary>
@@ -48,7 +83,12 @@ public abstract class BattleAction : MonoBehaviour, IEquatable<BattleAction>
 
     protected abstract void OnRunAction(BattleParticipant user, BattleParticipant target);
 
-    public abstract string GetIntentDisplay();
+    public abstract IntentType GetIntentType();
+
+    public virtual string GetIntentText()
+    {
+        return "";
+    }
 
     public virtual BattleAction InstantiateAction(BattleParticipant user)
     {

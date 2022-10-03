@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using UnityEngine;
 
 public class RandomUtil : MonoBehaviour
@@ -6,7 +7,7 @@ public class RandomUtil : MonoBehaviour
 
     public static List<T> ChooseRandomElementsFromList<T>(List<T> list, int numElements)
     {
-        if (list.Count <= numElements)
+        if (list.Count < numElements)
         {
             return list;
         }
@@ -23,6 +24,16 @@ public class RandomUtil : MonoBehaviour
 
     public static T GetRandomElementFromList<T>(List<T> list)
     {
-        return list[Random.Range(0, list.Count - 1)];
+        return list[Random.Range(0, list.Count)];
+    }
+
+    public static string ReplaceVowels(string word)
+    {
+        return Regex.Replace(word, "[aeiouyAEIOUY]", "_");
+    }
+
+    public static string ReplaceConsonants(string word)
+    {
+        return Regex.Replace(word, "[qwrtpsdfghjklzxcvbnmQWRTPSDFGHJKLZXCVBNM]", "_");
     }
 }

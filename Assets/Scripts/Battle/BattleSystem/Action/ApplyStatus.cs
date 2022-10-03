@@ -10,15 +10,8 @@ public class ApplyStatus : BattleAction
         target.AddStatus(status);
     }
 
-    public override string GetIntentDisplay()
+    public override IntentType GetIntentType()
     {
-        if (TargetSelf == true)
-        {
-            return "Buff";
-        }
-        else
-        {
-            return "Debuff";
-        }
+        return TargetSelf ? IntentType.BUFF : IntentType.DEBUFF;
     }
 }

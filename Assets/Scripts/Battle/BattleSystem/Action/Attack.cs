@@ -18,16 +18,26 @@ public class Attack : BattleAction
 
     protected override void OnRunAction(BattleParticipant user, BattleParticipant target)
     {
-        target.DealDamage(damage, elementType);
+        int dealtDamage = target.DealDamage(damage, elementType);
+        OnDealDamage(user, target, dealtDamage);
 
         if (recoil > 0)
         {
-            user.DealRecoilDamage(recoil);
+            user.DealDamage(recoil, ElementType.Typeless);
         }
     }
 
-    public override string GetIntentDisplay()
+    public override IntentType GetIntentType()
     {
-        return "Attack";
+        return IntentType.ATTACK;
+    }
+
+    public override string GetIntentText()
+    {
+        return damage.ToString();
+    }
+
+    public virtual void OnDealDamage(BattleParticipant user, BattleParticipant target, int damage)
+    {
     }
 }

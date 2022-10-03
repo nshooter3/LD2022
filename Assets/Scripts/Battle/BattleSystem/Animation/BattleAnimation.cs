@@ -13,7 +13,7 @@ public abstract class BattleAnimation : MonoBehaviour
     public void SetParticipants(BattleParticipant user, List<BattleParticipant> targets)
     {
         this.user = user;
-        this.targets = this.targets;
+        this.targets = targets;
     }
 
     public virtual void StartAnimation(BattleParticipantDisplay userDisplay, List<BattleParticipantDisplay> targetDisplays)

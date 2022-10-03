@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionName: Roundhouse Kick
+  spanishActionName: El Roundhouse Kick
   mpCost: 0
   targetSelf: 0
   areaOfEffect: 1
