@@ -2,6 +2,8 @@ public class FMODEventsAndParameters
 {
     public const string ENCOUNTER_CONTROLLER = "encounter_controller";
     public const string COUNTDOWN_TIMER = "countdown_timer";
+    public const string FINAL_BOSS = "boss_fight";
+
 
     #region FMOD Events
 
