@@ -44,6 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 82c436451d9f948d9899655aeb573dbe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  encounterName: Thief
   enemies:
   - {fileID: 5589785919465164886, guid: 903ff58c115464a89a01d2206344deff, type: 3}
   characterSprite: {fileID: 21300000, guid: 6c54ed4b2f0f3fd4dbe545615ed66fdb, type: 3}
+  finalBoss: 0
+  initialBattle: 0

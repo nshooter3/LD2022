@@ -4,6 +4,9 @@ using UnityEngine;
 public class EnemyEncounter : MonoBehaviour
 {
     [SerializeField]
+    private string encounterName;
+    public string EncounterName { get { return encounterName; } }
+    [SerializeField]
     private List<Enemy> enemies;
     [SerializeField]
     private Sprite characterSprite;

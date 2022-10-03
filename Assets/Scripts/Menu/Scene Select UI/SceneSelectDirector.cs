@@ -1,10 +1,7 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.Playables;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 
 public class SceneSelectDirector : MenuBase
 {
@@ -20,6 +17,9 @@ public class SceneSelectDirector : MenuBase
     // Menu Control Variables
     private int iconIndex;
     [SerializeField] List<CharacterSelectIcon> playerIcons;
+
+    [SerializeField]
+    private TextMeshProUGUI encounterText;
 
     [SerializeField]
     private string battleScene;
@@ -113,6 +113,8 @@ public class SceneSelectDirector : MenuBase
         UpdateIcon(playerIcons[0], encounters[previousIndex]);
         UpdateIcon(playerIcons[1], encounters[iconIndex]);
         UpdateIcon(playerIcons[2], encounters[nextIndex]);
+
+        encounterText.text = encounters[iconIndex].EncounterName;
 
         animatingIconGroup.SetActive(false);
         if (encounters.Count > 1)
