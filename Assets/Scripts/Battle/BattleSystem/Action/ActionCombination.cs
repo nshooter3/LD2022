@@ -12,14 +12,27 @@ public class ActionCombination : BattleAction
         base.Start();
     }
 
-    public override string GetIntentDisplay()
+    public override IntentType GetIntentType()
     {
         foreach (BattleAction childAction in childActions)
         {
-            string intent = childAction.GetIntentDisplay();
-            if (intent != "")
+            IntentType intent = childAction.GetIntentType();
+            if (intent != IntentType.NONE)
             {
                 return intent;
+            }
+        }
+        return IntentType.NONE;
+    }
+
+    public override string GetIntentText()
+    {
+        foreach (BattleAction childAction in childActions)
+        {
+            string intentText = childAction.GetIntentText();
+            if (intentText != "")
+            {
+                return intentText;
             }
         }
         return "";

@@ -148,7 +148,8 @@ public class BattleUI : MenuBase
         {
             if (!enemies[i].Dead)
             {
-                enemyDisplays[i].SetIntent(enemies[i].currentAction.GetIntentDisplay());
+                BattleAction enemyAction = enemies[i].currentAction;
+                enemyDisplays[i].SetIntent(enemyAction.GetIntentType(), enemyAction.GetIntentText());
             }
         }
     }
@@ -414,7 +415,7 @@ public class BattleUI : MenuBase
         moveTimer.StopTimer();
         foreach (BattleParticipantDisplay enemyDisplay in enemyDisplays)
         {
-            enemyDisplay.SetIntent("NoIntent");
+            enemyDisplay.SetIntent(IntentType.NONE, "");
         }
         foreach (BattleUIInterference interference in interferences)
         {
