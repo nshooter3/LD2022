@@ -31,6 +31,10 @@ public class NewActionMenu : MenuBase
 
     public void ChooseAction(int actionIndex)
     {
+        foreach (var button in actionButtons)
+        {
+            button.interactable = false;
+        }
         BattleOrchestrator.Instance.AddAction(actionChoices[actionIndex]);
         LoadNextScene();
     }
