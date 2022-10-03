@@ -47,6 +47,7 @@ MonoBehaviour:
   encounterName: Gambler
   enemies:
   - {fileID: 5589785919465164886, guid: 621fc679ebc344211ab906367764793d, type: 3}
+  - {fileID: 5589785919465164886, guid: f844809a74802429b9c034f6a63d3af9, type: 3}
   characterSprite: {fileID: 21300000, guid: 696bc376afa66a64f881829f5ce12212, type: 3}
   finalBoss: 0
   initialBattle: 0

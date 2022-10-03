@@ -32,7 +32,7 @@ public class CupShuffler : BattleUIInterference
 
     protected override void OnInterferenceStart()
     {
-        transform.parent = BattleUI.instance.transform;
+        //transform.parent = BattleUI.instance.transform;
         gameObject.SetActive(true);
         actions = BattleUI.instance.actions;
         positions = new Vector3[cups.Count];
