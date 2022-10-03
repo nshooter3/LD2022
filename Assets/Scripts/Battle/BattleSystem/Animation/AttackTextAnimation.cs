@@ -14,7 +14,7 @@ public class AttackTextAnimation : ActionAnimation
         transform.parent = BattleUI.instance.transform;
         text.text = action.ActionName;
         durationTimer = duration;
-        text.transform.position = userDisplay.transform.position + Vector3.up * 100;
+        text.transform.position = userDisplay.transform.position + Vector3.up * 200f * BattleUI.instance.CanvasScale;
     }
 
     public override void UpdateAnimation()
