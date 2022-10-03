@@ -13,6 +13,8 @@ public class BattleParticipantDisplay : MonoBehaviour
     [SerializeField]
     private Image intentSprite;
     [SerializeField]
+    private TextMeshProUGUI intentTextMesh;
+    [SerializeField]
     private Animator anims;
     public int maxHp { private get; set; }
     [SerializeField]
@@ -36,28 +38,27 @@ public class BattleParticipantDisplay : MonoBehaviour
         targetButton.interactable = active;
     }
 
-    public void SetIntent(string intent)
+    public void SetIntent(IntentType intent, string intentText)
     {
         anims.ResetTrigger("NoIntent");
         intentSprite.color = Color.white;
         switch (intent)
         {
-            case "Attack":
+            case IntentType.ATTACK:
                 anims.SetTrigger("Attacking");
                 break;
-            case "Buff":
+            case IntentType.BUFF:
                 anims.SetTrigger("Buffing");
                 break;
-            case "Debuff":
+            case IntentType.DEBUFF:
                 anims.SetTrigger("Debuffing");
                 break;
-            case "NoIntent":
+            case IntentType.NONE:
                 intentSprite.color = Color.clear;
                 anims.SetTrigger("NoIntent");
                 break;
-            default:
-                break;
         }
+        intentTextMesh.text = intentText;
     }
 
     public void DisplayStatus(List<Status> activeStatuses)

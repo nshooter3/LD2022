@@ -82,7 +82,12 @@ public abstract class BattleAction : MonoBehaviour
 
     protected abstract void OnRunAction(BattleParticipant user, BattleParticipant target);
 
-    public abstract string GetIntentDisplay();
+    public abstract IntentType GetIntentType();
+
+    public virtual string GetIntentText()
+    {
+        return "";
+    }
 
     public virtual BattleAction InstantiateAction(BattleParticipant user)
     {

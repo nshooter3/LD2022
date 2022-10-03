@@ -27,9 +27,14 @@ public class Attack : BattleAction
         }
     }
 
-    public override string GetIntentDisplay()
+    public override IntentType GetIntentType()
     {
-        return "Attack";
+        return IntentType.ATTACK;
+    }
+
+    public override string GetIntentText()
+    {
+        return damage.ToString();
     }
 
     public virtual void OnDealDamage(BattleParticipant user, BattleParticipant target, int damage)
