@@ -47,11 +47,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionName: Combustion
+  spanishActionName: El Combustion
   mpCost: 20
   targetSelf: 0
   areaOfEffect: 0
   battleAnimation: {fileID: 6496146970332895624, guid: 86ab25b42ecebca4685808adf14787df, type: 3}
   description: Burn an enemy, dealing residual fire damage.
+  currentName: 
   recoil: 0
 --- !u!114 &5732525588903787617
 MonoBehaviour:
@@ -66,11 +68,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionName: 
+  spanishActionName: 
   mpCost: 0
   targetSelf: 0
   areaOfEffect: 0
   battleAnimation: {fileID: 6496146970332895624, guid: 86ab25b42ecebca4685808adf14787df, type: 3}
   description: 
+  currentName: 
   recoil: 0
   damage: 15
   elementType: 0
@@ -87,10 +91,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionName: 
+  spanishActionName: 
   mpCost: 0
   targetSelf: 0
   areaOfEffect: 0
   battleAnimation: {fileID: 0}
   description: 
+  currentName: 
   recoil: 0
   status: {fileID: 7415452151839290059, guid: feecec46c0ae14a5499499b5b755160c, type: 3}

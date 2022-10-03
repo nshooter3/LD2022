@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionName: Searing Punch
+  spanishActionName: El Searing Punch
   mpCost: 0
   targetSelf: 0
   areaOfEffect: 0

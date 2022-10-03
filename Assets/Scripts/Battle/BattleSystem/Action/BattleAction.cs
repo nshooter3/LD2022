@@ -7,6 +7,12 @@ public abstract class BattleAction : MonoBehaviour
     private string actionName;
     public string ActionName { get { return actionName; } }
 
+    [SerializeField]
+    private string spanishActionName;
+
+    private string noVowelsName;
+    private string noConsonantsName;
+
     /// <summary>
     /// The cost of MP per Attack.
     /// </summary>
@@ -28,6 +34,35 @@ public abstract class BattleAction : MonoBehaviour
     [SerializeField]
     private string description;
     public string Description { get { return description; } }
+
+    public string currentName;
+
+    protected virtual void Start()
+    {
+        noVowelsName = RandomUtil.ReplaceVowels(ActionName);
+        noConsonantsName = RandomUtil.ReplaceConsonants(ActionName);
+        SetDefaultName();
+    }
+
+    public void SetDefaultName()
+    {
+        currentName = actionName;
+    }
+
+    public void SetSpanishName()
+    {
+        currentName = spanishActionName;
+    }
+
+    public void SetNoVowelsName()
+    {
+        currentName = noVowelsName;
+    }
+
+    public void SetNoConsonantsName()
+    {
+        currentName = noConsonantsName;
+    }
 
     /// <summary>
     /// The Recoil Damage the attack does.

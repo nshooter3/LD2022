@@ -45,6 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionName: Guard
+  spanishActionName: El Guard
   mpCost: 0
   targetSelf: 1
   areaOfEffect: 0

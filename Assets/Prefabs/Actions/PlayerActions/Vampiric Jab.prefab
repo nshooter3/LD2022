@@ -45,11 +45,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionName: Vampiric Jab
+  spanishActionName: El Vampiric Jab
   mpCost: 0
   targetSelf: 0
   areaOfEffect: 0
   battleAnimation: {fileID: 1654458526421221007, guid: a5e875f6f03c54d42aa7d42fc8eb0098, type: 3}
   description: A draining jab that deals saps health from the enemy.
+  currentName: 
   recoil: 0
   damage: 7
   elementType: 3

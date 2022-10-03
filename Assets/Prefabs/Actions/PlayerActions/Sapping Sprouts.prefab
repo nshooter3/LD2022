@@ -45,12 +45,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionName: Sapping Sprouts
+  spanishActionName: El Sapping Sprouts
   mpCost: 30
   targetSelf: 0
   areaOfEffect: 0
   battleAnimation: {fileID: 1654458526421221007, guid: a5e875f6f03c54d42aa7d42fc8eb0098, type: 3}
   description: Cover an enemy in roots, dealing grass damage and absorbing their
     health.
+  currentName: 
   recoil: 0
   damage: 15
   elementType: 1

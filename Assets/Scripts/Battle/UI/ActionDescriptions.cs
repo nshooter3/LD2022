@@ -41,6 +41,14 @@ public class ActionDescriptions : MonoBehaviour
         {
             damage.text = "Saps: 7";
         }
+        else if (action.ActionName == "Sapping Sprouts")
+        {
+            damage.text = "Saps: 15";
+        }
+        else if (action.ActionName == "Combustion")
+        {
+            damage.text = "Damage: 15";
+        }
         else if (action is Attack)
         {
             damage.text = "Damage: " + ((Attack)action).Damage;

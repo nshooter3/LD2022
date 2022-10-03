@@ -181,7 +181,7 @@ public class BattleUI : MenuBase
                 {
                     BattleAction action = actions[i];
                     button.gameObject.SetActive(true);
-                    button.GetComponentInChildren<TextMeshProUGUI>().text = action.ActionName;
+                    button.GetComponentInChildren<TextMeshProUGUI>().text = action.currentName;
 
                     if (player.CanUseAction(action))
                     {
@@ -402,5 +402,25 @@ public class BattleUI : MenuBase
     private void ToggleMenuImages(bool enabled)
     {
         actionMenuImages.ForEach(image => image.gameObject.SetActive(enabled));
+    }
+
+    public void SetActionsDefaultName()
+    {
+        actions.ForEach(p => p.SetDefaultName());
+    }
+
+    public void SetActionsSpanishName()
+    {
+        actions.ForEach(p => p.SetSpanishName());
+    }
+
+    public void SetActionsNoVowelsName()
+    {
+        actions.ForEach(p => p.SetNoVowelsName());
+    }
+
+    public void SetActionsNoConsonantsName()
+    {
+        actions.ForEach(p => p.SetNoConsonantsName());
     }
 }

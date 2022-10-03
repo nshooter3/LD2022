@@ -6,9 +6,10 @@ public class ActionCombination : BattleAction
 {
     private List<BattleAction> childActions = new List<BattleAction>();
 
-    private void Start()
+    protected override void Start()
     {
         FindChildren();
+        base.Start();
     }
 
     public override string GetIntentDisplay()
