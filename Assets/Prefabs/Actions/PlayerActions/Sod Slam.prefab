@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionName: Sod Slam
-  spanishActionName: El Sod Slam
+  spanishActionName: Musgo Echado
   mpCost: 20
   targetSelf: 0
   areaOfEffect: 1

@@ -45,12 +45,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionName: Barrier
-  spanishActionName: El Barrier
+  spanishActionName: Fortaleza
   mpCost: 30
   targetSelf: 1
   areaOfEffect: 0
   battleAnimation: {fileID: 6496146970332895624, guid: e2121ec75f163474e93f646ef297575c, type: 3}
   description: An impenetrable spell that blocks all damage for this turn.
   currentName: 
+  fmodActionEvent:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   recoil: 0
   status: {fileID: -2571575862629369259, guid: 5898d5870596449c6823fd4474e89a64, type: 3}

@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionName: Grass Shot
-  spanishActionName: El Grass Shot
+  spanishActionName: Tiro Herboso
   mpCost: 10
   targetSelf: 0
   areaOfEffect: 0

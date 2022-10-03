@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2340d3f0085924189b4f5d0c51033562, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionName: StealVowels
+  actionName: Steal Vowels
   spanishActionName: 
   mpCost: 0
   targetSelf: 0
@@ -52,5 +52,12 @@ MonoBehaviour:
   battleAnimation: {fileID: 2815643081771685000, guid: 052a4cf6aec053a4cac4418f3cca64f9, type: 3}
   description: 
   currentName: 
+  fmodActionEvent:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   recoil: 0
   status: {fileID: -8800387573847390689, guid: 8dcb4036a6863964e841d707547998b6, type: 3}

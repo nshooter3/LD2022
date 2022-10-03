@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionName: Sapping Sprouts
-  spanishActionName: El Sapping Sprouts
+  spanishActionName: Brotes Agotadores
   mpCost: 30
   targetSelf: 0
   areaOfEffect: 0

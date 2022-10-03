@@ -45,12 +45,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionName: Guard
-  spanishActionName: El Guard
+  spanishActionName: Guarda
   mpCost: 0
   targetSelf: 1
   areaOfEffect: 0
   battleAnimation: {fileID: 6496146970332895624, guid: e2121ec75f163474e93f646ef297575c, type: 3}
   description: Halves incoming damage for this turn.
   currentName: 
+  fmodActionEvent:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   recoil: 0
   status: {fileID: -2571575862629369259, guid: 43db8d3f093c44179b16a7509b068c32, type: 3}

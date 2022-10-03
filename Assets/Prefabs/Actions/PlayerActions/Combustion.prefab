@@ -47,7 +47,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionName: Combustion
-  spanishActionName: El Combustion
+  spanishActionName: Incinerar
   mpCost: 20
   targetSelf: 0
   areaOfEffect: 0
