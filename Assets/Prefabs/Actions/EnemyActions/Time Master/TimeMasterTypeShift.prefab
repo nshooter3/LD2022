@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 58575433f2068e345a505f3d064138ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionName: Typeshift
+  actionName: Type Shift
   spanishActionName: El Typeshift
   mpCost: 0
   targetSelf: 1
@@ -52,4 +52,11 @@ MonoBehaviour:
   battleAnimation: {fileID: 2168730723449064563, guid: a87cab9688d730743b0946af4d40ff23, type: 3}
   description: Shifts the user type.
   currentName: 
+  fmodActionEvent:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   recoil: 0
