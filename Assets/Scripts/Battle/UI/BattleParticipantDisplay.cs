@@ -9,6 +9,7 @@ public class BattleParticipantDisplay : MonoBehaviour
     private Image healthBar;
     [SerializeField]
     private Button targetButton;
+    public Button TargetButton { get { return targetButton; } }
     [SerializeField]
     private Image intentSprite;
     [SerializeField]
