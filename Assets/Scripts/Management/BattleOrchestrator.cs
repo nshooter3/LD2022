@@ -10,6 +10,7 @@ public class BattleOrchestrator : MonoBehaviour
     [SerializeField]
     private List<EnemyEncounter> allEncounters;
     public EnemyEncounter currentEncounter;
+    private EnemyEncounter initialEncounter;
     private HashSet<EnemyEncounter> completedEncounters = new HashSet<EnemyEncounter>();
     public bool finalBossUnlocked { get; private set; }
 
@@ -34,6 +35,7 @@ public class BattleOrchestrator : MonoBehaviour
 
     public void Start()
     {
+        initialEncounter = currentEncounter;
         Reset();
     }
 
@@ -76,5 +78,6 @@ public class BattleOrchestrator : MonoBehaviour
         currentActions = new List<BattleAction>(startingActions);
         completedEncounters.Clear();
         finalBossUnlocked = false;
+        currentEncounter = initialEncounter;
     }
 }
