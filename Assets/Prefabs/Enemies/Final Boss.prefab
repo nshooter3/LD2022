@@ -45,11 +45,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0e17d0ca67ec42fea1d73a171f69062, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 60
+  maxHp: 240
   actions:
   - {fileID: 4795306080177065897, guid: 3db36b4e43998c64588725a3cd1826a5, type: 3}
+  - {fileID: 9067633291162066816, guid: 895156669a7ef104ea1c87c6c7cedb6e, type: 3}
   - {fileID: -6741561213413030712, guid: 4af817230d45efd428bf17f13fa73a66, type: 3}
+  - {fileID: 6686217536112983460, guid: a96cda79884daf144b846d64e86eccb5, type: 3}
+  - {fileID: 4795306080177065897, guid: 3db36b4e43998c64588725a3cd1826a5, type: 3}
+  - {fileID: 2237869089664117331, guid: 1ece8d08971f1094a8bc2b9c0ab617ac, type: 3}
   - {fileID: -3645454695954181052, guid: 28250e6d5cc5ef44bb102eb227d3e7ef, type: 3}
+  - {fileID: 5381529618700614199, guid: fdb5be8fa87686e4bacb85e7e1a55991, type: 3}
   currentElementType: 3
   combatBehavior: {fileID: -4097403819614163732, guid: 0e5547e116f177b4ba77ca9bedda9827, type: 3}
 --- !u!1001 &296066713382092252

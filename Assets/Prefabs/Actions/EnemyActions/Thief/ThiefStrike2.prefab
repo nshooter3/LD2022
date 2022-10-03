@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &8633112439238879155
+--- !u!1 &5995588384460269068
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 662709104596222190}
-  - component: {fileID: 5732525588903787617}
+  - component: {fileID: 2760775373042548699}
+  - component: {fileID: 7045174312979095687}
   m_Layer: 0
-  m_Name: Searing Punch
+  m_Name: ThiefStrike2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &662709104596222190
+--- !u!4 &2760775373042548699
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8633112439238879155}
+  m_GameObject: {fileID: 5995588384460269068}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -32,33 +32,33 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5732525588903787617
+--- !u!114 &7045174312979095687
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8633112439238879155}
+  m_GameObject: {fileID: 5995588384460269068}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 34be79a8227b94558b1fdd48720c2861, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionName: Searing Punch
-  spanishActionName: Golpe de Fuego
+  actionName: Keelhaul
+  spanishActionName: 
   mpCost: 0
   targetSelf: 0
   areaOfEffect: 0
-  battleAnimation: {fileID: 1654458526421221007, guid: a5e875f6f03c54d42aa7d42fc8eb0098, type: 3}
-  description: A flaming punch that deals fire damage to an enemy.
+  battleAnimation: {fileID: 2815643081771685000, guid: 052a4cf6aec053a4cac4418f3cca64f9, type: 3}
+  description: 
   currentName: 
   fmodActionEvent:
     Guid:
-      Data1: -2080876690
-      Data2: 1226485527
-      Data3: 705988775
-      Data4: -1147605050
-    Path: event:/sfx/abilities/player/spells/fire_spell
+      Data1: 1563692329
+      Data2: 1098848240
+      Data3: 342288538
+      Data4: 1998881412
+    Path: event:/sfx/abilities/player/physical/strike
   recoil: 0
-  damage: 7
-  elementType: 0
+  damage: 16
+  elementType: 3

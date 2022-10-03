@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionName: Kick
   spanishActionName: 
-  mpCost: 6
+  mpCost: 0
   targetSelf: 0
   areaOfEffect: 0
   battleAnimation: {fileID: 2168730723449064563, guid: a87cab9688d730743b0946af4d40ff23, type: 3}
