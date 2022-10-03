@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7597166729613027658}
-  - component: {fileID: -6741561213413030712}
+  - component: {fileID: -3645454695954181052}
   m_Layer: 0
-  m_Name: ThiefStealVowels
+  m_Name: TimeMasterTimeShift
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -32,7 +32,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &-6741561213413030712
+--- !u!114 &-3645454695954181052
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -41,15 +41,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1698453600616238615}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58575433f2068e345a505f3d064138ac, type: 3}
+  m_Script: {fileID: 11500000, guid: 2340d3f0085924189b4f5d0c51033562, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionName: Typeshift
-  spanishActionName: El Typeshift
+  actionName: TimeShift
+  spanishActionName: El TimeShift
   mpCost: 0
-  targetSelf: 1
+  targetSelf: 0
   areaOfEffect: 0
   battleAnimation: {fileID: 2168730723449064563, guid: a87cab9688d730743b0946af4d40ff23, type: 3}
-  description: Shifts the user type.
+  description: 
   currentName: 
   recoil: 0
+  status: {fileID: 1590478155381415405, guid: fd026ea3b5e30bc4e94745d25d4d224e, type: 3}
