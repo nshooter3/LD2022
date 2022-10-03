@@ -11,6 +11,7 @@
 {3d4ef981-a2f6-4dcf-8d58-9bdbcee4a3bf} event:/music/enemy_selection_music
 {d55d9d58-4ed8-4232-807b-61d53b48de93} event:/music/title_screen_music
 {71171e48-735f-4265-87db-321dd5deb1d5} event:/music/win_screen_music
+{329859f0-e570-47c9-8459-1f73303d8919} event:/sfx/abilities/enemy/gambler/gambler_menu_shuffle
 {3ee6338d-9190-460a-8207-1cdfa0668587} event:/sfx/abilities/enemy/hacker/hacker_pop_up
 {d8f51369-79da-4091-aa45-42beb2d8f1a2} event:/sfx/abilities/enemy/misc/enemy_death
 {23aba737-4868-42e9-8a6a-e3eed78905d8} event:/sfx/abilities/player/misc/player_death
