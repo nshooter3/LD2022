@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PopUpBehavior : MonoBehaviour
 {
@@ -9,9 +10,14 @@ public class PopUpBehavior : MonoBehaviour
     private float currentTime;
     private float randomScaleModifier;
 
+    [SerializeField]
+    private List<Image> sprites;
+
     // Start is called before the first frame update
     void Start()
     {
+        sprites.ForEach(p => p.enabled = false);
+        sprites[Random.Range(0, sprites.Count)].enabled = true;
         transform.localScale = Vector3.zero;
         isPoppingIn = true;
         currentTime = 0;
