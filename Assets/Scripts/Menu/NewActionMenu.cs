@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -11,6 +12,9 @@ public class NewActionMenu : MenuBase
     private List<BattleAction> actionChoices;
     [SerializeField]
     private string nextScene;
+
+    [SerializeField]
+    private ActionDescriptions actionDescriptions;
 
     private void Start()
     {
@@ -29,6 +33,12 @@ public class NewActionMenu : MenuBase
         SetSelectedGameObject(actionButtons[0].gameObject);
     }
 
+    protected override void Update()
+    {
+        SetActionDescription();
+        base.Update();
+    }
+
     public void ChooseAction(int actionIndex)
     {
         foreach (var button in actionButtons)
@@ -43,5 +53,20 @@ public class NewActionMenu : MenuBase
     {
         PlaySelectSound();
         ChangeScene(nextScene);
+    }
+
+    public void SetActionDescription()
+    {
+        if (EventSystem.current.currentSelectedGameObject != null)
+        {
+            foreach (BattleAction action in actionChoices)
+            {
+                if (EventSystem.current.currentSelectedGameObject.GetComponentInChildren<TextMeshProUGUI>().text == action.name)
+                {
+                    actionDescriptions.SetAction(action);
+                    break;
+                }
+            }
+        }
     }
 }

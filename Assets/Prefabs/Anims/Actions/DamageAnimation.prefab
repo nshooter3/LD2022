@@ -44,11 +44,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 49bf1e730d1624bb09febb1fbd38d67e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  duration: 1
+  duration: 0.85
   textPrefab: {fileID: 5830345339890643563, guid: ab37f59554b9d42feb4872abdb3aa0ba, type: 3}
   hpDamageColor: {r: 0.98929596, g: 1, b: 0, a: 1}
   hpHealColor: {r: 0, g: 1, b: 0, a: 1}
   mpDrainColor: {r: 0.8490566, g: 0.52256966, b: 0, a: 1}
-  mpHealColor: {r: 0, g: 1, b: 0, a: 1}
+  mpHealColor: {r: 0, g: 0.64177275, b: 1, a: 1}
   damageOffset: 62
   mpOffset: 92
