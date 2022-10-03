@@ -15,4 +15,9 @@ public class FMODAnimationActionController : MonoBehaviour
     {
         FMODUnity.RuntimeManager.PlayOneShot(battleParticipant.currentAction.fmodActionEvent);
     }
+
+    public void PlayEnemyDeathSFX()
+    {
+        FMODUnity.RuntimeManager.PlayOneShot(FMODEventsAndParameters.ENEMY_DEATH);
+    }
 }
