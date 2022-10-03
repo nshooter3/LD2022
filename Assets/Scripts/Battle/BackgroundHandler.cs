@@ -38,8 +38,8 @@ public class BackgroundHandler : MonoBehaviour
 
     public void RandomizeBG()
     {
-        cloneMaterial.SetTexture("_MainTex", mainTextures[Random.Range(0, mainTextures.Length - 1)]); //Set main texture
-        cloneMaterial.SetTexture("_SecondTex", mainTextures[Random.Range(0, mainTextures.Length - 1)]); //Set secondary texture
+        cloneMaterial.SetTexture("_MainTex", mainTextures[Random.Range(0, mainTextures.Length)]); //Set main texture
+        cloneMaterial.SetTexture("_SecondTex", mainTextures[Random.Range(0, mainTextures.Length)]); //Set secondary texture
         cloneMaterial.SetTexture("_DistortionNormal", distortionTextures[Random.Range(0, distortionTextures.Length - 1)]); //Set distortion texture
         cloneMaterial.SetColor("_Color", RandomColor());
         cloneMaterial.SetColor("_Color2", RandomColor());
