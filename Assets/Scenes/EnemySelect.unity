@@ -2461,7 +2461,7 @@ MonoBehaviour:
   - {fileID: 1833780453}
   - {fileID: 200944160}
   - {fileID: 713443920}
-  encounterText: {fileID: 0}
+  encounterText: {fileID: 1852550410}
   battleScene: BattleTest
   lockColor: {r: 0, g: 0, b: 0, a: 1}
   completedColor: {r: 1, g: 0, b: 0, a: 1}
