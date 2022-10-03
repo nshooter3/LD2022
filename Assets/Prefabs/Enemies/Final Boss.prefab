@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f0e17d0ca67ec42fea1d73a171f69062, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 300
+  maxHp: 240
   actions:
   - {fileID: 4795306080177065897, guid: 3db36b4e43998c64588725a3cd1826a5, type: 3}
   - {fileID: 9067633291162066816, guid: 895156669a7ef104ea1c87c6c7cedb6e, type: 3}

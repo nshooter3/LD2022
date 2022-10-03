@@ -60,4 +60,4 @@ MonoBehaviour:
       Data4: -998185245
     Path: event:/sfx/abilities/player/spells/heal_spell
   recoil: 0
-  healAmount: 20
+  healAmount: 30

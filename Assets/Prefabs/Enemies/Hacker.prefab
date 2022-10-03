@@ -229,6 +229,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyAnim
       objectReference: {fileID: 0}
+    - target: {fileID: 8832728733356199903, guid: 229082185e71c204aa9ba899d1d20e9e, type: 3}
+      propertyPath: spriteAnim
+      value: 
+      objectReference: {fileID: 4406368002485991637}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 229082185e71c204aa9ba899d1d20e9e, type: 3}
 --- !u!4 &3738420317945041672 stripped
@@ -310,3 +314,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4ac4c5fc052cc0b4492c006bbb20da8e, type: 3}
+--- !u!95 &4406368002485991637 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 4960669284120320629, guid: 4ac4c5fc052cc0b4492c006bbb20da8e, type: 3}
+  m_PrefabInstance: {fileID: 8786881538504385184}
+  m_PrefabAsset: {fileID: 0}
