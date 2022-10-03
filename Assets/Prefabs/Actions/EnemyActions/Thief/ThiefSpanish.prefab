@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &5589785919465164880
+--- !u!1 &1698453600616238615
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,22 +8,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 5589785919465164887}
-  - component: {fileID: 5589785919465164886}
+  - component: {fileID: 7597166729613027658}
+  - component: {fileID: 7203658531264741535}
   m_Layer: 0
-  m_Name: Thief
+  m_Name: ThiefSpanish
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &5589785919465164887
+--- !u!4 &7597166729613027658
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5589785919465164880}
+  m_GameObject: {fileID: 1698453600616238615}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -32,24 +32,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &5589785919465164886
+--- !u!114 &7203658531264741535
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5589785919465164880}
+  m_GameObject: {fileID: 1698453600616238615}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0e17d0ca67ec42fea1d73a171f69062, type: 3}
+  m_Script: {fileID: 11500000, guid: 2340d3f0085924189b4f5d0c51033562, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 60
-  actions:
-  - {fileID: 7203658531264741535, guid: b2d154b1e72c2e24799e4210e01a7785, type: 3}
-  - {fileID: 3446064254096135621, guid: e660549c834d1c14ebc7d76283ecd101, type: 3}
-  - {fileID: 7203658531264741535, guid: 2a0855b4eaeecd843aa5db9bc2826661, type: 3}
-  - {fileID: 3446064254096135621, guid: e660549c834d1c14ebc7d76283ecd101, type: 3}
-  - {fileID: 7203658531264741535, guid: c4c2af70b688e104e885c220110c68cf, type: 3}
-  currentElementType: 2
-  combatBehavior: {fileID: 5598479242315832697, guid: eb7f0a389fa492e4a8d452288c7d834b, type: 3}
+  actionName: Espanol
+  spanishActionName: 
+  mpCost: 0
+  targetSelf: 0
+  areaOfEffect: 0
+  battleAnimation: {fileID: 2815643081771685000, guid: 052a4cf6aec053a4cac4418f3cca64f9, type: 3}
+  description: 
+  currentName: 
+  recoil: 0
+  status: {fileID: -8452107191980039475, guid: 49699351e7df93a47b6088ec8379c6f4, type: 3}
