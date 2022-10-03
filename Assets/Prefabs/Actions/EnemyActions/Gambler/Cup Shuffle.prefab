@@ -45,8 +45,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionName: Cup Shuffle
+  spanishActionName: 
   mpCost: 0
   targetSelf: 0
   areaOfEffect: 0
   battleAnimation: {fileID: 2168730723449064563, guid: a87cab9688d730743b0946af4d40ff23, type: 3}
+  description: 
+  currentName: 
+  fmodActionEvent:
+    Guid:
+      Data1: 1144375493
+      Data2: 1253293773
+      Data3: 1142574783
+      Data4: 856154399
+    Path: event:/sfx/abilities/enemy/gambler/gambler_cup_shuffle
+  recoil: 0
   status: {fileID: -6404074125616620050, guid: 2fe1498969999455f966933fe7f4cf6d, type: 3}
