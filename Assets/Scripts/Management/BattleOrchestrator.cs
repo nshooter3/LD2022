@@ -45,6 +45,8 @@ public class BattleOrchestrator : MonoBehaviour
             Instance = this;
             DontDestroyOnLoad(gameObject);
         }
+
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByName(FMODEventsAndParameters.FINAL_BOSS, IsFinalBoss() ? 1 : 0);
     }
 
     public void Start()
