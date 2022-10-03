@@ -223,6 +223,19 @@ public class BattleUI : MenuBase
         }
     }
 
+    public void SetButtonsInverted(bool inverted)
+    {
+        for (int i = 0; i < actionButtons.Count; i++)
+        {
+            Button button = actionButtons[i];
+            ActionButton actionButton = button.GetComponent<ActionButton>();
+            if (actionButton != null)
+            {
+                actionButton.SetInverted(inverted);
+            }
+        }
+    }
+
     public void SetActionDescription()
     {
         if (EventSystem.current.currentSelectedGameObject != null && !actionSelectionOverridden)

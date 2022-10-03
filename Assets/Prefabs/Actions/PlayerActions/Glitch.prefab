@@ -25,6 +25,10 @@ GameObject:
   - component: {fileID: 2489688353030609681}
   - component: {fileID: -2565997597952298083}
   - component: {fileID: -5122205611949196861}
+  - component: {fileID: 2754015102303174963}
+  - component: {fileID: -2243984750409013808}
+  - component: {fileID: -3724406465815139792}
+  - component: {fileID: 2951221253461386497}
   m_Layer: 0
   m_Name: Glitch
   m_TagString: Untagged
@@ -69,11 +73,11 @@ MonoBehaviour:
   currentName: Glitched
   fmodActionEvent:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -1220468082
+      Data2: 1207758002
+      Data3: 885814150
+      Data4: -1119008677
+    Path: event:/sfx/abilities/player/physical/glitch
   recoil: 0
 --- !u!114 &-3329434574175863712
 MonoBehaviour:
@@ -244,6 +248,54 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &-5122205611949196861
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4321351403726204815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5971291364f14fc79e7f21f325756cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2754015102303174963
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4321351403726204815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5971291364f14fc79e7f21f325756cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-2243984750409013808
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4321351403726204815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5971291364f14fc79e7f21f325756cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-3724406465815139792
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4321351403726204815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5971291364f14fc79e7f21f325756cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2951221253461386497
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}

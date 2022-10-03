@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionName: Guard
-  spanishActionName: Guarda
+  spanishActionName: El Guard
   mpCost: 0
   targetSelf: 1
   areaOfEffect: 0
@@ -54,10 +54,10 @@ MonoBehaviour:
   currentName: 
   fmodActionEvent:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -640830186
+      Data2: 1135765848
+      Data3: 1376216964
+      Data4: 354324520
+    Path: event:/sfx/abilities/player/physical/guard
   recoil: 0
   status: {fileID: -2571575862629369259, guid: 43db8d3f093c44179b16a7509b068c32, type: 3}
