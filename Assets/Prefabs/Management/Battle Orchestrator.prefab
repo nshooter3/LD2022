@@ -45,10 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   allEncounters:
-  - {fileID: 2542181326343833092, guid: 35f300e828e36496b96bb0035ee680f9, type: 3}
   - {fileID: 2542181326343833092, guid: 72566664adc7b4a2392bceaf4e2508f9, type: 3}
   - {fileID: 2542181326343833092, guid: 31cd1f4ada8624c00a97779ccfd5d53f, type: 3}
-  - {fileID: 2542181326343833092, guid: f104edae820284657a949e80caa719c0, type: 3}
   - {fileID: 2542181326343833092, guid: 2c41eecdb07fb4e4da67f9c9c3ebe0d1, type: 3}
   - {fileID: 2542181326343833092, guid: 6d4e383d34a184cf1b0ddc35ce4f47e3, type: 3}
   currentEncounter: {fileID: 0}
