@@ -52,5 +52,12 @@ MonoBehaviour:
   battleAnimation: {fileID: 2168730723449064563, guid: a87cab9688d730743b0946af4d40ff23, type: 3}
   description: 
   currentName: 
+  fmodActionEvent:
+    Guid:
+      Data1: 848845296
+      Data2: 1204413808
+      Data3: 1931434372
+      Data4: 428424496
+    Path: event:/sfx/abilities/enemy/gambler/gambler_menu_shuffle
   recoil: 0
   status: {fileID: 1944537821251390718, guid: 44bb112017755c343924614bd55ecc90, type: 3}
