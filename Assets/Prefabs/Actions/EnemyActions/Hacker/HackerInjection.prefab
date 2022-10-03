@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2340d3f0085924189b4f5d0c51033562, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionName: Spell Overflow
+  actionName: Spam Inbox
   spanishActionName: 
   mpCost: 0
   targetSelf: 0
