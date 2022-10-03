@@ -21,19 +21,6 @@ public class BattleOrchestrator : MonoBehaviour
     private List<BattleAction> unlockableActions;
     public List<BattleAction> currentActions { get; private set; }
 
-    public bool IsFinalBoss()
-    {
-
-        if (currentEncounter.EncounterName == finalBossEncounterName)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
-    }
-
     private void Awake()
     {
         if (Instance)
@@ -46,13 +33,13 @@ public class BattleOrchestrator : MonoBehaviour
             DontDestroyOnLoad(gameObject);
         }
 
-        FMODUnity.RuntimeManager.StudioSystem.setParameterByName(FMODEventsAndParameters.FINAL_BOSS, IsFinalBoss() ? 1 : 0);
     }
 
     public void Start()
     {
         initialEncounter = currentEncounter;
         Reset();
+
     }
 
     public void AddAction(BattleAction action)

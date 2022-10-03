@@ -42,6 +42,9 @@ public class BattleController : MonoBehaviour
     {
         instance = this;
         SetFMODEncounterParameter((float)EncounterControllerValues.StartBattle);
+        FMODUnity.RuntimeManager.StudioSystem.setParameterByName(FMODEventsAndParameters.FINAL_BOSS,
+            BattleOrchestrator.Instance.currentEncounter.FinalBoss ? 1 : 0);
+
     }
 
     private void Start()
