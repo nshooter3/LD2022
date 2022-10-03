@@ -20,6 +20,18 @@ public class BattleOrchestrator : MonoBehaviour
     private List<BattleAction> unlockableActions;
     public List<BattleAction> currentActions { get; private set; }
 
+    public bool IsFinalBoss()
+    {
+        if (currentEncounter.EncounterName == "Time Master")
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
     private void Awake()
     {
         if (Instance)
