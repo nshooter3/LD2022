@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionName: Clothesline
-  spanishActionName: El Clothesline
+  spanishActionName: Lariat
   mpCost: 0
   targetSelf: 0
   areaOfEffect: 1

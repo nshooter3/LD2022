@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionName: Water Shot
-  spanishActionName: El Water Shot
+  spanishActionName: Tiro Empapado
   mpCost: 10
   targetSelf: 0
   areaOfEffect: 0

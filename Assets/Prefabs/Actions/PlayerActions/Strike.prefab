@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionName: Strike
-  spanishActionName: El Strike
+  spanishActionName: Golpe
   mpCost: 0
   targetSelf: 0
   areaOfEffect: 0

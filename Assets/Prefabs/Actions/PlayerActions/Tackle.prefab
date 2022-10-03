@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionName: Tackle
-  spanishActionName: El Tackle
+  spanishActionName: Embestida
   mpCost: 0
   targetSelf: 0
   areaOfEffect: 0

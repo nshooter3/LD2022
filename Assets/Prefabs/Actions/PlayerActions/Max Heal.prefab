@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionName: Max Heal
-  spanishActionName: El Max Heal
+  spanishActionName: Mejor Cura
   mpCost: 40
   targetSelf: 1
   areaOfEffect: 0

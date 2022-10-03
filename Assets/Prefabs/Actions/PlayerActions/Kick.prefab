@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionName: Kick
-  spanishActionName: El Kick
+  spanishActionName: Patada
   mpCost: 0
   targetSelf: 0
   areaOfEffect: 0
