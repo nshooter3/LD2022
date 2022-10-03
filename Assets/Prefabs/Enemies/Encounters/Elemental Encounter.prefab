@@ -49,3 +49,5 @@ MonoBehaviour:
   - {fileID: 5589785919465164886, guid: 17be8d3391fa342f8a1b8aa00a011818, type: 3}
   - {fileID: 5589785919465164886, guid: b9bfc0b7d355746948ccfa4262956a20, type: 3}
   characterSprite: {fileID: 0}
+  finalBoss: 0
+  initialBattle: 1
