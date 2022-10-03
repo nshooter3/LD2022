@@ -59,7 +59,7 @@ public class SceneSelectDirector : MenuBase
             }
             PlayLeftScroll();
         }
-        if (Input.GetKeyDown(KeyCode.RightArrow) && encounters.Count > 1)
+        else if (Input.GetKeyDown(KeyCode.RightArrow) && encounters.Count > 1)
         {
             if (iconIndex == (encounters.Count - 1)) { iconIndex = 0; }
             else { iconIndex = Mathf.Clamp(iconIndex + 1, 0, encounters.Count); }
@@ -70,7 +70,41 @@ public class SceneSelectDirector : MenuBase
             }
             PlayRightScroll();
         }
-        if (Input.GetButtonDown("Submit") && (!encounters[iconIndex].FinalBoss || BattleOrchestrator.Instance.finalBossUnlocked))
+        else if (Input.GetKeyDown(KeyCode.A) && encounters.Count > 1)
+        {
+            if (iconIndex == 0)
+            {
+                iconIndex = encounters.Count - 1;
+            }
+            else
+            {
+                iconIndex = Mathf.Clamp(iconIndex - 1, 0, encounters.Count);
+            }
+            animatingIconGroup.SetActive(true);
+            foreach (CharacterSelectIcon icon in playerIcons)
+            {
+                icon.gameObject.SetActive(false);
+            }
+            PlayLeftScroll();
+        }
+        else if (Input.GetKeyDown(KeyCode.D) && encounters.Count > 1)
+        {
+            if (iconIndex == (encounters.Count - 1))
+            {
+                iconIndex = 0;
+            }
+            else
+            {
+                iconIndex = Mathf.Clamp(iconIndex + 1, 0, encounters.Count);
+            }
+            animatingIconGroup.SetActive(true);
+            foreach (CharacterSelectIcon icon in playerIcons)
+            {
+                icon.gameObject.SetActive(false);
+            }
+            PlayRightScroll();
+        }
+        if (Input.GetButtonDown("Submit") && !BattleOrchestrator.Instance.EncounterCompleted(encounters[iconIndex]) && (!encounters[iconIndex].FinalBoss || BattleOrchestrator.Instance.finalBossUnlocked))
         {
             BattleOrchestrator.Instance.currentEncounter = encounters[iconIndex];
             FMODUnity.RuntimeManager.PlayOneShot(FMODEventsAndParameters.ENEMY_SELECT_CURSOR_SELECT);
