@@ -17,7 +17,7 @@ public class CupShuffler : BattleUIInterference
     private float introWaitTimer;
     private float swapTime, swapTimer;
     private float waitTime, waitTimer;
-    private float doneShufflingTimer = 0.5f;
+    private float doneShufflingTimer = 0.25f;
 
     private int numSwaps;
 
@@ -42,7 +42,7 @@ public class CupShuffler : BattleUIInterference
             cups[i].Init(actions[i], this);
         }
         introTimer = 1f;
-        numSwaps = Random.Range(2, 3);
+        numSwaps = Random.Range(4, 5);
     }
 
     public override bool OverrideActionSelection()
@@ -65,7 +65,7 @@ public class CupShuffler : BattleUIInterference
                 if (introTimer <= 0f)
                 {
                     cups.ForEach(cup => cup.SetCovered(true));
-                    introWaitTimer = 1f;
+                    introWaitTimer = 0.75f;
                 }
             }
             else if (introWaitTimer > 0f)
@@ -138,10 +138,10 @@ public class CupShuffler : BattleUIInterference
         swapCup2StartPos = positions[cupSwap2];
         swapCup2EndPos = positions[cupSwap1];
 
-        swapTime = Random.Range(0.35f, 0.45f);
+        swapTime = Random.Range(0.25f, 0.35f);
         swapTimer = swapTime;
 
-        waitTime = Random.Range(0.15f, 0.1f);
+        waitTime = Random.Range(0.05f, 0.1f);
         waitTimer = waitTime;
 
         ShuffleCup tempCup = cups[cupSwap1];
