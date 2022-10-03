@@ -174,6 +174,7 @@ public class BattleUI : MenuBase
         }
         else
         {
+            actions = RandomUtil.ChooseRandomElementsFromList(actions, actions.Count);
             ToggleMenuImages(true);
             Button firstSelectableAction = null;
             for (int i = 0; i < actionButtons.Count; i++)
