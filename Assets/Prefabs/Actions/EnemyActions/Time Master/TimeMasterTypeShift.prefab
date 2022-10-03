@@ -54,9 +54,9 @@ MonoBehaviour:
   currentName: 
   fmodActionEvent:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: 117578059
+      Data2: 1236253513
+      Data3: 1952997772
+      Data4: -955846311
+    Path: event:/sfx/abilities/enemy/time_master/time_master_type_shift
   recoil: 0

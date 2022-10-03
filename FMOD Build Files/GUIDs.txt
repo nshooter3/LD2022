@@ -17,6 +17,9 @@
 {d8f51369-79da-4091-aa45-42beb2d8f1a2} event:/sfx/abilities/enemy/misc/enemy_death
 {c947bcd3-ccfd-49cd-8b1f-a4a17c8fee9f} event:/sfx/abilities/enemy/thief/thief_spanish
 {b39776d9-3467-4f45-baa8-432dcfd30ca7} event:/sfx/abilities/enemy/thief/thief_steal
+{0c81977e-0930-49e4-8aa8-68264cf2cb53} event:/sfx/abilities/enemy/time_master/time_master_button_invert
+{80265920-69ab-406b-b8e1-c58bcde556ca} event:/sfx/abilities/enemy/time_master/time_master_time_shift
+{0702194b-bb49-49af-8c61-687459f106c7} event:/sfx/abilities/enemy/time_master/time_master_type_shift
 {23aba737-4868-42e9-8a6a-e3eed78905d8} event:/sfx/abilities/player/misc/player_death
 {b741228e-ecb2-47fc-8673-cc345b484dbd} event:/sfx/abilities/player/physical/glitch
 {d9cdb516-6958-43b2-8467-075228901e15} event:/sfx/abilities/player/physical/guard
