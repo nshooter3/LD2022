@@ -15,6 +15,14 @@ GameObject:
   - component: {fileID: 356905485158555782}
   - component: {fileID: 5727730006075594139}
   - component: {fileID: 3417508233472523176}
+  - component: {fileID: 3365704471414247762}
+  - component: {fileID: -5406551033871344146}
+  - component: {fileID: 6054584254614486229}
+  - component: {fileID: -6137153803036014295}
+  - component: {fileID: -2205654453344567582}
+  - component: {fileID: -6996998488761663369}
+  - component: {fileID: -6877181345397395627}
+  - component: {fileID: 2489688353030609681}
   m_Layer: 0
   m_Name: Glitch
   m_TagString: Untagged
@@ -57,6 +65,13 @@ MonoBehaviour:
   battleAnimation: {fileID: 6496146970332895624, guid: 86ab25b42ecebca4685808adf14787df, type: 3}
   description: ?????
   currentName: Glitched
+  fmodActionEvent:
+    Guid:
+      Data1: 0
+      Data2: 0
+      Data3: 0
+      Data4: 0
+    Path: 
   recoil: 0
 --- !u!114 &-3329434574175863712
 MonoBehaviour:
@@ -107,6 +122,102 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!114 &3417508233472523176
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4321351403726204815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5971291364f14fc79e7f21f325756cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &3365704471414247762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4321351403726204815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5971291364f14fc79e7f21f325756cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-5406551033871344146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4321351403726204815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5971291364f14fc79e7f21f325756cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &6054584254614486229
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4321351403726204815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5971291364f14fc79e7f21f325756cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-6137153803036014295
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4321351403726204815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5971291364f14fc79e7f21f325756cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-2205654453344567582
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4321351403726204815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5971291364f14fc79e7f21f325756cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-6996998488761663369
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4321351403726204815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5971291364f14fc79e7f21f325756cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-6877181345397395627
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4321351403726204815}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b5971291364f14fc79e7f21f325756cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2489688353030609681
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
