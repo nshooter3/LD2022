@@ -54,10 +54,10 @@ MonoBehaviour:
   currentName: 
   fmodActionEvent:
     Guid:
-      Data1: 0
-      Data2: 0
-      Data3: 0
-      Data4: 0
-    Path: 
+      Data1: -2144970464
+      Data2: 1080781227
+      Data3: -1949965896
+      Data4: -900274739
+    Path: event:/sfx/abilities/enemy/time_master/time_master_time_shift
   recoil: 0
   status: {fileID: 1590478155381415405, guid: fd026ea3b5e30bc4e94745d25d4d224e, type: 3}
