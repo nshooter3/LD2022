@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 216299268374134821}
   - component: {fileID: -4097403819614163732}
   m_Layer: 0
-  m_Name: CombatActionLimiter
+  m_Name: FinalBossCombatActionLimiter
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -45,5 +45,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionLimiter:
-  - battleAction: {fileID: 1684084760287416780, guid: 06c1766e0e1e76c4ca99bd85e54c5118, type: 3}
+  - battleAction: {fileID: -3645454695954181052, guid: 28250e6d5cc5ef44bb102eb227d3e7ef, type: 3}
     LimitUses: 5
