@@ -51,6 +51,14 @@ MonoBehaviour:
   areaOfEffect: 1
   battleAnimation: {fileID: 1654458526421221007, guid: a5e875f6f03c54d42aa7d42fc8eb0098, type: 3}
   description: A running attack that deals damage to all enemies.
+  currentName: 
+  fmodActionEvent:
+    Guid:
+      Data1: 1563692329
+      Data2: 1098848240
+      Data3: 342288538
+      Data4: 1998881412
+    Path: event:/sfx/abilities/player/physical/strike
   recoil: 0
   damage: 11
   elementType: 3

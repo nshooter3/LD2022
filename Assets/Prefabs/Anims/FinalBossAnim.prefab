@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7554900085843299426}
   - component: {fileID: 7554900085843299427}
   - component: {fileID: 7554900085843299436}
+  - component: {fileID: 884432462787990617}
   m_Layer: 0
   m_Name: FinalBossAnim
   m_TagString: Untagged
@@ -105,3 +106,15 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &884432462787990617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7554900085843299437}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3dfb4ad82529b486e8bde9931c74a5bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

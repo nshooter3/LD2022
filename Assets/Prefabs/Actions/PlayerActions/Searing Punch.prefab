@@ -51,6 +51,14 @@ MonoBehaviour:
   areaOfEffect: 0
   battleAnimation: {fileID: 1654458526421221007, guid: a5e875f6f03c54d42aa7d42fc8eb0098, type: 3}
   description: A flaming punch that deals fire damage to an enemy.
+  currentName: 
+  fmodActionEvent:
+    Guid:
+      Data1: -2080876690
+      Data2: 1226485527
+      Data3: 705988775
+      Data4: -1147605050
+    Path: event:/sfx/abilities/player/spells/fire_spell
   recoil: 0
   damage: 8
   elementType: 0
