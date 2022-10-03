@@ -52,5 +52,12 @@ MonoBehaviour:
   battleAnimation: {fileID: 6496146970332895624, guid: e2121ec75f163474e93f646ef297575c, type: 3}
   description: An impenetrable spell that blocks all damage for this turn.
   currentName: 
+  fmodActionEvent:
+    Guid:
+      Data1: -640830186
+      Data2: 1135765848
+      Data3: 1376216964
+      Data4: 354324520
+    Path: event:/sfx/abilities/player/physical/guard
   recoil: 0
   status: {fileID: -2571575862629369259, guid: 5898d5870596449c6823fd4474e89a64, type: 3}

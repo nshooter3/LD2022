@@ -52,5 +52,12 @@ MonoBehaviour:
   battleAnimation: {fileID: 6496146970332895624, guid: e2121ec75f163474e93f646ef297575c, type: 3}
   description: Halves incoming damage for this turn.
   currentName: 
+  fmodActionEvent:
+    Guid:
+      Data1: -640830186
+      Data2: 1135765848
+      Data3: 1376216964
+      Data4: 354324520
+    Path: event:/sfx/abilities/player/physical/guard
   recoil: 0
   status: {fileID: -2571575862629369259, guid: 43db8d3f093c44179b16a7509b068c32, type: 3}
