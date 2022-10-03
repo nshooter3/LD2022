@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: b73c7e4ad979745f8b5750f684d05531
+  - enabled: 1
     path: Assets/Scenes/BattleTest.unity
     guid: 4c63a48e278014af0bdad415d77ac676
   - enabled: 1
@@ -14,9 +17,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/NewAction.unity
     guid: 46861f81bd2ea4916a6adbe848b560d3
-  - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
-    guid: b73c7e4ad979745f8b5750f684d05531
   - enabled: 1
     path: Assets/Scenes/GameEnd.unity
     guid: 8ec47e70ac6694c1e947509b268ac173
