@@ -15,7 +15,20 @@ public class FinalBossParticles : MonoBehaviour
 
     public void SetFire()
     {
+        HideAll();
+        fireParticles.gameObject.SetActive(true);
+    }
 
+    public void SetWater()
+    {
+        HideAll();
+        waterParticles.gameObject.SetActive(true);
+    }
+
+    public void SetGrass()
+    {
+        HideAll();
+        grassParticles.gameObject.SetActive(true);
     }
 
     public void HideAll()
