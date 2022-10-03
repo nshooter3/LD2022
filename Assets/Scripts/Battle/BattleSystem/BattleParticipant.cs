@@ -30,6 +30,12 @@ public abstract class BattleParticipant : MonoBehaviour
 
     public List<BattleAction> Actions { get { return actions; }}
 
+    public struct TypeEffectivenessResult
+    {
+        public int damage;
+        public DamageAnimationRecord.TypeEffectiveness typeEffectiveness;
+    }
+
     public virtual void Initialize()
     {
         currentHp = maxHp;
@@ -48,7 +54,8 @@ public abstract class BattleParticipant : MonoBehaviour
     /// <param name="attackElement"></param>
     public int DealDamage(int damage, ElementType attackElement)
     {
-        int finalDamage = CalculateElementalDamage(attackElement, damage);
+        TypeEffectivenessResult result = CalculateElementalDamage(attackElement, damage);
+        int finalDamage = result.damage;
         foreach (Status status in statuses)
         {
             finalDamage = status.ModifyIncomingDamage(finalDamage);
@@ -57,7 +64,7 @@ public abstract class BattleParticipant : MonoBehaviour
         currentHp -= finalDamage;
         if (finalDamage != 0)
         {
-            BattleController.instance.AddDamageRecord(new DamageAnimationRecord(this, finalDamage, DamageAnimationRecord.DamageType.HP));
+            BattleController.instance.AddDamageRecord(new DamageAnimationRecord(this, finalDamage, DamageAnimationRecord.DamageType.HP, result.typeEffectiveness));
         }
         return finalDamage;
     }
@@ -68,43 +75,53 @@ public abstract class BattleParticipant : MonoBehaviour
     /// </summary>
     /// <param name="attackElement">The elemental type of the attack.</param>
     /// <returns>The amount of damage</returns>
-    public int CalculateElementalDamage(ElementType attackElement, int damage)
+    public TypeEffectivenessResult CalculateElementalDamage(ElementType attackElement, int damage)
     {
+        TypeEffectivenessResult result = new TypeEffectivenessResult();
         int damageToReturn = damage;
         switch (CurrentElementType)
         {
             case ElementType.Fire:
                 if (attackElement == ElementType.Water)
                 {
-                    damageToReturn *= 2;
+                    result.typeEffectiveness = DamageAnimationRecord.TypeEffectiveness.Weak;
                 }
                 if (attackElement == ElementType.Grass)
                 {
-                    damageToReturn /= 2;
+                    result.typeEffectiveness = DamageAnimationRecord.TypeEffectiveness.Resist;
                 }
                 break;
             case ElementType.Water:
                 if (attackElement == ElementType.Fire)
                 {
-                    damageToReturn /= 2;
+                    result.typeEffectiveness = DamageAnimationRecord.TypeEffectiveness.Resist;
                 }
                 if (attackElement == ElementType.Grass)
                 {
-                    damageToReturn *= 2;
+                    result.typeEffectiveness = DamageAnimationRecord.TypeEffectiveness.Weak;
                 }
                 break;
             case ElementType.Grass:
                 if (attackElement == ElementType.Fire)
                 {
-                    damageToReturn *= 2;
+                    result.typeEffectiveness = DamageAnimationRecord.TypeEffectiveness.Weak;
                 }
                 if (attackElement == ElementType.Water)
                 {
-                    damageToReturn /= 2;
+                    result.typeEffectiveness = DamageAnimationRecord.TypeEffectiveness.Resist;
                 }
                 break;
         }
-        return damageToReturn;
+        if (result.typeEffectiveness == DamageAnimationRecord.TypeEffectiveness.Weak)
+        {
+            damageToReturn *= 2;
+        }
+        else if (result.typeEffectiveness == DamageAnimationRecord.TypeEffectiveness.Resist)
+        {
+            damageToReturn /= 2;
+        }
+        result.damage = damageToReturn;
+        return result;
     }
 
     /// <summary>
