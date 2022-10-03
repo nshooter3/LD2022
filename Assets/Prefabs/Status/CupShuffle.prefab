@@ -44,7 +44,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 789ddef3cbe2540bfa58e21ee6afd1e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  statusSprite: {fileID: 21300000, guid: db8841efe3b5938459fffdd2a88d7f18, type: 3}
+  statusSprites:
+  - {fileID: 21300000, guid: db8841efe3b5938459fffdd2a88d7f18, type: 3}
   statusDuration: 2
+  displayDuration: 0
   interference: {fileID: 827768041866989501, guid: baa0e3dfc28d14c48aef6008ba28ed49, type: 3}
   numActions: 3
