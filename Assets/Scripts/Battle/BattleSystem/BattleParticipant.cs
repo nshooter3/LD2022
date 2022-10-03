@@ -53,6 +53,10 @@ public abstract class BattleParticipant : MonoBehaviour
         }
         finalDamage = Mathf.Min(currentHp, finalDamage);
         currentHp -= finalDamage;
+        if (finalDamage != 0)
+        {
+            BattleController.instance.AddDamageRecord(new DamageAnimationRecord(this, finalDamage, DamageAnimationRecord.DamageType.HP));
+        }
         return finalDamage;
     }
 
@@ -102,22 +106,17 @@ public abstract class BattleParticipant : MonoBehaviour
     }
 
     /// <summary>
-    /// This handles when a BattleParticipant is damaged by Recoil.
-    /// NOTE: RECOIL DAMAGE IS NOT AFFECTED BY ELEMENTAL TYPE.
-    /// </summary>
-    /// <param name="damage">The amount to damage by.</param>
-    public void DealRecoilDamage(int damage)
-    {
-        currentHp = Mathf.Max(0, currentHp - damage);
-    }
-
-    /// <summary>
     /// This handles when the BattleParticipant is healed.
     /// </summary>
     /// <param name="healAmount">The amount to heal.</param>
     public void Heal(int healAmount)
     {
-        currentHp = Mathf.Min(maxHp, currentHp + healAmount);
+        int finalHealAmount = Mathf.Min(healAmount, maxHp - currentHp);
+        currentHp += finalHealAmount;
+        if (finalHealAmount != 0)
+        {
+            BattleController.instance.AddDamageRecord(new DamageAnimationRecord(this, -finalHealAmount, DamageAnimationRecord.DamageType.HP));
+        }
     }
 
     /// <summary>

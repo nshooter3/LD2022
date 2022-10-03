@@ -423,7 +423,7 @@ public class BattleUI : MenuBase
         ToggleMenuImages(false);
     }
 
-    private BattleParticipantDisplay FindDisplayForParticipant(BattleParticipant participant)
+    public BattleParticipantDisplay FindDisplayForParticipant(BattleParticipant participant)
     {
         if (participant == player)
         {

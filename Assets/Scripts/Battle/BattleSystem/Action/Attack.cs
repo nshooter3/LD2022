@@ -23,7 +23,7 @@ public class Attack : BattleAction
 
         if (recoil > 0)
         {
-            user.DealRecoilDamage(recoil);
+            user.DealDamage(recoil, ElementType.Typeless);
         }
     }
 

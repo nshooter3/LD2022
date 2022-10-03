@@ -53,7 +53,12 @@ public class BattlePlayer : BattleParticipant
     /// </summary>
     public override void DrainMp(int mp)
     {
-        currentMp = Mathf.Max(0, currentMp - mp);
+        int finalMpDrain = Mathf.Min(currentMp, mp);
+        currentMp -= finalMpDrain;
+        if (finalMpDrain != 0)
+        {
+            BattleController.instance.AddDamageRecord(new DamageAnimationRecord(this, finalMpDrain, DamageAnimationRecord.DamageType.MP));
+        }
     }
 
     public override bool CanUseAction(BattleAction action)
@@ -69,6 +74,11 @@ public class BattlePlayer : BattleParticipant
 
     public void RestoreMp(int mp)
     {
-        currentMp = Mathf.Min(maxMp, currentMp + mp);
+        int finalHealAmount = Mathf.Min(mp, maxMp - currentMp);
+        currentMp += finalHealAmount;
+        if (finalHealAmount != 0)
+        {
+            BattleController.instance.AddDamageRecord(new DamageAnimationRecord(this, -finalHealAmount, DamageAnimationRecord.DamageType.MP));
+        }
     }
 }
