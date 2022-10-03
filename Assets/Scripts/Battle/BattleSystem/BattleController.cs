@@ -35,6 +35,8 @@ public class BattleController : MonoBehaviour
     private string winScene;
     [SerializeField]
     private string gameEndScene;
+    [SerializeField]
+    private string loseInitialScene;
 
     private void Awake()
     {
@@ -95,7 +97,9 @@ public class BattleController : MonoBehaviour
             }
             yield return WaitForAnimationCompletion();
         }
-        battleParticipants.ForEach(participant => participant.OnTurnEnd());
+        battleParticipants
+            .FindAll(participant => !participant.Dead)
+            .ForEach(participant => participant.OnTurnEnd());
         BattleUI.instance.UpdateStatBars();
         QueueDamageAnimations();
         yield return WaitForAnimationCompletion();
@@ -153,21 +157,14 @@ public class BattleController : MonoBehaviour
     {
         SetFMODEncounterParameter((float)EncounterControllerValues.PlayerDies);
         FMODUnity.RuntimeManager.PlayOneShot(FMODEventsAndParameters.PLAYER_DEATH);
-        ChangeScene(loseScene);
+        ChangeScene(BattleOrchestrator.Instance.currentEncounter.InitialBattle ? loseInitialScene : loseScene);
     }
 
     private void WinBattle()
     {
         BattleOrchestrator.Instance.CompleteEncounter();
         SetFMODEncounterParameter((float)EncounterControllerValues.EnemyDefeated);
-        if (BattleOrchestrator.Instance.currentEncounter.FinalBoss)
-        {
-            ChangeScene(gameEndScene);
-        }
-        else
-        {
-            ChangeScene(winScene);
-        }
+        ChangeScene(BattleOrchestrator.Instance.currentEncounter.FinalBoss ? gameEndScene : winScene);
     }
 
     private void ChangeScene(string nextScene)

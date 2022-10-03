@@ -10,6 +10,9 @@ public class EnemyEncounter : MonoBehaviour
     [SerializeField]
     private bool finalBoss;
     public bool FinalBoss { get { return finalBoss; } }
+    [SerializeField]
+    private bool initialBattle;
+    public bool InitialBattle { get { return initialBattle; } }
     public Sprite CharacterSprite { get { return characterSprite; } }
 
     public List<Enemy> SpawnEnemies()
