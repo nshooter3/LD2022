@@ -49,7 +49,7 @@ MonoBehaviour:
   mpCost: 30
   targetSelf: 1
   areaOfEffect: 0
-  battleAnimation: {fileID: 6496146970332895624, guid: 86ab25b42ecebca4685808adf14787df, type: 3}
+  battleAnimation: {fileID: 6496146970332895624, guid: e2121ec75f163474e93f646ef297575c, type: 3}
   description: An impenetrable spell that blocks all damage for this turn.
   currentName: 
   recoil: 0

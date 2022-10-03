@@ -46,4 +46,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   action: {fileID: 0}
   duration: 1.25
-  playerAnimationType: 2
+  playerAnimationType: 3
