@@ -46,4 +46,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionLimiter:
   - battleAction: {fileID: -3645454695954181052, guid: 28250e6d5cc5ef44bb102eb227d3e7ef, type: 3}
-    LimitUses: 5
+    LimitUses: 3

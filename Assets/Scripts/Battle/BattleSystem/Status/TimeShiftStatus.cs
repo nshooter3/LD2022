@@ -6,14 +6,14 @@ public class TimeShiftStatus : Status
 {
     public override void OnStatusAdded()
     {
-        var newTime = MoveTimer.instance.CurrentTimerDuration - 1;
+        var newTime = MoveTimer.instance.CurrentTimerDuration - 2;
         MoveTimer.instance.SetNewTimer(newTime);
         base.OnStatusAdded();
     }
 
     public override void OnStatusRepeat()
     {
-        var newTime = MoveTimer.instance.CurrentTimerDuration - 1;
+        var newTime = MoveTimer.instance.CurrentTimerDuration - 2;
         MoveTimer.instance.SetNewTimer(newTime);
     }
 
