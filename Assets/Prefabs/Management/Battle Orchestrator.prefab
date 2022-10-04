@@ -49,7 +49,8 @@ MonoBehaviour:
   - {fileID: 2542181326343833092, guid: 31cd1f4ada8624c00a97779ccfd5d53f, type: 3}
   - {fileID: 2542181326343833092, guid: 2c41eecdb07fb4e4da67f9c9c3ebe0d1, type: 3}
   - {fileID: 2542181326343833092, guid: 6d4e383d34a184cf1b0ddc35ce4f47e3, type: 3}
-  currentEncounter: {fileID: 0}
+  currentEncounter: {fileID: 2542181326343833092, guid: 6707e3c8d12024461905ce8bd2581a69, type: 3}
+  initialEncounter: {fileID: 2542181326343833092, guid: 6707e3c8d12024461905ce8bd2581a69, type: 3}
   startingActions:
   - {fileID: 5732525588903787617, guid: 761d1c605391c445f96b27649cbb99a2, type: 3}
   - {fileID: 5732525588903787617, guid: 7df3a6518e9a24f8ca69af23f6587f3f, type: 3}

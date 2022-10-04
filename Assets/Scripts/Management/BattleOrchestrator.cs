@@ -10,9 +10,9 @@ public class BattleOrchestrator : MonoBehaviour
     [SerializeField]
     private List<EnemyEncounter> allEncounters;
     public EnemyEncounter currentEncounter;
+    [SerializeField]
     private EnemyEncounter initialEncounter;
     private HashSet<EnemyEncounter> completedEncounters = new HashSet<EnemyEncounter>();
-    public const string finalBossEncounterName = "Time Master";
     public bool finalBossUnlocked { get; private set; }
 
     [SerializeField]
@@ -31,15 +31,8 @@ public class BattleOrchestrator : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
+            Reset();
         }
-
-    }
-
-    public void Start()
-    {
-        initialEncounter = currentEncounter;
-        Reset();
-
     }
 
     public void AddAction(BattleAction action)

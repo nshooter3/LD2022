@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0780226, g: 0.061924197, b: 0.014861213, a: 1}
+  m_IndirectSpecularColor: {r: 0.07694908, g: 0.0630663, b: 0.021489836, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -991,6 +991,63 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   attenuationObject: {fileID: 0}
+--- !u!1001 &1172964535
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 855153855562829022, guid: a2944855c72d94b558fe29fdc782cc02, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 855153855562829022, guid: a2944855c72d94b558fe29fdc782cc02, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 855153855562829022, guid: a2944855c72d94b558fe29fdc782cc02, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 855153855562829022, guid: a2944855c72d94b558fe29fdc782cc02, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 855153855562829022, guid: a2944855c72d94b558fe29fdc782cc02, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 855153855562829022, guid: a2944855c72d94b558fe29fdc782cc02, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 855153855562829022, guid: a2944855c72d94b558fe29fdc782cc02, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 855153855562829022, guid: a2944855c72d94b558fe29fdc782cc02, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 855153855562829022, guid: a2944855c72d94b558fe29fdc782cc02, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 855153855562829022, guid: a2944855c72d94b558fe29fdc782cc02, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 855153855562829022, guid: a2944855c72d94b558fe29fdc782cc02, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 855153855562829023, guid: a2944855c72d94b558fe29fdc782cc02, type: 3}
+      propertyPath: m_Name
+      value: Battle Orchestrator
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: a2944855c72d94b558fe29fdc782cc02, type: 3}
 --- !u!1 &1388999204
 GameObject:
   m_ObjectHideFlags: 0

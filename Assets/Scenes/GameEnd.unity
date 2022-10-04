@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0027828815, g: 0.038594432, b: 0.077065974, a: 1}
+  m_IndirectSpecularColor: {r: 0.0064096483, g: 0.042680547, b: 0.08232063, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -612,6 +612,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Battle Orchestrator
       objectReference: {fileID: 0}
+    - target: {fileID: 855153855562829089, guid: a2944855c72d94b558fe29fdc782cc02, type: 3}
+      propertyPath: currentEncounter
+      value: 
+      objectReference: {fileID: 2542181326343833092, guid: 6d4e383d34a184cf1b0ddc35ce4f47e3, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a2944855c72d94b558fe29fdc782cc02, type: 3}
 --- !u!1 &963627077
@@ -753,50 +757,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1536791126
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1536791128}
-  - component: {fileID: 1536791127}
-  m_Layer: 0
-  m_Name: SceneEndLoadAuto
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1536791127
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1536791126}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cb6d04caaaf43241a57d8c48f23745f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1536791128
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1536791126}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.346677, y: 3.6696353, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1586000765
 GameObject:
