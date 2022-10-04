@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionName: Barrier
   spanishActionName: El Barrier
-  mpCost: 30
+  mpCost: 15
   targetSelf: 1
   areaOfEffect: 0
   battleAnimation: {fileID: 6496146970332895624, guid: e2121ec75f163474e93f646ef297575c, type: 3}

@@ -60,5 +60,5 @@ MonoBehaviour:
       Data4: 1601170599
     Path: event:/sfx/abilities/player/spells/water_spell
   recoil: 0
-  damage: 25
+  damage: 28
   elementType: 2

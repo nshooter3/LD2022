@@ -50,7 +50,7 @@ MonoBehaviour:
   targetSelf: 0
   areaOfEffect: 1
   battleAnimation: {fileID: 6496146970332895624, guid: 86ab25b42ecebca4685808adf14787df, type: 3}
-  description: Slam an enemy with a mass of vegetation.
+  description: Slam all enemies with a mass of vegetation.
   currentName: 
   fmodActionEvent:
     Guid:

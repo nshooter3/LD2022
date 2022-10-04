@@ -61,7 +61,7 @@ public class NewActionMenu : MenuBase
         {
             foreach (BattleAction action in actionChoices)
             {
-                if (EventSystem.current.currentSelectedGameObject.GetComponentInChildren<TextMeshProUGUI>().text == action.name)
+                if (EventSystem.current.currentSelectedGameObject.GetComponentInChildren<TextMeshProUGUI>()?.text == action.name)
                 {
                     actionDescriptions.SetAction(action);
                     break;

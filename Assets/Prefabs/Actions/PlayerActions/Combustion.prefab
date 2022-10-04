@@ -90,7 +90,7 @@ MonoBehaviour:
       Data4: -1147605050
     Path: event:/sfx/abilities/player/spells/fire_spell
   recoil: 0
-  damage: 12
+  damage: 14
   elementType: 0
 --- !u!114 &6068531788578008735
 MonoBehaviour:

@@ -39,15 +39,15 @@ public class ActionDescriptions : MonoBehaviour
 
         if (action.ActionName == "Vampiric Jab")
         {
-            damage.text = "Saps: 7";
+            damage.text = "Saps: 5";
         }
         else if (action.ActionName == "Sapping Sprouts")
         {
-            damage.text = "Saps: 15";
+            damage.text = "Saps: 12";
         }
         else if (action.ActionName == "Combustion")
         {
-            damage.text = "Damage: 15";
+            damage.text = "Damage: 12";
         }
         else if (action is Attack)
         {

@@ -54,7 +54,7 @@ public class DamageAnimation : BattleAnimation
             }
             float offset = record.damageType == DamageAnimationRecord.DamageType.HP ? damageOffset : mpOffset;
             BattleParticipantDisplay display = BattleUI.instance.FindDisplayForParticipant(record.participant);
-            text.transform.position = display.transform.position + Vector3.down * offset * BattleUI.instance.CanvasScale;
+            text.transform.position = display.transform.position /*+ Vector3.down * offset * BattleUI.instance.CanvasScale*/;
         }
     }
 
@@ -63,7 +63,7 @@ public class DamageAnimation : BattleAnimation
         durationTimer -= Time.deltaTime;
         if (durationTimer > duration * 0.5f)
         {
-            transform.Translate(new Vector3(0, durationTimer, 0));
+            transform.Translate(new Vector3(0, durationTimer * BattleUI.instance.CanvasScale, 0));
         }
     }
 
