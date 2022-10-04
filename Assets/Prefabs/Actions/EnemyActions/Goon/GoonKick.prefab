@@ -49,7 +49,7 @@ MonoBehaviour:
   mpCost: 0
   targetSelf: 0
   areaOfEffect: 0
-  battleAnimation: {fileID: 2168730723449064563, guid: a87cab9688d730743b0946af4d40ff23, type: 3}
+  battleAnimation: {fileID: 2815643081771685000, guid: 052a4cf6aec053a4cac4418f3cca64f9, type: 3}
   description: 
   currentName: 
   fmodActionEvent:
