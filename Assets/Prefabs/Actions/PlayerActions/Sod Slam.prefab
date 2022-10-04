@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionName: Sod Slam
   spanishActionName: Musgo Echado
-  mpCost: 20
+  mpCost: 15
   targetSelf: 0
   areaOfEffect: 1
   battleAnimation: {fileID: 6496146970332895624, guid: 86ab25b42ecebca4685808adf14787df, type: 3}

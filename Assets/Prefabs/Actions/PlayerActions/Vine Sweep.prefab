@@ -60,5 +60,5 @@ MonoBehaviour:
       Data4: 706590140
     Path: event:/sfx/abilities/player/spells/grass_spell
   recoil: 0
-  damage: 7
+  damage: 8
   elementType: 1

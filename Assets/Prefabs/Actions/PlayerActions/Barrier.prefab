@@ -45,7 +45,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   actionName: Barrier
-  spanishActionName: El Barrier
+  spanishActionName: Fortaleza
   mpCost: 15
   targetSelf: 1
   areaOfEffect: 0

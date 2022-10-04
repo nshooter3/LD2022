@@ -46,7 +46,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   actionName: Flash Freeze
   spanishActionName: Hielo Inmediato
-  mpCost: 35
+  mpCost: 40
   targetSelf: 0
   areaOfEffect: 1
   battleAnimation: {fileID: 6496146970332895624, guid: 86ab25b42ecebca4685808adf14787df, type: 3}
@@ -60,5 +60,5 @@ MonoBehaviour:
       Data4: 1601170599
     Path: event:/sfx/abilities/player/spells/water_spell
   recoil: 0
-  damage: 24
+  damage: 28
   elementType: 2

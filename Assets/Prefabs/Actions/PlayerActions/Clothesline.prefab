@@ -59,6 +59,6 @@ MonoBehaviour:
       Data3: 342288538
       Data4: 1998881412
     Path: event:/sfx/abilities/player/physical/strike
-  recoil: 3
-  damage: 12
+  recoil: 4
+  damage: 15
   elementType: 3
