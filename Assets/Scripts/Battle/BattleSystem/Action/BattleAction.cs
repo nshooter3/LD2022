@@ -77,10 +77,6 @@ public abstract class BattleAction : MonoBehaviour, IEquatable<BattleAction>
     public void RunAction(BattleParticipant user, BattleParticipant target)
     {
         OnRunAction(user, target);
-        if (mpCost > 0)
-        {
-            user.DrainMp(mpCost);
-        }
     }
 
     protected abstract void OnRunAction(BattleParticipant user, BattleParticipant target);

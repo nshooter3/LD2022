@@ -84,6 +84,10 @@ public class BattleController : MonoBehaviour
         {
             RunAction(player, target);
         }
+        if (player.currentAction.MpCost > 0)
+        {
+            player.DrainMp(player.currentAction.MpCost);
+        }
         player.currentAction.InstantiateAnimations(player, player.targets, attackTextAnimation).ForEach(animation => QueueAnimation(animation));
         QueueDamageAnimations();
         yield return WaitForAnimationCompletion();
